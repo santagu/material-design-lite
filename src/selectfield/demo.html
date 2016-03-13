@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>selectfield demo</title>
+  <style>
+  #demo {
+    margin: 0 auto;
+    padding: 200px 0;
+    width: 500px;
+  }
+
+  #demo .mdl-selectfield {
+    width: 200px;
+  }
+
+  .demo-menu {
+    margin: 50px 0;
+  }
+  </style>
+</head>
+<body>
+  <div id="demo">
+    <div class="demo-menu">
+      <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield">
+        <div class="mdl-selectfield__label">Select country</div><!-- /.mdl-selectfield__label -->
+        <select name="demo-selectfield" class="mdl-selectfield__select" required>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NY">New York</option>
+          <option value="VM">Vermont</option>
+          <option value="VI">Visconsin</option>
+        </select>
+        <div class="mdl-selectfield__error">Please select prefered trveling country.</div><!-- /.mdl-selectfield__error -->
+      </div><!-- /.mdl-selectfield -->
+    </div><!-- /.demo-menu -->
+
+    <div class="demo-menu">
+      <div id="disabled-selectfield" class="mdl-selectfield mdl-js-selectfield">
+        <div class="mdl-selectfield__label">Select country</div><!-- /.mdl-selectfield__label -->
+        <select name="disabled-selectfield" class="mdl-selectfield__select" disabled required>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NY">New York</option>
+          <option value="VM">Vermont</option>
+          <option value="VI">Visconsin</option>
+        </select>
+        <div class="mdl-selectfield__error">Please select prefered trveling country.</div><!-- /.mdl-selectfield__error -->
+      </div><!-- /.mdl-selectfield -->
+    </div><!-- /.demo-menu -->
+
+    <div class="demo-menu">
+      <div id="multiple-selectfield" class="mdl-selectfield mdl-js-selectfield">
+        <div class="mdl-selectfield__label">Select country</div><!-- /.mdl-selectfield__label -->
+        <select name="disabled-selectfield" class="mdl-selectfield__select" required multiple>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NY">New York</option>
+          <option value="VM">Vermont</option>
+          <option value="VI">Visconsin</option>
+        </select>
+        <div class="mdl-selectfield__error">Please select prefered trveling country.</div><!-- /.mdl-selectfield__error -->
+      </div><!-- /.mdl-selectfield -->
+    </div><!-- /.demo-menu -->
+  </div>
+
+  <select name="demo-selectfield" id="demo-selectfield-2" required>
+    <option value="CA">California</option>
+    <option value="CO">Colorado</option>
+    <option value="MA">Massachusetts</option>
+    <option value="MI">Michigan</option>
+    <option value="MN">Minnesota</option>
+    <option value="NH">New Hampshire</option>
+    <option value="NY">New York</option>
+    <option value="VM">Vermont</option>
+    <option value="VI">Visconsin</option>
+  </select>
+</body>
+</html>
