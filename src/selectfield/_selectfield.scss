@@ -5,18 +5,19 @@
   box-sizing: border-box;
   width: 300px;
   max-width: 100%;
-  margin: 0;
   outline: 0;
+  margin: 0;
   padding: 20px 0;
 
   &__select {
     appearance: none;
-    display: inline;
+    display: none;
     height: 1px;
     line-height: 0px;
     margin: 0;
     opacity: 0;
     padding: 0;
+    pointer-events: none;
     position: absolute;
     width: 1px;
   }

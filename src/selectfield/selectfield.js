@@ -159,23 +159,30 @@
 
   /**
    * Element focus handler
-   * @param  {Event} e Element event object
    * @private
    * @return {void}
    */
-  MaterialSelectfield.prototype.elementFocusHandler_ = function(e) {
+  MaterialSelectfield.prototype.elementFocusHandler_ = function() {
+    if (this.element_.classList.contains(this.CssClasses_.IS_DISABLED)) {
+      return;
+    }
+    if (!this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
+      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    }
+  };
+
+  /**
+   * Element focus handler
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.elementFocusoutHandler_ = function() {
     if (this.menuElement_) {
       return;
     }
-    e.preventDefault();
-    try {
-      var evt = new Event('click', {
-        target: this.selectedOptionElement_,
-        bubbles: false
-      });
-      document.body.dispatchEvent(evt);
-    } catch (e) {}
-    this.open();
+    if (this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
+      this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+    }
   };
 
   /**
@@ -194,6 +201,18 @@
       e.stopPropagation();
       this.open();
     }
+  };
+
+  /**
+   * Select keydown handler
+   * @param  {Event} e Element event object
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.selectKeydownHandler_ = function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
   };
 
   /**
@@ -227,6 +246,7 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.documentClickHandler_ = function(e) {
+    console.log(e);
     if (this.selectedOptionElement_ === e.target) {
       return e.stopPropagation();
     }
@@ -280,10 +300,18 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.selectedOptionClickHandler_ = function(e) {
+    console.log(e);
     e.preventDefault();
     if (this.element_.classList.contains(this.CssClasses_.IS_OPENED)) {
       this.close();
     } else {
+      var evt = new CustomEvent('click', {
+        sourceElement: this.selectedOptionElement_,
+        bubbles: false
+      });
+      console.log(evt);
+      document.body.dispatchEvent(evt);
+      // this.select_.focus();
       this.open();
     }
   };
@@ -745,14 +773,19 @@
       if (!this.select_) {
         throw new Error('Component must have select element as a child');
       }
+      this.element_.setAttribute('tabindex', 0);
 
       // Prepare event handlers
       this.boundElementClickHandler =
         this.elementClickHandler_.bind(this);
       this.boundElementFocusHandler =
         this.elementFocusHandler_.bind(this);
+      this.boundElementFocusoutHandler =
+        this.elementFocusoutHandler_.bind(this);
       this.boundElementKeydownHandler =
         this.elementKeydownHandler_.bind(this);
+      this.boundSelectKeydownHandler =
+        this.selectKeydownHandler_.bind(this);
       this.boundSelectedOptionClickHandler =
         this.selectedOptionClickHandler_.bind(this);
       this.boundDocumentClickHandler =
@@ -763,7 +796,8 @@
         this.menuItemClickHandler_.bind(this);
 
       this.element_.addEventListener('keydown', this.boundElementKeydownHandler);
-      this.select_.addEventListener('focus', this.boundElementFocusHandler);
+      this.element_.addEventListener('focus', this.boundElementFocusHandler);
+      this.element_.addEventListener('focusout', this.boundElementFocusoutHandler);
 
       this.selectedOptionValueElement_ = document.createElement('span');
       this.selectedOptionValueElement_
