@@ -154,6 +154,7 @@
    */
   MaterialSelectfield.prototype.elementClickHandler_ = function(e) {
     e.preventDefault();
+    e.stopPropagation();
   };
 
   /**
@@ -163,6 +164,9 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.elementFocusHandler_ = function(e) {
+    if (this.menuElement_) {
+      return;
+    }
     e.preventDefault();
     try {
       var evt = new Event('click', {
@@ -170,10 +174,26 @@
         bubbles: false
       });
       document.body.dispatchEvent(evt);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
     this.open();
+  };
+
+  /**
+   * Element keydown handler
+   * @param  {Event} e Element event object
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.elementKeydownHandler_ = function(e) {
+    if (this.menuElement_) {
+      return;
+    }
+    var keyCode = e.keyCode;
+    if (keyCode === this.KeyCodes_.ENTER) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.open();
+    }
   };
 
   /**
@@ -234,8 +254,6 @@
     var keyCode = e.keyCode;
     if (keyCode === this.KeyCodes_.ESCAPE) {
       e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
       this.close();
     } else if (keyCode === this.KeyCodes_.KEY_UP) {
       e.preventDefault();
@@ -733,6 +751,8 @@
         this.elementClickHandler_.bind(this);
       this.boundElementFocusHandler =
         this.elementFocusHandler_.bind(this);
+      this.boundElementKeydownHandler =
+        this.elementKeydownHandler_.bind(this);
       this.boundSelectedOptionClickHandler =
         this.selectedOptionClickHandler_.bind(this);
       this.boundDocumentClickHandler =
@@ -742,7 +762,8 @@
       this.boundMenuItemClickHandler =
         this.menuItemClickHandler_.bind(this);
 
-      this.element_.addEventListener('focus', this.boundElementFocusHandler);
+      this.element_.addEventListener('keydown', this.boundElementKeydownHandler);
+      this.select_.addEventListener('focus', this.boundElementFocusHandler);
 
       this.selectedOptionValueElement_ = document.createElement('span');
       this.selectedOptionValueElement_

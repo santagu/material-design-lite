@@ -10,7 +10,15 @@
   padding: 20px 0;
 
   &__select {
-    display: none;
+    appearance: none;
+    display: inline;
+    height: 1px;
+    line-height: 0px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
 
   &__selected-option {
