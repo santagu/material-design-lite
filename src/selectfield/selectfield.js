@@ -181,16 +181,16 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.documentClickHandler_ = function(e) {
-    if (this.selectedOptionElement_ === e.srcElement) {
+    if (this.selectedOptionElement_ === e.target) {
       return e.stopPropagation();
     }
-    if (this.selectedOptionElement_ === e.srcElement.parentNode) {
+    if (this.selectedOptionElement_ === e.target.parentNode) {
       return e.stopPropagation();
     }
-    if (e.srcElement.classList.contains(this.CssClasses_.MENU_ITEM)) {
+    if (e.target.classList.contains(this.CssClasses_.MENU_ITEM)) {
       return e.stopPropagation();
     }
-    if (e.srcElement.parentNode.classList.contains(this.CssClasses_.MENU_ITEM)) {
+    if (e.target.parentNode.classList.contains(this.CssClasses_.MENU_ITEM)) {
       return e.stopPropagation();
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_OPENED)) {
