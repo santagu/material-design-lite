@@ -320,7 +320,13 @@
     if (menuItems[upIndex]) {
       menuItems[upIndex].classList.add(this.CssClasses_.IS_ACTIVE);
       menuItems[upIndex].focus();
-      this.menuElement_.scrollTop = menuItems[upIndex].offsetTop - 8;
+      var focusItem = menuItems[upIndex];
+      for (var i = 0; i < 2; i++) {
+        if (focusItem.previousSibling) {
+          focusItem = focusItem.previousSibling;
+        }
+      }
+      this.menuElement_.scrollTop = focusItem.offsetTop - 8;
     }
   };
 
@@ -351,7 +357,13 @@
     if (menuItems[downIndex]) {
       menuItems[downIndex].classList.add(this.CssClasses_.IS_ACTIVE);
       menuItems[downIndex].focus();
-      this.menuElement_.scrollTop = menuItems[downIndex].offsetTop - 8;
+      var focusItem = menuItems[downIndex];
+      for (var i = 0; i < 2; i++) {
+        if (focusItem.previousSibling) {
+          focusItem = focusItem.previousSibling;
+        }
+      }
+      this.menuElement_.scrollTop = focusItem.offsetTop - 8;
     }
   };
 
