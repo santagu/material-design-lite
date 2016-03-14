@@ -41,12 +41,14 @@
     LABEL: 'mdl-selectfield__label',
     SELECT: 'mdl-selectfield__select',
     SELECTED_OPTION: 'mdl-selectfield__selected-option',
+    SELECTED_OPTION_TITLE: 'mdl-selectfield__selected-option-title',
     MENU: 'mdl-selectfield__menu',
     MENU_ITEM: 'mdl-selectfield__menu-item',
     BACKDROP: 'mdl-selectfield__backdrop',
     RIPPLE: 'mdl-ripple',
     RIPPLE_EFFECT: 'mdl-js-ripple-effect',
     RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+    RIPPLE_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
 
     IS_UPGRADED: 'is-upgraded',
     IS_DISABLED: 'is-disabled',
@@ -86,10 +88,10 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.checkDirty_ = function() {
-    if (this.select_.validity.valueMissing) {
-      this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
-    } else {
+    if (this.select_.value) {
       this.element_.classList.add(this.CssClasses_.IS_DIRTY);
+    } else {
+      this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
     }
   };
 
@@ -155,10 +157,21 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.menuItemClickHandler_ = function(e) {
-    var selectedItem = e.target;
-    var index = selectedItem.getAttribute('data-index');
-    this.selectOption_(index);
-    this.close();
+    var selectedItem;
+    var timeout = 0;
+    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+      selectedItem = e.target.parentNode;
+      timeout = 100;
+    } else {
+      selectedItem = e.target;
+    }
+    setTimeout(function() {
+      var index = selectedItem.getAttribute('data-index');
+      this.selectOption_(index);
+      if (!this.select_.multiple) {
+        this.close();
+      }
+    }.bind(this), timeout);
   };
 
   /**
@@ -172,6 +185,12 @@
       return e.stopPropagation();
     }
     if (this.selectedOptionElement_ === e.srcElement.parentNode) {
+      return e.stopPropagation();
+    }
+    if (e.srcElement.classList.contains(this.CssClasses_.MENU_ITEM)) {
+      return e.stopPropagation();
+    }
+    if (e.srcElement.parentNode.classList.contains(this.CssClasses_.MENU_ITEM)) {
       return e.stopPropagation();
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_OPENED)) {
@@ -260,14 +279,18 @@
         this.menuElement_.style.top = topOffset + 'px';
       }
 
-      // Calculate which menu item is in click ofcus
-      var focusMenuItem = selectedMenuItem;
-      for (var i = 0; i < 2; i++) {
-        if (focusMenuItem.previousSibling) {
-          focusMenuItem = focusMenuItem.previousSibling;
+      if (selectedMenuItem) {
+        // Calculate which menu item is in click ofcus
+        var focusMenuItem = selectedMenuItem;
+        for (var i = 0; i < 2; i++) {
+          if (focusMenuItem.previousSibling) {
+            focusMenuItem = focusMenuItem.previousSibling;
+          }
         }
+        this.menuElement_.scrollTop = focusMenuItem.offsetTop - 8;
+      } else {
+        this.menuElement_.style.top = '0px';
       }
-      this.menuElement_.scrollTop = focusMenuItem.offsetTop - 8;
     } else {
       this.menuElement_.style.top = '0px';
     }
@@ -311,41 +334,140 @@
   MaterialSelectfield.prototype.renderMenuItem_ = function(option) {
     var menuItem = document.createElement('div');
     menuItem.classList.add(this.CssClasses_.MENU_ITEM);
+    if (option.selected) {
+      menuItem.classList.add(this.CssClasses_.IS_SELECTED);
+    }
     menuItem.innerHTML = option.innerHTML;
-    menuItem.addEventListener('click', this.boundMenuItemClickHandler);
-
+    if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+      menuItem.classList.add(this.CssClasses_.RIPPLE_EFFECT);
+      var rippleContainer = document.createElement('span');
+      rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
+      var rippleElement = document.createElement('span');
+      rippleElement.classList.add(this.CssClasses_.RIPPLE);
+      rippleContainer.appendChild(rippleElement);
+      rippleContainer.addEventListener('mouseup',
+        this.boundMenuItemClickHandler);
+      menuItem.appendChild(rippleContainer);
+      componentHandler.upgradeElement(menuItem, 'MaterialRipple');
+    } else {
+      menuItem.addEventListener('click', this.boundMenuItemClickHandler);
+    }
     return menuItem;
   };
 
   /**
-   * Select option in hidden select element
+   * Select option in hidden select element.
+   * Since this method can be called using API, we must check
+   * if menuElement_ exists to do the necesarry logic. This can be
+   * bypassed by ensuring that menuElement_ always exist, but since we didn't
+   * want to contain unnecesary DOM elements this is must-have.
    * @param  {number} index Selected menu item index
    * @private
    * @return {void}
    */
   MaterialSelectfield.prototype.selectOption_ = function(index) {
+    var iterator = 0;
+    var option;
+    var menuItems;
+    var selectedItem;
+    var selectedOption;
+
     index = parseInt(index, 10);
-    if (this.select_.selectedIndex === index) {
-      // Currently selected option is selected again, do nothing.
+    if (!this.select_.multiple && this.select_.selectedIndex === index) {
+      // Currently selected option is selected again, do nothing
       return;
     }
 
-    this.select_.selectedIndex = index;
-    var selectedItem =
-      this.menuElement_.querySelector('.' + this.CssClasses_.IS_SELECTED);
+    if (!this.select_.options[index]) {
+      // We assume that select menu is cleared using API
+      if (this.select_.multiple) {
+        if (this.menuElement_) {
+          menuItems =
+            this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+        }
 
-    if (selectedItem) {
-      selectedItem.classList.remove(this.CssClasses_.IS_SELECTED);
+        for (iterator = 0; iterator < this.select_.options.length; iterator++) {
+          option = this.select_.options[iterator];
+          option.selected = false;
+          if (menuItems[index]) {
+            menuItems[index].classList.remove(this.CssClasses_.IS_SELECTED);
+          }
+        }
+      } else {
+        this.select_.selectedIndex = index;
+        if (this.menuElement_) {
+          selectedItem =
+            this.menuElement_.querySelectorAll('.' + this.CssClasses_.IS_SELECTED);
+          selectedItem.classList.remove(this.CssClasses_.IS_SELECTED);
+        }
+      }
     }
 
-    var menuItems =
-      this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
-    if (menuItems[index]) {
-      menuItems[index].classList.add(this.CssClasses_.IS_SELECTED);
+    if (this.select_.multiple) {
+      selectedOption = this.select_.options[index];
+      // Currently selected option is already selected, unselect it since this
+      // is multiple options select input
+      if (selectedOption.selected) {
+        selectedOption.selected = false;
+      } else {
+        selectedOption.selected = true;
+      }
+
+      if (this.menuElement_) {
+        menuItems =
+          this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+        if (menuItems[index]) {
+          if (selectedOption.selected) {
+            menuItems[index].classList.add(this.CssClasses_.IS_SELECTED);
+          } else {
+            menuItems[index].classList.remove(this.CssClasses_.IS_SELECTED);
+          }
+        }
+      }
+
+      var selectedValues = [];
+      for (iterator = 0; iterator < this.select_.options.length; iterator++) {
+        option = this.select_.options[iterator];
+        if (option && option.selected) {
+          selectedValues.push(option.label);
+        }
+      }
+
+      this.selectedOptionValueElement_.innerHTML = selectedValues.join(', ');
+    } else {
+      this.select_.selectedIndex = index;
+
+      if (this.menuElement_) {
+        selectedItem =
+          this.menuElement_.querySelector('.' + this.CssClasses_.IS_SELECTED);
+
+        if (selectedItem) {
+          selectedItem.classList.remove(this.CssClasses_.IS_SELECTED);
+        }
+        menuItems =
+          this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+        if (menuItems[index]) {
+          menuItems[index].classList.add(this.CssClasses_.IS_SELECTED);
+          this.selectedOptionValueElement_.innerHTML = menuItems[index].innerHTML;
+        } else {
+          this.selectedOptionValueElement_.innerHTML = '';
+        }
+      }
+
+      var selectOptions = this.select_.options;
+      if (selectOptions[index]) {
+        this.selectedOptionValueElement_.innerHTML =
+          selectOptions[index].label;
+      } else {
+        this.selectedOptionValueElement_.innerHTML = '';
+      }
     }
 
-    this.selectedOptionValueElement_.innerHTML = menuItems[index].innerHTML;
     this.checkClasses_();
+
+    var changeEvent = new Event('change', {bubbles: false});
+    this.element_.dispatchEvent(changeEvent);
+    this.select_.dispatchEvent(changeEvent);
   };
 
   /**
@@ -375,7 +497,7 @@
    */
   MaterialSelectfield.prototype.close = function() {
     if (!this.element_.classList.contains(this.CssClasses_.IS_OPENED)) {
-      // return;
+      return;
     }
     this.element_.classList.remove(this.CssClasses_.IS_OPENED);
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
@@ -421,6 +543,26 @@
     MaterialSelectfield.prototype.disable;
 
   /**
+   * Set currently selected index in select element
+   * @param {Number} index Selected index
+   */
+  MaterialSelectfield.prototype.setSelectedIndex = function(index) {
+    this.selectOption_(index);
+  };
+  MaterialSelectfield.prototype['setSelectedIndex'] =
+    MaterialSelectfield.prototype.setSelectedIndex;
+
+  /**
+   * Set currently selected value in select element
+   * @param {Number} value Selected value
+   */
+  MaterialSelectfield.prototype.setSelectedValue = function(value) {
+    console.log(value);
+  };
+  MaterialSelectfield.prototype['setSelectedValue'] =
+    MaterialSelectfield.prototype.setSelectedValue;
+
+  /**
    * Initialize component
    * @return {void}
    */
@@ -444,6 +586,8 @@
         this.menuItemClickHandler_.bind(this);
 
       this.selectedOptionValueElement_ = document.createElement('span');
+      this.selectedOptionValueElement_
+        .classList.add(this.CssClasses_.SELECTED_OPTION_TITLE);
       this.selectedOptionElement_ = document.createElement('div');
       this.selectedOptionElement_.classList.add(this.CssClasses_.SELECTED_OPTION);
       this.selectedOptionElement_.appendChild(this.selectedOptionValueElement_);
@@ -454,10 +598,23 @@
       this.selectedOptionElement_.appendChild(arrowIcon);
       this.element_.appendChild(this.selectedOptionElement_);
 
-      var options = this.select_.querySelectorAll('option');
-      if (options[this.select_.selectedIndex]) {
-        this.selectedOptionValueElement_.innerText =
-          options[this.select_.selectedIndex].innerText;
+      var options = this.select_.options;
+      if (this.select_.multiple) {
+        var option;
+        var values = [];
+        for (var i = 0; i < options.length; i++) {
+          option = options[i];
+          if (option.selected) {
+            values.push(option.label);
+          }
+        }
+        this.selectedOptionValueElement_.innerHTML = values.join(', ');
+      } else {
+        this.selectedOptionValueElement_.innerText = '';
+        if (options[this.select_.selectedIndex]) {
+          this.selectedOptionValueElement_.innerText =
+            options[this.select_.selectedIndex].innerText;
+        }
       }
 
       if (this.select_.disabled) {
@@ -469,12 +626,13 @@
         this.enable();
         this.element_.addEventListener('click', this.boundElementClickHandler);
       }
+      if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
+        this.element_.classList.add(this.CssClasses_.RIPPLE_IGNORE_EVENTS);
+      }
 
       // @TODO: Remove after initial development
       // this.open();
       this.checkClasses_();
-
-      console.log(this.select_.selectedIndex);
 
       this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
     }

@@ -11,7 +11,7 @@
   }
 
   #demo .mdl-selectfield {
-    width: 200px;
+    width: 256px;
   }
 
   .demo-menu {
@@ -20,11 +20,13 @@
   </style>
 </head>
 <body>
-  <div id="demo">
+  <form id="demo" action="" method="get">
+
     <div class="demo-menu">
-      <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield">
-        <div class="mdl-selectfield__label">Select country</div><!-- /.mdl-selectfield__label -->
-        <select name="demo-selectfield" class="mdl-selectfield__select" required>
+      <h5>Select input</h5>
+      <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+        <div class="mdl-selectfield__label">Select state</div><!-- /.mdl-selectfield__label -->
+        <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select" required>
           <option value="CA">California</option>
           <option value="CO">Colorado</option>
           <option value="MA">Massachusetts</option>
@@ -40,8 +42,9 @@
     </div><!-- /.demo-menu -->
 
     <div class="demo-menu">
+      <h5>Disabled select input</h5>
       <div id="disabled-selectfield" class="mdl-selectfield mdl-js-selectfield">
-        <div class="mdl-selectfield__label">Select country</div><!-- /.mdl-selectfield__label -->
+        <div class="mdl-selectfield__label">Select state</div><!-- /.mdl-selectfield__label -->
         <select name="disabled-selectfield" class="mdl-selectfield__select" disabled required>
           <option value="CA">California</option>
           <option value="CO">Colorado</option>
@@ -58,9 +61,10 @@
     </div><!-- /.demo-menu -->
 
     <div class="demo-menu">
-      <div id="multiple-selectfield" class="mdl-selectfield mdl-js-selectfield">
-        <div class="mdl-selectfield__label">Select country</div><!-- /.mdl-selectfield__label -->
-        <select name="disabled-selectfield" class="mdl-selectfield__select" required multiple>
+      <h5>Multiple select input</h5>
+      <div id="multiple-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+        <div class="mdl-selectfield__label">Select states</div><!-- /.mdl-selectfield__label -->
+        <select id="multiple-select" name="multiple-selectfield" class="mdl-selectfield__select" required multiple>
           <option value="CA">California</option>
           <option value="CO">Colorado</option>
           <option value="MA">Massachusetts</option>
@@ -71,21 +75,42 @@
           <option value="VM">Vermont</option>
           <option value="VI">Visconsin</option>
         </select>
-        <div class="mdl-selectfield__error">Please select prefered trveling country.</div><!-- /.mdl-selectfield__error -->
+        <div class="mdl-selectfield__error">Please select prefered traveling country.</div><!-- /.mdl-selectfield__error -->
       </div><!-- /.mdl-selectfield -->
     </div><!-- /.demo-menu -->
-  </div>
 
-  <select name="demo-selectfield" id="demo-selectfield-2" required>
-    <option value="CA">California</option>
-    <option value="CO">Colorado</option>
-    <option value="MA">Massachusetts</option>
-    <option value="MI">Michigan</option>
-    <option value="MN">Minnesota</option>
-    <option value="NH">New Hampshire</option>
-    <option value="NY">New York</option>
-    <option value="VM">Vermont</option>
-    <option value="VI">Visconsin</option>
-  </select>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary" type="submit">Submit</button>
+  </form>
+
+  <script>
+
+    var singleSelectfield = document.querySelector('#demo-selectfield');
+    var singleSelect = document.querySelector('#demo-select');
+    singleSelectfield.addEventListener('change', onSingleChange);
+    singleSelect.addEventListener('change', onSingleChange);
+    
+    var multiSelectfield = document.querySelector('#multiple-selectfield');
+    var multiSelect = document.querySelector('#multiple-select');
+    multiSelectfield.addEventListener('change', onMutipleChange)
+    multiSelect.addEventListener('change', onMutipleChange);
+
+    console.log([multiSelect]);
+
+    function onSingleChange(e) {
+      console.log(singleSelect.value);
+    }
+
+    function onMutipleChange(e) {
+      var values = [];
+      for (var i = 0; i < multiSelect.options.length; i++) {
+        var option = multiSelect.options[i];
+        if (option.selected) {
+          values.push(option.value);
+        }
+      }
+      console.log(values);
+    }
+
+  </script>
 </body>
 </html>
