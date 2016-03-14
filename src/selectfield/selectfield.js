@@ -199,7 +199,22 @@
     if (keyCode === this.KeyCodes_.ENTER) {
       e.preventDefault();
       e.stopPropagation();
+      e.stopImmediatePropagation();
       this.open();
+    } else if (keyCode === this.KeyCodes_.KEY_UP) {
+      if (!this.menuElement_) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        this.open();
+      }
+    } else if (keyCode === this.KeyCodes_.KEY_DOWN) {
+      if (!this.menuElement_) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        this.open();
+      }
     }
   };
 
@@ -318,9 +333,13 @@
 
   /**
    * Return  currently active menu item index
+   * @param {boolean} resetIndex Reset index if -1
    * @return {Number} Current active menu item index
    */
-  MaterialSelectfield.prototype.getActiveMenuItemIndex_ = function() {
+  MaterialSelectfield.prototype.getActiveMenuItemIndex_ = function(resetIndex) {
+    if (resetIndex === undefined) {
+      resetIndex = true;
+    }
     var index = -1;
     if (this.menuElement_) {
       var menuItems =
@@ -333,7 +352,7 @@
         }
       }
     }
-    if (index < 0 && !this.select_.multiple) {
+    if (index < 0 && !this.select_.multiple && resetIndex) {
       index = this.select_.selectedIndex;
     }
     return index;
