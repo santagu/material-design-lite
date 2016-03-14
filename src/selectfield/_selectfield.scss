@@ -6,6 +6,7 @@
   width: 300px;
   max-width: 100%;
   margin: 0;
+  outline: 0;
   padding: 20px 0;
 
   &__select {
@@ -98,6 +99,20 @@
 
     &.is-selected {
       background-color: #eeeeee;
+      color: $color-primary;
+
+      .mdl-selectfield__menu-item-icon-checked {
+        color: $color-primary;
+        display: block;
+      }
+
+      .mdl-selectfield__menu-item-icon-unchecked {
+        display: none;
+      }
+    }
+
+    &.is-active {
+      color: $color-accent;
     }
   }
 

@@ -44,6 +44,8 @@
     SELECTED_OPTION_TITLE: 'mdl-selectfield__selected-option-title',
     MENU: 'mdl-selectfield__menu',
     MENU_ITEM: 'mdl-selectfield__menu-item',
+    MENU_ITEM_ICON_CHECKED: 'mdl-selectfield__menu-item-icon-checked',
+    MENU_ITEM_ICON_UNCHECKED: 'mdl-selectfield__menu-item-icon-unchecked',
     BACKDROP: 'mdl-selectfield__backdrop',
     RIPPLE: 'mdl-ripple',
     RIPPLE_EFFECT: 'mdl-js-ripple-effect',
@@ -55,6 +57,7 @@
     IS_FOCUSED: 'is-focused',
     IS_OPENED: 'is-opened',
     IS_SELECTED: 'is-selected',
+    IS_ACTIVE: 'is-active',
     IS_DIRTY: 'is-dirty',
     IS_INVALID: 'is-invalid',
 
@@ -68,7 +71,10 @@
    * @private
    */
   MaterialSelectfield.prototype.KeyCodes_ = {
-    ESCAPE: 27
+    ENTER: 13,
+    ESCAPE: 27,
+    KEY_UP: 38,
+    KEY_DOWN: 40
   };
 
   /**
@@ -151,6 +157,26 @@
   };
 
   /**
+   * Element focus handler
+   * @param  {Event} e Element event object
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.elementFocusHandler_ = function(e) {
+    e.preventDefault();
+    try {
+      var evt = new Event('click', {
+        target: this.selectedOptionElement_,
+        bubbles: false
+      });
+      document.body.dispatchEvent(evt);
+    } catch (e) {
+      console.log(e);
+    }
+    this.open();
+  };
+
+  /**
    * Menu item click handler
    * @param  {Event} e Current menu item event object
    * @private
@@ -204,11 +230,28 @@
    * @param  {Event} e Keyup event object
    * @return {void}
    */
-  MaterialSelectfield.prototype.escapeKeyupHandler_ = function(e) {
+  MaterialSelectfield.prototype.keyboardNavigationHandler_ = function(e) {
     var keyCode = e.keyCode;
     if (keyCode === this.KeyCodes_.ESCAPE) {
       e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       this.close();
+    } else if (keyCode === this.KeyCodes_.KEY_UP) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      this.menuItemUp_();
+    } else if (keyCode === this.KeyCodes_.KEY_DOWN) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      this.menuItemDown_();
+    } else if (keyCode === this.KeyCodes_.ENTER) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      this.menuItemSelect_();
     }
   };
 
@@ -224,6 +267,106 @@
       this.close();
     } else {
       this.open();
+    }
+  };
+
+  /**
+   * Return  currently active menu item index
+   * @return {Number} Current active menu item index
+   */
+  MaterialSelectfield.prototype.getActiveMenuItemIndex_ = function() {
+    var index = -1;
+    if (this.menuElement_) {
+      var menuItems =
+        this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+      for (var i = 0; i < menuItems.length; i++) {
+        var menuItem = menuItems[i];
+        if (menuItem.classList.contains(this.CssClasses_.IS_ACTIVE)) {
+          index = i;
+          break;
+        }
+      }
+    }
+    if (index < 0 && !this.select_.multiple) {
+      index = this.select_.selectedIndex;
+    }
+    return index;
+  };
+
+  /**
+   * Switch current active menu item to one above if exists.
+   * If current one is first, switch to last.
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.menuItemUp_ = function() {
+    if (!this.menuElement_) {
+      return;
+    }
+    var activeIndex = this.getActiveMenuItemIndex_();
+    if (activeIndex < 0) {
+      activeIndex = 0;
+    }
+    var upIndex = activeIndex - 1;
+
+    if (upIndex < 0) {
+      upIndex = this.select_.options.length - 1;
+    }
+    var menuItems =
+      this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+    if (menuItems[activeIndex]) {
+      menuItems[activeIndex].classList.remove(this.CssClasses_.IS_ACTIVE);
+    }
+    if (menuItems[upIndex]) {
+      menuItems[upIndex].classList.add(this.CssClasses_.IS_ACTIVE);
+      menuItems[upIndex].focus();
+      this.menuElement_.scrollTop = menuItems[upIndex].offsetTop - 8;
+    }
+  };
+
+  /**
+   * Switch current active menu item to one below if exists.
+   * If current one is last, switch to first.
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.menuItemDown_ = function() {
+    if (!this.menuElement_) {
+      return;
+    }
+    var activeIndex = this.getActiveMenuItemIndex_();
+    if (activeIndex < 0) {
+      activeIndex = this.select_.options.length - 1;
+    }
+    var downIndex = activeIndex + 1;
+
+    if (downIndex >= this.select_.options.length) {
+      downIndex = 0;
+    }
+    var menuItems =
+      this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+    if (menuItems[activeIndex]) {
+      menuItems[activeIndex].classList.remove(this.CssClasses_.IS_ACTIVE);
+    }
+    if (menuItems[downIndex]) {
+      menuItems[downIndex].classList.add(this.CssClasses_.IS_ACTIVE);
+      menuItems[downIndex].focus();
+      this.menuElement_.scrollTop = menuItems[downIndex].offsetTop - 8;
+    }
+  };
+
+  /**
+   * Select current active menu item.
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.menuItemSelect_ = function() {
+    var activeIndex = this.getActiveMenuItemIndex_();
+    if (activeIndex >= 0 && activeIndex < this.select_.options.length) {
+      this.selectOption_(activeIndex);
+      if (!this.select_.multiple) {
+        this.close();
+      }
     }
   };
 
@@ -482,7 +625,7 @@
 
     this.render_();
     document.body.addEventListener('click', this.boundDocumentClickHandler);
-    document.body.addEventListener('keyup', this.boundEscapeKeyupHandler);
+    document.body.addEventListener('keydown', this.boundKeyboardNavigationHandler);
     setTimeout(function() {
       this.element_.classList.add(this.CssClasses_.IS_OPENED);
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
@@ -502,7 +645,7 @@
     this.element_.classList.remove(this.CssClasses_.IS_OPENED);
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
     document.body.removeEventListener('click', this.boundDocumentClickHandler);
-    document.body.removeEventListener('keyup', this.boundEscapeKeyupHandler);
+    document.body.removeEventListener('keydown', this.boundKeyboardNavigationHandler);
     setTimeout(function() {
       if (this.menuElement_.remove) {
         this.menuElement_.remove();
@@ -576,14 +719,18 @@
       // Prepare event handlers
       this.boundElementClickHandler =
         this.elementClickHandler_.bind(this);
+      this.boundElementFocusHandler =
+        this.elementFocusHandler_.bind(this);
       this.boundSelectedOptionClickHandler =
         this.selectedOptionClickHandler_.bind(this);
       this.boundDocumentClickHandler =
         this.documentClickHandler_.bind(this);
-      this.boundEscapeKeyupHandler =
-        this.escapeKeyupHandler_.bind(this);
+      this.boundKeyboardNavigationHandler =
+        this.keyboardNavigationHandler_.bind(this);
       this.boundMenuItemClickHandler =
         this.menuItemClickHandler_.bind(this);
+
+      this.element_.addEventListener('focus', this.boundElementFocusHandler);
 
       this.selectedOptionValueElement_ = document.createElement('span');
       this.selectedOptionValueElement_
