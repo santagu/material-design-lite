@@ -147,6 +147,20 @@
   };
 
   /**
+   * Trigger document click event to close all other selectfield elements
+   * except currently active
+   * @private
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.triggerDocumentClickEvent_ = function() {
+    var evt = new CustomEvent('click', {
+      sourceElement: this.selectedOptionElement_,
+      bubbles: false
+    });
+    document.body.dispatchEvent(evt);
+  };
+
+  /**
    * Element click handler
    * @param  {Event} e Element event object
    * @private
@@ -170,11 +184,7 @@
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
       this.element_.addEventListener('keydown', this.boundElementKeydownHandler);
       this.element_.addEventListener('focusout', this.boundElementFocusoutHandler);
-      var evt = new CustomEvent('click', {
-        sourceElement: this.selectedOptionElement_,
-        bubbles: false
-      });
-      document.body.dispatchEvent(evt);
+      this.triggerDocumentClickEvent_();
     }
   };
 
@@ -327,12 +337,7 @@
     if (this.element_.classList.contains(this.CssClasses_.IS_OPENED)) {
       this.close();
     } else {
-      var evt = new CustomEvent('click', {
-        sourceElement: this.selectedOptionElement_,
-        bubbles: false
-      });
-      document.body.dispatchEvent(evt);
-      // this.select_.focus();
+      this.triggerDocumentClickEvent_();
       this.open();
     }
   };
@@ -365,6 +370,22 @@
   };
 
   /**
+   * Get focus menu item for currently active menu item. Focus item is the one
+   * to scroll menu element to so that active item is in the middle (3rd item).
+   * @param  {Element} menuItem Menu item element
+   * @return {Element}          Focus menu item element
+   */
+  MaterialSelectfield.prototype.getFocusMenuItem_ = function(menuItem) {
+    var focusMenuItem = menuItem;
+    for (var i = 0; i < 2; i++) {
+      if (focusMenuItem.previousSibling) {
+        focusMenuItem = focusMenuItem.previousSibling;
+      }
+    }
+    return focusMenuItem;
+  };
+
+  /**
    * Switch current active menu item to one above if exists.
    * If current one is first, switch to last.
    * @private
@@ -391,12 +412,7 @@
     if (menuItems[upIndex]) {
       menuItems[upIndex].classList.add(this.CssClasses_.IS_ACTIVE);
       menuItems[upIndex].focus();
-      var focusItem = menuItems[upIndex];
-      for (var i = 0; i < 2; i++) {
-        if (focusItem.previousSibling) {
-          focusItem = focusItem.previousSibling;
-        }
-      }
+      var focusItem = this.getFocusMenuItem_(menuItems[upIndex]);
       this.menuElement_.scrollTop = focusItem.offsetTop - 8;
     }
   };
@@ -428,12 +444,7 @@
     if (menuItems[downIndex]) {
       menuItems[downIndex].classList.add(this.CssClasses_.IS_ACTIVE);
       menuItems[downIndex].focus();
-      var focusItem = menuItems[downIndex];
-      for (var i = 0; i < 2; i++) {
-        if (focusItem.previousSibling) {
-          focusItem = focusItem.previousSibling;
-        }
-      }
+      var focusItem = this.getFocusMenuItem_(menuItems[downIndex]);
       this.menuElement_.scrollTop = focusItem.offsetTop - 8;
     }
   };
