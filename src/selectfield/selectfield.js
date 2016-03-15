@@ -758,6 +758,7 @@
    */
   MaterialSelectfield.prototype.enable = function() {
     this.select_.disabled = false;
+    this.element_.tabIndex = 0;
     this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     this.selectedOptionElement_
       .addEventListener('click', this.boundSelectedOptionClickHandler);
@@ -772,6 +773,7 @@
    */
   MaterialSelectfield.prototype.disable = function() {
     this.select_.disabled = true;
+    this.element_.tabIndex = -1;
     this.element_.classList.add(this.CssClasses_.IS_DISABLED);
     this.selectedOptionElement_
       .removeEventListener('click', this.boundSelectedOptionClickHandler);
@@ -809,7 +811,9 @@
       if (!this.select_) {
         throw new Error('Component must have select element as a child');
       }
-      this.element_.setAttribute('tabindex', 0);
+      if (this.element_.tabIndex < 0) {
+        this.element_.setAttribute('tabindex', 0);
+      }
 
       // Prepare event handlers
       this.boundElementClickHandler =
