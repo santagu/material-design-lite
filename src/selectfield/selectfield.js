@@ -226,6 +226,7 @@
         e.stopPropagation();
         e.stopImmediatePropagation();
         this.open();
+        this.activateSelectedMenuItem_();
       }
     } else if (keyCode === this.KeyCodes_.KEY_DOWN) {
       if (!this.menuElement_) {
@@ -233,6 +234,7 @@
         e.stopPropagation();
         e.stopImmediatePropagation();
         this.open();
+        this.activateSelectedMenuItem_();
       }
     }
   };
@@ -344,13 +346,9 @@
 
   /**
    * Return  currently active menu item index
-   * @param {boolean} resetIndex Reset index if -1
    * @return {Number} Current active menu item index
    */
-  MaterialSelectfield.prototype.getActiveMenuItemIndex_ = function(resetIndex) {
-    if (resetIndex === undefined) {
-      resetIndex = true;
-    }
+  MaterialSelectfield.prototype.getActiveMenuItemIndex_ = function() {
     var index = -1;
     if (this.menuElement_) {
       var menuItems =
@@ -363,7 +361,7 @@
         }
       }
     }
-    if (index < 0 && !this.select_.multiple && resetIndex) {
+    if (index < 0 && !this.select_.multiple) {
       index = this.select_.selectedIndex;
     }
     return index;
@@ -446,6 +444,25 @@
       menuItems[downIndex].focus();
       var focusItem = this.getFocusMenuItem_(menuItems[downIndex]);
       this.menuElement_.scrollTop = focusItem.offsetTop - 8;
+    }
+  };
+
+  /**
+   * Activate currently selected menu item
+   * @return {void}
+   */
+  MaterialSelectfield.prototype.activateSelectedMenuItem_ = function() {
+    var activeIndex;
+    var menuItems;
+
+    activeIndex = this.getActiveMenuItemIndex_();
+    menuItems =
+      this.menuElement_.querySelectorAll('.' + this.CssClasses_.MENU_ITEM);
+    if (menuItems[activeIndex]) {
+      menuItems[activeIndex].classList.remove(this.CssClasses_.IS_ACTIVE);
+    }
+    if (menuItems[this.select_.selectedIndex]) {
+      menuItems[this.select_.selectedIndex].classList.remove(this.CssClasses_.IS_ACTIVE);
     }
   };
 
