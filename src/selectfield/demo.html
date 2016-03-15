@@ -10,35 +10,36 @@
   }
 
   #demo {
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 128px 0;
+    padding: 128px 16px;
     max-width: 512px;
   }
 
   #demo .mdl-selectfield {
     width: 100%;
   }
-
-  .demo-menu {
-    margin: 50px 0;
-  }
   </style>
 </head>
 <body>
   
-  <div id="demo">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input type="text" name="full_name" class="mdl-textfield__input" />
-      <label class="mdl-textfield__label">Full name</label>
-    </div><!-- /.mdl-textfield -->
+  <div id="demo" class="grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
+        <input type="text" name="full_name" class="mdl-textfield__input" />
+        <label class="mdl-textfield__label">Full name</label>
+      </div><!-- /.mdl-textfield -->
+    </div><!-- /.mdl-cell -->
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input type="text" name="email" class="mdl-textfield__input" />
-      <label class="mdl-textfield__label">Email</label>
-    </div><!-- /.mdl-textfield -->
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
+        <input type="email" name="email" class="mdl-textfield__input" />
+        <label class="mdl-textfield__label">Email</label>
+      </div><!-- /.mdl-textfield -->
+    </div><!-- /.mdl-cell -->
 
-    <div class="demo-menu">
-      <h5>Select input</h5>
+    <div class="mdl-cell mdl-cell--12-col">
+      <h6>Select input</h6>
       <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
         <div class="mdl-selectfield__label">Select state</div><!-- /.mdl-selectfield__label -->
         <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select" required readonly>
@@ -56,8 +57,9 @@
       </div><!-- /.mdl-selectfield -->
     </div><!-- /.demo-menu -->
 
-    <div class="demo-menu">
-      <h5>Disabled select input (will be enabled in <span id="disabled-selectfield-counter">10</span> seconds)</h5>
+    <div class="mdl-cell mdl-cell--12-col">
+      <h6>Disabled select input</h6>
+      <p>Will be enabled in <span id="disabled-selectfield-counter">10</span> seconds</p>
       <div id="disabled-selectfield" class="mdl-selectfield mdl-js-selectfield">
         <div class="mdl-selectfield__label">Select state</div><!-- /.mdl-selectfield__label -->
         <select name="disabled-selectfield" class="mdl-selectfield__select" disabled required>
@@ -75,8 +77,8 @@
       </div><!-- /.mdl-selectfield -->
     </div><!-- /.demo-menu -->
 
-    <div class="demo-menu">
-      <h5>Multiple select input</h5>
+    <div class="mdl-cell mdl-cell--12-col">
+      <h6>Multiple select input</h6>
       <div id="multiple-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
         <div class="mdl-selectfield__label">Select states</div><!-- /.mdl-selectfield__label -->
         <select id="multiple-select" name="multiple-selectfield" class="mdl-selectfield__select" required multiple>
