@@ -168,6 +168,8 @@
     }
     if (!this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+      this.element_.addEventListener('keydown', this.boundElementKeydownHandler);
+      this.element_.addEventListener('focusout', this.boundElementFocusoutHandler);
     }
   };
 
@@ -182,6 +184,8 @@
     }
     if (this.element_.classList.contains(this.CssClasses_.IS_FOCUSED)) {
       this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+      this.element_.removeEventListener('keydown', this.boundElementKeydownHandler);
+      this.element_.removeEventListener('focusout', this.boundElementFocusoutHandler);
     }
   };
 
@@ -814,9 +818,7 @@
       this.boundMenuItemClickHandler =
         this.menuItemClickHandler_.bind(this);
 
-      this.element_.addEventListener('keydown', this.boundElementKeydownHandler);
       this.element_.addEventListener('focus', this.boundElementFocusHandler);
-      this.element_.addEventListener('focusout', this.boundElementFocusoutHandler);
 
       this.selectedOptionValueElement_ = document.createElement('span');
       this.selectedOptionValueElement_
