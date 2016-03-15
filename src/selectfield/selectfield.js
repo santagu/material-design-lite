@@ -153,11 +153,20 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.triggerDocumentClickEvent_ = function() {
-    var evt = new CustomEvent('click', {
-      sourceElement: this.selectedOptionElement_,
-      bubbles: false
-    });
-    document.body.dispatchEvent(evt);
+    var evt;
+    if (window.CustomEvent) {
+      try {
+        evt = new CustomEvent('click', {
+          sourceElement: this.selectedOptionElement_,
+          bubbles: false
+        });
+        document.body.dispatchEvent(evt);
+      } catch (e) {}
+    } else {
+      evt = document.createEvent('CustomEvent');
+      evt.initEvent('click', false, false);
+      document.body.fireEvent(evt);
+    }
   };
 
   /**
@@ -262,15 +271,25 @@
     var timeout = 0;
     if (this.element_.classList.contains(this.CssClasses_.RIPPLE_EFFECT)) {
       selectedItem = e.target.parentNode;
+      if (selectedItem.classList.contains(this.CssClasses_.RIPPLE_CONTAINER)) {
+        selectedItem = selectedItem.parentNode;
+      }
       timeout = 100;
     } else {
       selectedItem = e.target;
     }
     setTimeout(function() {
-      var index = selectedItem.getAttribute('data-index');
-      this.selectOption_(index);
-      if (!this.select_.multiple) {
-        this.close();
+      var index = null;
+      if (selectedItem.getAttribute) {
+        index = selectedItem.getAttribute('data-index');
+      } else {
+        index = selectedItem.attributes.getNamedItem('data-index').value;
+      }
+      if (index !== null) {
+        this.selectOption_(index);
+        if (!this.select_.multiple) {
+          this.close();
+        }
       }
     }.bind(this), timeout);
   };
@@ -564,8 +583,17 @@
       for (var i = 0; i < options.length; i++) {
         var option = options[i];
         var menuItem = this.renderMenuItem_(option);
-        menuItem.setAttribute('data-index', i);
-        menuItem.setAttribute('data-value', option.value);
+        if (menuItem.setAttribute) {
+          menuItem.setAttribute('data-index', i);
+          menuItem.setAttribute('data-value', option.value);
+        } else {
+          var indexAttr = document.createAttribute('data-index');
+          indexAttr.value = i;
+          var valueAttr = document.createAttribute('data-value');
+          valueAttr.value = option.value;
+          menuItem.attributes.setNamedItem(indexAttr);
+          menuItem.attributes.setNamedItem(valueAttr);
+        }
 
         // Check if current option is selected
         if (this.select_.selectedIndex === i) {
@@ -651,8 +679,10 @@
         this.select_.selectedIndex = index;
         if (this.menuElement_) {
           selectedItem =
-            this.menuElement_.querySelectorAll('.' + this.CssClasses_.IS_SELECTED);
-          selectedItem.classList.remove(this.CssClasses_.IS_SELECTED);
+            this.menuElement_.querySelector('.' + this.CssClasses_.IS_SELECTED);
+          if (selectedItem) {
+            selectedItem.classList.remove(this.CssClasses_.IS_SELECTED);
+          }
         }
       }
     }
@@ -661,10 +691,12 @@
       selectedOption = this.select_.options[index];
       // Currently selected option is already selected, unselect it since this
       // is multiple options select input
-      if (selectedOption.selected) {
-        selectedOption.selected = false;
-      } else {
-        selectedOption.selected = true;
+      if (selectedOption) {
+        if (selectedOption.selected) {
+          selectedOption.selected = false;
+        } else {
+          selectedOption.selected = true;
+        }
       }
 
       if (this.menuElement_) {
@@ -719,9 +751,18 @@
 
     this.checkClasses_();
 
-    var changeEvent = new Event('change', {bubbles: false});
-    this.element_.dispatchEvent(changeEvent);
-    this.select_.dispatchEvent(changeEvent);
+    var changeEvent;
+    if (window.Event) {
+      try {
+        changeEvent = new Event('change', {bubbles: false});
+        this.element_.dispatchEvent(changeEvent);
+        this.select_.dispatchEvent(changeEvent);
+      } catch (e) {}
+    } else {
+      changeEvent = document.createEvent('Event');
+      changeEvent.initEvent('click', false, false);
+      this.select_.fireEvent(changeEvent);
+    }
   };
 
   /**
