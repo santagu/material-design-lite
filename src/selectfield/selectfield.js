@@ -170,6 +170,11 @@
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
       this.element_.addEventListener('keydown', this.boundElementKeydownHandler);
       this.element_.addEventListener('focusout', this.boundElementFocusoutHandler);
+      var evt = new CustomEvent('click', {
+        sourceElement: this.selectedOptionElement_,
+        bubbles: false
+      });
+      document.body.dispatchEvent(evt);
     }
   };
 
@@ -265,7 +270,6 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.documentClickHandler_ = function(e) {
-    console.log(e);
     if (this.selectedOptionElement_ === e.target) {
       return e.stopPropagation();
     }
@@ -319,7 +323,6 @@
    * @return {void}
    */
   MaterialSelectfield.prototype.selectedOptionClickHandler_ = function(e) {
-    console.log(e);
     e.preventDefault();
     if (this.element_.classList.contains(this.CssClasses_.IS_OPENED)) {
       this.close();
@@ -328,7 +331,6 @@
         sourceElement: this.selectedOptionElement_,
         bubbles: false
       });
-      console.log(evt);
       document.body.dispatchEvent(evt);
       // this.select_.focus();
       this.open();
