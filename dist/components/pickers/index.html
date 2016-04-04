@@ -1,0 +1,134 @@
+
+
+
+<h2 id="introduction">Introduction</h2>
+<p>The Material Design Lite (MDL) <strong>date picker</strong> component allows user to easily pick specific date from calendar. Component allows user to quickly switch between months (month picker) and years (year picker) context views. They are activated by clicking on year or date in component header. Month picker is automatically selected upon component initialization.</p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>There are two different starting points for date picker component usage.
+First one is picker attached to mdl-textfield which allows user to automatically populate input with formatted value of selected date.
+Second one is standalone picker which requires code logic to handle date picker &quot;selected date&quot; after picker is changed or closed.</p>
+<pre><code class="lang-html">&lt;!-- Standalone date picker component --&gt;
+&lt;div class=&quot;mdl-datepicker mdl-js-datepicker&quot;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;!-- Input attached date picker component --&gt;
+&lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-datepicker mdl-js-datepicker&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;mdl-textfield__input mdl-datepicker__input&quot;&gt;
+    &lt;label class=&quot;mdl-textfield__label&quot;&gt;Select date&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+<p>##Usage examples</p>
+<p>###Input attached date picker</p>
+<pre><code class="lang-html">&lt;div id=&quot;demo-picker&quot; class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;mdl-textfield__input mdl-datepicker__input&quot; required&gt;
+  &lt;label class=&quot;mdl-textfield__label&quot;&gt;Select date&lt;/label&gt;
+&lt;/div&gt;&lt;!-- /.mdl-datepicker mdl-js-datepicker --&gt;
+</code></pre>
+<p>###Fixed date picker</p>
+<pre><code class="lang-html">&lt;div id=&quot;fixed-picker&quot; class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;mdl-textfield__input mdl-datepicker__input&quot;&gt;
+  &lt;label class=&quot;mdl-textfield__label&quot;&gt;Select date&lt;/label&gt;
+&lt;/div&gt;&lt;!-- /.mdl-datepicker mdl-js-datepicker --&gt;
+</code></pre>
+<p>###Custom format component</p>
+<pre><code class="lang-html">&lt;div id=&quot;custom-format&quot; class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;mdl-textfield__input mdl-datepicker__input&quot;&gt;
+  &lt;label class=&quot;mdl-textfield__label&quot;&gt;Select date&lt;/label&gt;
+&lt;/div&gt;&lt;!-- /.mdl-datepicker mdl-js-datepicker --&gt;
+
+&lt;script&gt;
+    var customFormat = document.querySelector(&#39;#custom-format&#39;);
+    customFormat.MaterialDatePicker.locales.format = function (selectedDate) {
+      return [
+        addLeadingZero(selectedDate.getDate()),
+        addLeadingZero(selectedDate.getMonth() + 1),
+        selectedDate.getFullYear()
+      ].join(&#39;+&#39;);
+    };
+&lt;/script&gt;
+</code></pre>
+<p>###Allowed date range</p>
+<pre><code class="lang-html">&lt;div id=&quot;custom-range&quot; class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-datepicker mdl-js-datepicker mdl-datepicker--fixed&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;mdl-textfield__input mdl-datepicker__input&quot;&gt;
+  &lt;label class=&quot;mdl-textfield__label&quot;&gt;Select date&lt;/label&gt;
+&lt;/div&gt;&lt;!-- /.mdl-datepicker mdl-js-datepicker --&gt;
+
+&lt;script&gt;
+    var minDate = new Date(),
+        maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 5);
+
+    var customRange = document.querySelector(&#39;#custom-range&#39;);
+    customRange.MaterialDatePicker.setRange(minDate, maxDate);
+&lt;/script&gt;
+</code></pre>
+<p>###Inline standalone date picker</p>
+<pre><code class="lang-html">&lt;div id=&quot;inline-datepicker&quot; class=&quot;mdl-datepicker mdl-js-datepicker mdl-datepicker--inline is-visible&quot;&gt;
+  &lt;p&gt;Selected date: &lt;span id=&quot;inline-selected-date&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;!-- /.mdl-datepicker mdl-js-datepicker --&gt;
+
+&lt;script&gt;
+    var inlinePicker = document.querySelector(&#39;#inline-datepicker&#39;);
+    var inlinePickerSpan = document.querySelector(&#39;#inline-selected-date&#39;);
+    inlinePicker.addEventListener(&#39;change&#39;, function(e) {
+      var selectedDate = inlinePicker.MaterialDatePicker.getSelectedDate();
+      inlinePickerSpan.innerHTML = [
+        selectedDate.getFullYear(),
+        addLeadingZero(selectedDate.getMonth() + 1),
+        addLeadingZero(selectedDate.getDate())
+      ].join(&#39;-&#39;);
+    });
+&lt;/script&gt;
+</code></pre>
+<p>###Inline landscape oriented date picker</p>
+<pre><code class="lang-html">&lt;div id=&quot;landscape-datepicker&quot; class=&quot;mdl-datepicker mdl-js-datepicker mdl-datepicker--landscape mdl-datepicker--inline is-visible&quot;&gt;
+  &lt;p&gt;Selected date: &lt;span id=&quot;landscape-selected-date&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;!-- /.mdl-datepicker mdl-js-datepicker --&gt;
+
+&lt;script&gt;
+    var landscapePicker = document.querySelector(&#39;#landscape-datepicker&#39;);
+    var landscapePickerSpan = document.querySelector(&#39;#landscape-selected-date&#39;);
+    landscapePicker.addEventListener(&#39;change&#39;, function(e) {
+      var selectedDate = landscapePicker.MaterialDatePicker.getSelectedDate();
+      landscapePickerSpan.innerHTML = [
+        selectedDate.getFullYear(),
+        addLeadingZero(selectedDate.getMonth() + 1),
+        addLeadingZero(selectedDate.getDate())
+      ].join(&#39;-&#39;);
+    });
+&lt;/script&gt;
+</code></pre>
+<p>##CSS classes</p>
+<p>###Blocks</p>
+<table>
+<thead>
+<tr>
+<th>MDL Class</th>
+<th>Effect</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-datepicker</td>
+<td>Defines the container of the date picker component</td>
+<td>Required on date picker container</td>
+</tr>
+<tr>
+<td>mdl-js-datepicker</td>
+<td>Assigns basic MDL behavior to date picker component</td>
+<td>Required on date picker container</td>
+</tr>
+</tbody>
+</table>
+<p>###Elements
+| MDL Class | Effect | Remarks |
+|-----------|--------|---------|
+| mdl-datepicker__input | Defines input element on which date picker component is attached | Optional on date picker component |</p>
+<p>###Modifiers
+| MDL Class | Effect | Remarks |
+|-----------|--------|---------|
+| mdl-datepicker--fixed | Modify component to be displayed fixed inside window. | Optional on date picker component |
+| mdl-datepicker--inline | Modify component to be displayed inline and relative to container. | Optional on picker component |
+| mdl-datepicker--landscape | Modify component to be displayed in landscape mode. | Optional on picker component. |</p>
+
+
