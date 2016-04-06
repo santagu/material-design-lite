@@ -1,0 +1,201 @@
+/*** COLORES ***************/
+
+/* color de letra para cabeceras */
+
+.mdl-textfield--floating-label.has-placeholder:not(.is-focused) .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty:not(.is-focused) .mdl-textfield__label,
+.mdl-selectfield.is-dirty:not(.is-focused) .mdl-selectfield__label {
+  color: rgba(0,0,0,.54);
+}
+
+.mdl-selectfield.is-focused .mdl-selectfield__label {
+    color: #8bc34a;
+}
+
+.mdl-color--light-green {
+  background-color: #8bc34a !important; }
+
+.mdl-layout__header,
+.mdl-layout__header .mdl-layout__drawer-button,
+.mdl-layout__drawer__header {
+    background-color: rgb(139, 195, 74); /* para transparencia rgba(139, 195, 74, 0.5) */;
+    color: rgb(255, 255, 255);
+}
+
+.mdl-layout__drawer__header .mdl-layout__header-row {
+    padding: 1em;
+}
+
+.mdl-layout__content {
+    background-color: rgb(242, 242, 242);
+}
+
+/* Colores para los botones, campos de texto y select's */
+.mdl-button--raised.mdl-button--colored {
+    color: white;
+}
+
+
+/** FIN COLORES ****/
+
+/* cabecera transparente (no funciona del todo )*/
+.mdl-layout__header,
+.mdl-layout__header .mdl-layout__drawer-button {}
+
+.mdl-layout--transparent-header  .mdl-layout__header {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.mdl-layout--transparent-header  .mdl-layout__header::after {
+    content: "";
+    background: url('./images/background.jpg') repeat-x;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.mdl-content-center {
+  margin: 0 auto;
+}
+
+.mdl-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.mdl-list__item  .mdl-avatar {
+    float: left;
+    margin-right: 0.5em;
+}
+
+.mdl-data-table__cell--actions {
+    color: rgb(0,0,0);
+    color: rgba(0,0,0,.54);
+}
+
+.mdl-navigation__separator {
+    height: 1px;
+    background-color: #dcdcdc;
+    margin: 8px 0;
+  }
+
+tr[data-mdl-href] {
+    cursor: pointer;
+}
+
+.mdl-layout-title__separator {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.mdl-searchbox {
+    position: relative;
+    margin-right: 1em;
+    margin-left: 1em;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+
+}
+
+     .mdl-searchbox__search-button {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 0;
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+
+    .mdl-searchbox__input {
+        width: 259px;
+        background: rgba(0, 0, 0, 0);
+        border: none;
+        outline: none;
+        color: inherit;
+        font-size: inherit;
+    }
+
+    .mdl-searchbox__dropdown-button {
+        position: relative;
+        padding-right: 0;
+        padding-right: 0;
+        border-radius: 0px;
+    }
+
+    .mdl-searchbox__dropdown-menu {
+        padding-left: 0;
+        padding-right: 0;
+        color: rgba(0, 0, 0, 0.84);
+    }
+
+    .mdl-searchbox__dropdown__menu__item--title.mdl-menu__item[data-mdl-disabled], .mdl-searchbox__dropdown__menu__item--title.mdl-menu__item[disabled] {
+        padding-left: 1em;
+        padding-right: 1em;
+        color: rgba(0, 0, 0, 0.84);
+        font-weight: bold;
+    }
+
+    .mdl-searchbox__dropdown__menu__item--content {
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+    }
+
+    .mdl-searchbox__dropdown__menu__item--buttons {
+        padding-top: 1em;
+        padding-right: 0.5em;
+        padding-bottom: 0;
+        text-align: right;
+    }
+
+    .mdl-menu__item.mdl-searchbox__dropdown__menu__item--buttons  .mdl-button {
+        vertical-align: text-bottom;
+    }
+
+    .mdl-searchbox__dropdown-menu  .mdl-textfield__input,
+    .mdl-searchbox__dropdown-menu  .mdl-textfield__label,
+    .mdl-searchbox__dropdown-menu  .mdl-selectfield,
+    .mdl-searchbox__dropdown-menu  .mdl-selectfield__menu,
+    .mdl-searchbox__dropdown-menu  .mdl-selectfield__label
+    {
+        font-size: 14px;
+    }
+
+
+/* Para el menu del botón de ordenar
+    que tiene que aparecer de cierta manera por
+    el icono del "check" que aparece en el campo
+    que actualmente está ordenada la lista */
+.mdl-menu--for-button-sort > .mdl-menu__item {
+    padding-left: 3em;
+    padding-right: 2em;
+}
+
+.mdl-menu--for-button-sort > .mdl-menu__item > .material-icons {
+    position: absolute;
+    left: 0.5em;
+    line-height: inherit;
+}
+
+/* Para el placeholder de los campos de texto del campo de busqueda */
+::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 0.5); /*white */
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgba(255, 255, 255, 0.5); /*white */
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(255, 255, 255, 0.5); /*white */
+}
+
+:-ms-input-placeholder {
+   color: rgba(255, 255, 255, 0.5); /*white */
+}
