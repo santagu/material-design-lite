@@ -1,0 +1,516 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Directorio de empleados</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Directorio de empleados">
+    <link rel="apple-touch-icon-precomposed" href="">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../dist/material.css">
+    <link rel="stylesheet" href="./content/material-design-lite-old/material-custom.css">
+    <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.css">
+</head>
+
+<body>
+
+    <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-header  mdl-layout--fixed-drawer">
+
+        <header class="mdl-layout__header ">
+            <!-- Top row, always visible -->
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title  mdl-cell--hide-tablet  mdl-cell--hide-phone">Empleados > Recientemente consultados</span>
+                <!-- El texto en móvil suele ser diferente y más corto, por eso se separa -->
+                <span class="mdl-layout-title  mdl-cell--hide-desktop">Recientes</span>
+                <div class="mdl-layout-spacer"></div>
+
+                <div class="mdl-searchbox">
+                    <button class="mdl-button mdl-js-button mdl-button--icon  mdl-searchbox__search-button">
+                        <i class="material-icons">search</i>
+                    </button>
+                    <input class="mdl-searchbox__input  " type="text" placeholder="Buscar">
+                    <button id="header__button-dropdown-search" class="mdl-button mdl-js-button mdl-button--icon  mdl-searchbox__dropdown-button">
+                        <i class="material-icons">arrow_drop_down</i>
+                    </button>
+                    <div class="mdl-tooltip" for="header__button-dropdown-search">
+                        Búsqueda avanzada con más opciones
+                    </div>
+                    <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect  mdl-searchbox__dropdown-menu" data-mdl-for="header__button-dropdown-search">
+                        <div class="mdl-menu__item  mdl-menu__item--full-bleed-divider  mdl-searchbox__dropdown__menu__item--title" data-mdl-disabled>Buscar con más opciones</div>
+                        <div class="mdl-searchbox__dropdown__menu__item--content">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell  mdl-cell--6-col">
+                                    <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-apellido2">
+                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-apellido2">Apellido 2</label>
+                                    </div>
+                                </div>
+                                <div class="mdl-cell  mdl-cell--6-col">
+                                    <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-apellido1">
+                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-apellido1">Apellido 1</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell  mdl-cell--6-col">
+                                    <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-nombre">
+                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-nombre">Nombre</label>
+                                    </div>
+                                </div>
+                                <div class="mdl-cell  mdl-cell--6-col">
+                                    <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+                                        <div class="mdl-selectfield__label">Provincia</div>
+                                        <!-- /.mdl-selectfield__label -->
+                                        <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select">
+                                            <option></option>
+                                            <option value="1">Almería</option>
+                                            <option value="2">Cádiz</option>
+                                            <option value="3">Córdoba</option>
+                                            <option value="4">Granada</option>
+                                            <option value="5">Huelva</option>
+                                            <option value="6">Jaén</option>
+                                            <option value="7">Málaga</option>
+                                            <option value="8">Sevilla</option>
+                                        </select>
+                                        <div class="mdl-selectfield__error"></div>
+                                        <!-- /.mdl-selectfield__error -->
+                                    </div>
+                                    <!-- /.mdl-selectfield -->
+
+                                </div>
+                            </div>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell  mdl-cell--6-col">
+                                    <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad">
+                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Unidad</label>
+                                    </div>
+                                </div>
+                                <div class="mdl-cell  mdl-cell--6-col">
+                                    <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto" value="Analista Informático">
+                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdl-searchbox__dropdown__menu__item--buttons">
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+                                Reestablecer
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button id="button-sort" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">sort_by_alpha</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect  mdl-menu--for-button-sort" data-mdl-for="button-sort">
+                    <li class="mdl-menu__item  mdl-menu__item--full-bleed-divider  mdl-searchbox__dropdown__menu__item--title" data-mdl-disabled>Ordenar por</li>
+                    <li class="mdl-menu__item  mdl-menu__item--checked"><i class="material-icons">check</i> Apellido 1</li>
+                    <li class="mdl-menu__item">Apellido 2</li>
+                    <li class="mdl-menu__item">Nombre</li>
+                    <li class="mdl-menu__item">Unidad</li>
+                    <li class="mdl-menu__item">Provincia</li>
+                </ul>
+                <div class="mdl-tooltip" for="button-sort">
+                    Ordenar listado
+                </div>
+
+                <button id="button-print" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">print</i>
+                </button>
+                <div class="mdl-tooltip" for="button-print">
+                    Imprimir este listado
+                </div>
+
+                <button id="header__button-more-options" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="header__button-more-options">
+                    <li class="mdl-menu__item">Guardar como pantalla de inicio</li>
+                    <li class="mdl-menu__item">Ayuda</li>
+                    <li class="mdl-menu__item">Acerca de</li>
+                </ul>
+                <div class="mdl-tooltip" for="header__button-more-options">
+                    Más opciones sobre este listado
+                </div>
+
+            </div>
+            <!-- Bottom row, not visible on scroll -->
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+
+        <div class="mdl-layout__drawer">
+            <div class="mdl-layout__drawer__header">
+                <span class="mdl-layout__header-row  mdl-layout-title">Listín</span>
+                <span class="mdl-layout__header-row">Salvador Santander Gutiérrez</span>
+            </div>
+            <nav class="mdl-navigation">
+                <span class="mdl-navigation__link" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons">group</i>
+                    Empleados
+                </span>
+                <a class="mdl-navigation__link" href="">Últimos consultados</a>
+                <a class="mdl-navigation__link" href="">Todos</a>
+                <div class="mdl-navigation__separator"></div>
+                <a class="mdl-navigation__link" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons">domain</i> Oficinas
+                </a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons">assignment</i> Solicitudes
+                </a>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+
+                <div class="mdl-cell  mdl-cell--12-col  mdl-cell--hide-tablet  mdl-cell--hide-phone">
+                    <table class="mdl-data-table  mdl-js-data-table  mdl-shadow--2dp  mdl-content-center">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Foto</th>
+                                <th class="mdl-data-table__cell--non-numeric">Apellido 1</th>
+                                <th class="mdl-data-table__cell--non-numeric">Apellido 2</th>
+                                <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+                                <th class="mdl-data-table__cell--non-numeric">Puesto</th>
+                                <th class="mdl-data-table__cell--non-numeric">Unidad</th>
+                                <th class="mdl-data-table__cell--non-numeric">Provincia</th>
+                                <th class="mdl-data-table__cell--non-numeric">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-mdl-href="http://www.google.es">
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Flores</td>
+                                <td class="mdl-data-table__cell--non-numeric">García</td>
+                                <td class="mdl-data-table__cell--non-numeric">Pepito</td>
+                                <td class="mdl-data-table__cell--non-numeric">Técnico Superior Informático</td>
+                                <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
+                                <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+                                    <div class="mdl-tooltip" data-mdl-for="send-email-button-1">
+                                        Enviar correo electrónico
+                                        <br> (abrirá su programa de correo)
+                                    </div>
+                                    <!-- Right aligned menu below button -->
+                                    <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <div class="mdl-tooltip" data-mdl-for="other-options-button-1">
+                                        Otras opciones
+                                    </div>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="other-options-button-1">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cool</td>
+                                <td class="mdl-data-table__cell--non-numeric">Johny</td>
+                                <td class="mdl-data-table__cell--non-numeric">Administrativo</td>
+                                <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-2" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-2">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Flores</td>
+                                <td class="mdl-data-table__cell--non-numeric">García</td>
+                                <td class="mdl-data-table__cell--non-numeric">Pepito</td>
+                                <td class="mdl-data-table__cell--non-numeric">Técnico Superior Informático</td>
+                                <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
+                                <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-3" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-3">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cool</td>
+                                <td class="mdl-data-table__cell--non-numeric">Johny</td>
+                                <td class="mdl-data-table__cell--non-numeric">Administrativo</td>
+                                <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-4" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-4">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Flores</td>
+                                <td class="mdl-data-table__cell--non-numeric">García</td>
+                                <td class="mdl-data-table__cell--non-numeric">Pepito</td>
+                                <td class="mdl-data-table__cell--non-numeric">Técnico Superior Informático</td>
+                                <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
+                                <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-5" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-5">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cool</td>
+                                <td class="mdl-data-table__cell--non-numeric">Johny</td>
+                                <td class="mdl-data-table__cell--non-numeric">Administrativo</td>
+                                <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-6" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-6">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Flores</td>
+                                <td class="mdl-data-table__cell--non-numeric">García</td>
+                                <td class="mdl-data-table__cell--non-numeric">Pepito</td>
+                                <td class="mdl-data-table__cell--non-numeric">Técnico Superior Informático</td>
+                                <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
+                                <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-7" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-7">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cool</td>
+                                <td class="mdl-data-table__cell--non-numeric">Johny</td>
+                                <td class="mdl-data-table__cell--non-numeric">Administrativo</td>
+                                <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
+                                <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
+                                <td class="mdl-data-table__cell--actions">
+                                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">mail</i>
+                                    </button>
+
+                                    <!-- Right aligned menu below button -->
+                                    <button id="demo-menu-lower-right-8" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="demo-menu-lower-right-8">
+                                        <li class="mdl-menu__item">Ver detalle</li>
+                                        <li class="mdl-menu__item">Solicitar corrección</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mdl-cell  mdl-cell--hide-desktop  mdl-cell--12-tablet  mdl-cell--12-phone">
+                    <ul class="mdl-list">
+                        <li class="mdl-list__item mdl-list__item--two-line  mdl-js-ripple-effect">
+                            <img src="./content/images/user2.jpg" class="mdl-avatar">
+                            <span class="mdl-list__item-primary-content">
+                                <span>Flores García, Pepito</span>
+                            <span class="mdl-list__item-sub-title">Servicios Centrales</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
+                                    <i class="material-icons">call</i>
+                                </button>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                <span>Nmenonic Cool, Johny</span>
+                            <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
+                                    <i class="material-icons">call</i>
+                                </button>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                <span>Flores García, Pepito</span>
+                            <span class="mdl-list__item-sub-title">Servicios Centrales</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
+                                    <i class="material-icons">call</i>
+                                </button>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                <span>Nmenonic Cool, Johny</span>
+                            <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
+                                    <i class="material-icons">call</i>
+                                </button>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                <span>Flores García, Pepito</span>
+                            <span class="mdl-list__item-sub-title">Servicios Centrales</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
+                                    <i class="material-icons">call</i>
+                                </button>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="./content/images/user3.jpg" class="mdl-avatar">
+                                <span>Nmenonic Cool, Johny</span>
+                            <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
+                                    <i class="material-icons">call</i>
+                                </button>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.js"></script>
+    <script src="../../dist/material.js"></script>
+    <script src="./content/material-design-lite-old/material-custom.js"></script>
+</body>
+
+</html>
