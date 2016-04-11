@@ -178,8 +178,18 @@
 
         <div class="mdl-layout__drawer">
             <div class="mdl-layout__drawer__header">
-                <span class="mdl-layout__header-row  mdl-layout-title">Listín</span>
-                <span class="mdl-layout__header-row">Salvador Santander Gutiérrez</span>
+                <div class="mdl-layout__drawer__header__row  mdl-layout__drawer__header__title">Listín</div>
+                <img class="mdl-layout__drawer__header__user-photo" src="./content/images/user.jpg">
+                <div class="mdl-layout__drawer__header__user-name">Salvador Santander Gutiérrez</div>
+                <div class="mdl-layout__drawer__header__user-menu-button">
+                    <button id="button-user-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">arrow_drop_down</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="button-user-menu">
+                        <li class="mdl-menu__item">Desconectar</li>
+                        <li class="mdl-menu__item">Cambiar de usuario</li>
+                    </ul>
+                </div>
             </div>
             <nav class="mdl-navigation">
                 <span class="mdl-navigation__link" href="">

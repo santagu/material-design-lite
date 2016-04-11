@@ -42,6 +42,7 @@
 @import "menu/menu";
 @import "progress/progress";
 @import "layout/layout";
+@import "layout/layout-customized";
 @import "radio/radio";
 @import "slider/slider";
 @import "snackbar/snackbar";
@@ -50,7 +51,7 @@
 @import "tabs/tabs";
 @import "textfield/textfield";
 @import "selectfield/selectfield";
-@import "selectfield/selectfield-custom"; // correct a color fix with label
+@import "selectfield/selectfield-customized"; // correct a color fix with label
 @import "pickers/datepicker";
 @import "tooltip/tooltip";
 @import "shadow/shadow";
