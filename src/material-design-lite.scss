@@ -17,7 +17,7 @@
 /* Material Design Lite */
 
 // Variables and mixins
-@import "variables-customized";
+@import "variables-customized"; // customized variables for me (colors...)
 @import "variables";
 @import "mixins";
 
@@ -50,6 +50,7 @@
 @import "tabs/tabs";
 @import "textfield/textfield";
 @import "selectfield/selectfield";
+@import "selectfield/selectfield-custom"; // correct a color fix with label
 @import "pickers/datepicker";
 @import "tooltip/tooltip";
 @import "shadow/shadow";

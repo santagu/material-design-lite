@@ -10209,6 +10209,14 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     cursor: default;
     color: rgba(0, 0, 0, 0.26) !important; }
 
+/**
+ * Coded customized for selecfield
+ */
+.mdl-selectfield.is-focused .mdl-selectfield__label, .mdl-selectfield.is-dirty .mdl-selectfield__label {
+  color: #8bc34a;
+  /* in order to label take the color defined in
+                                variables.sscs, as input text field */ }
+
 .mdl-datepicker--landscape .mdl-datepicker__widget {
   width: 440px; }
 
