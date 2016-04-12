@@ -10290,6 +10290,256 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     bottom: 0; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* ==========  Date picker ========= */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
+.mdl-search-box {
+  position: relative;
+  margin-right: 1em;
+  margin-left: 1em;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px; }
+
+.mdl-search-box__search-button {
+  border-radius: 0;
+  padding-right: 1em;
+  padding-left: 1em; }
+
+.mdl-search-box__input {
+  width: 259px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit; }
+
+/* Placeholder color (if not set it shown as grey) */
+.mdl-search-box__input::-webkit-input-placeholder {
+  color: white; }
+
+.mdl-search-box__input:-moz-placeholder {
+  color: white; }
+
+.mdl-search-box__input::-moz-placeholder {
+  color: white; }
+
+.mdl-search-box__input:-ms-input-placeholder {
+  color: white; }
+
+.mdl-search-box__advanced-search-button {
+  position: relative;
+  padding-right: 0;
+  padding-right: 0;
+  border-radius: 0px; }
+
+.mdl-search-box__advanced-search-dialog {
+  padding-left: 0;
+  padding-right: 0;
+  color: rgba(0, 0, 0, 0.84); }
+
+.mdl-searchbox__advanced-search-dialog__title {
+  height: 48px;
+  line-height: 48px;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 1.2em;
+  font-weight: bold; }
+
+.mdl-searchbox__advanced-search-dialog__content {
+  padding-right: 0.5em;
+  padding-left: 0.5em; }
+
+.mdl-searchbox__advanced-search-dialog__buttons {
+  padding-top: 1em;
+  padding-right: 0.5em;
+  padding-bottom: 0;
+  text-align: right; }
+
+.mdl-searchbox__advanced-search-dialog__buttons .mdl-button {
+  vertical-align: text-bottom; }
+
+.mdl-searchbox__advanced-search-dialog__content .mdl-textfield__input,
+.mdl-searchbox__advanced-search-dialog__content .mdl-textfield__label,
+.mdl-searchbox__advanced-search-dialog__content .mdl-selectfield,
+.mdl-searchbox__advanced-search-dialog__content .mdl-selectfield__menu,
+.mdl-searchbox__advanced-search-dialog__content .mdl-selectfield__label {
+  font-size: 14px; }
+
+/**
  * WARNING: THis code is stil not PR ready.
  * Most of the values need to be extractd into variables.
  */
