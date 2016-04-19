@@ -1,0 +1,46 @@
+/** site specific **/
+
+
+/**
+  * Class for make header transparent and put a background image
+  */
+.mdl-layout__header--transparent-image {
+  background: linear-gradient(rgba(139, 195, 74, 0.97), rgba(139, 195, 74, 0.97)),
+              url('./images/toolbar-header-background.jpg') repeat-x;
+}
+
+/** mdl customized (common)*/
+
+/* layout navigation */
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--sublink {
+  padding-left: 56px;
+}
+
+/* utils */
+.mdl-align-center  {
+  margin: 0 auto;
+}
+
+/* data-table */
+/* For make the entire tr "clickeable" */
+tr[data-mdl-href] {
+    cursor: pointer;
+}
+
+/* data table cell for images */
+.mdl-data-table__cell--img > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+/* data table cell for actions on the row */
+.mdl-data-table__cell--actions {
+    color: rgb(0,0,0);
+    color: rgba(0,0,0,.54);
+}

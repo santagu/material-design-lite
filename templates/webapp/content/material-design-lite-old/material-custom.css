@@ -25,11 +25,7 @@
   margin: 0 auto;
 }
 
-.mdl-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-}
+
 
 .mdl-list__item  .mdl-avatar {
     float: left;
@@ -45,7 +41,7 @@
     height: 1px;
     background-color: #dcdcdc;
     margin: 8px 0;
-  }
+}
 
 tr[data-mdl-href] {
     cursor: pointer;

@@ -51,20 +51,22 @@
                 <span class="mdl-layout-title  mdl-cell--hide-desktop">Recientes</span>
                 <div class="mdl-layout-spacer"></div>
 
-                <div class="mdl-searchbox">
-                    <button class="mdl-button mdl-js-button mdl-button--icon  mdl-searchbox__search-button">
+                <div class="mdl-search-box">
+                    <button id="search-box__button-search"
+                            class="mdl-button  mdl-js-button mdl-button--icon  mdl-search-box__search-button">
                         <i class="material-icons">search</i>
                     </button>
-                    <input class="mdl-searchbox__input  " type="text" placeholder="Buscar">
-                    <button id="header__button-dropdown-search" class="mdl-button mdl-js-button mdl-button--icon  mdl-searchbox__dropdown-button">
+                    <input class="mdl-search-box__input" type="text" placeholder="Buscar">
+                    <button id="search-box__button-advanced-search"
+                            class="mdl-button  mdl-js-button  mdl-button--icon  mdl-search-box__advanced-search-button">
                         <i class="material-icons">arrow_drop_down</i>
                     </button>
-                    <div class="mdl-tooltip" for="header__button-dropdown-search">
+                    <div class="mdl-tooltip" for="search-box__button-advanced-search">
                         Búsqueda avanzada con más opciones
                     </div>
-                    <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect  mdl-searchbox__dropdown-menu" data-mdl-for="header__button-dropdown-search">
-                        <div class="mdl-menu__item  mdl-menu__item--full-bleed-divider  mdl-searchbox__dropdown__menu__item--title" data-mdl-disabled>Buscar con más opciones</div>
-                        <div class="mdl-searchbox__dropdown__menu__item--content">
+                    <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect  mdl-search-box__advanced-search-dialog" data-mdl-for="search-box__button-advanced-search">
+                        <div class="mdl-searchbox__advanced-search-dialog__title" data-mdl-disabled>Buscar con más opciones</div>
+                        <div class="mdl-searchbox__advanced-search-dialog__content">
                             <div class="mdl-grid">
                                 <div class="mdl-cell  mdl-cell--6-col">
                                     <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
@@ -123,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mdl-searchbox__dropdown__menu__item--buttons">
+                        <div class="mdl-searchbox__advanced-search-dialog__buttons">
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
                                 Reestablecer
                             </button>
@@ -178,10 +180,17 @@
 
         <div class="mdl-layout__drawer">
             <div class="mdl-layout__drawer__header">
-                <div class="mdl-layout__header-row--title">Listín</div>
-                <div class="mdl-layout__header-row--user">
-                  <img class="mdl-layout__header-row--user__photo">
-                  <span class="mdl-layout__header-row--user__name">Salvador Santander Gutiérrez</span>
+                <div class="mdl-layout__drawer__header__row  mdl-layout__drawer__header__title">Listín</div>
+                <img class="mdl-layout__drawer__header__user-photo" src="./content/images/user.jpg">
+                <div class="mdl-layout__drawer__header__user-name">Salvador Santander Gutiérrez</div>
+                <div class="mdl-layout__drawer__header__user-menu-button">
+                    <button id="button-user-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">arrow_drop_down</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="button-user-menu">
+                        <li class="mdl-menu__item">Desconectar</li>
+                        <li class="mdl-menu__item">Cambiar de usuario</li>
+                    </ul>
                 </div>
             </div>
             <nav class="mdl-navigation">

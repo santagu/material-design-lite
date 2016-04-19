@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../../dist/material.css">
+    <link rel="stylesheet" href="./content/tmp-code-to-curtom.css">
     <!-- <link rel="stylesheet" href="./content/material-design-lite-old/material-custom.css"> -->
     <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
     <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.css">
@@ -42,11 +43,11 @@
 
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-header  mdl-layout--fixed-drawer">
 
-        <header class="mdl-layout__header ">
+        <header class="mdl-layout__header  mdl-layout__header--transparent-image">
             <!-- Top row, always visible -->
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title  mdl-cell--hide-tablet  mdl-cell--hide-phone">Empleados > Recientemente consultados</span>
+                <span class="mdl-layout-title  mdl-cell--hide-tablet  mdl-cell--hide-phone">Empleados > Últimos consultados</span>
                 <!-- El texto en móvil suele ser diferente y más corto, por eso se separa -->
                 <span class="mdl-layout-title  mdl-cell--hide-desktop">Recientes</span>
                 <div class="mdl-layout-spacer"></div>
@@ -179,7 +180,7 @@
         </header>
 
         <div class="mdl-layout__drawer">
-            <div class="mdl-layout__drawer__header">
+            <div class="mdl-layout__drawer__header  mdl-layout__header--transparent-image">
                 <div class="mdl-layout__drawer__header__row  mdl-layout__drawer__header__title">Listín</div>
                 <img class="mdl-layout__drawer__header__user-photo" src="./content/images/user.jpg">
                 <div class="mdl-layout__drawer__header__user-name">Salvador Santander Gutiérrez</div>
@@ -198,9 +199,8 @@
                     <i class="mdl-color-text--blue-grey-400 material-icons">group</i>
                     Empleados
                 </span>
-                <a class="mdl-navigation__link" href="">Últimos consultados</a>
-                <a class="mdl-navigation__link" href="">Todos</a>
-                <div class="mdl-navigation__separator"></div>
+                <a class="mdl-navigation__link  mdl-navigation__link--sublink" href="">Últimos consultados</a>
+                <a class="mdl-navigation__link  mdl-navigation__link--sublink" href="">Todos</a>
                 <a class="mdl-navigation__link" href="">
                     <i class="mdl-color-text--blue-grey-400 material-icons">domain</i> Oficinas
                 </a>
@@ -212,9 +212,8 @@
 
         <main class="mdl-layout__content">
             <div class="mdl-grid">
-
                 <div class="mdl-cell  mdl-cell--12-col  mdl-cell--hide-tablet  mdl-cell--hide-phone">
-                    <table class="mdl-data-table  mdl-js-data-table  mdl-shadow--2dp  mdl-content-center">
+                    <table class="mdl-data-table  mdl-js-data-table  mdl-shadow--2dp  mdl-align-center ">
                         <thead>
                             <tr>
                                 <th class="mdl-data-table__cell--non-numeric">Foto</th>
@@ -229,7 +228,7 @@
                         </thead>
                         <tbody>
                             <tr data-mdl-href="http://www.google.es">
-                                <td class="mdl-data-table__cell--non-numeric">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user2.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Flores</td>
@@ -259,8 +258,8 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                            <tr data-mdl-href="http://www.google.es">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user3.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
@@ -284,8 +283,8 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                            <tr data-mdl-href="http://www.google.es">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user2.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Flores</td>
@@ -309,8 +308,8 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                            <tr data-mdl-href="http://www.google.es">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user3.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
@@ -334,8 +333,8 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                            <tr data-mdl-href="http://www.google.es">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user2.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Flores</td>
@@ -359,8 +358,8 @@
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                            <tr data-mdl-href="http://www.google.es">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user3.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
@@ -385,7 +384,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user2.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Flores</td>
@@ -410,7 +409,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="mdl-data-table__cell--non-numeric">
+                                <td class="mdl-data-table__cell--img">
                                     <img src="./content/images/user3.jpg" class="mdl-avatar">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Nmenonic</td>
