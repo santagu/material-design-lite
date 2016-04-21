@@ -142,8 +142,7 @@
                     <i class="material-icons">sort_by_alpha</i>
                 </button>
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect  mdl-menu--for-button-sort" data-mdl-for="button-sort">
-                    <li class="mdl-menu__item  mdl-menu__item--full-bleed-divider  mdl-searchbox__dropdown__menu__item--title" data-mdl-disabled>Ordenar por</li>
-                    <li class="mdl-menu__item  mdl-menu__item--checked"><i class="material-icons">check</i> Apellido 1</li>
+                    <li class="mdl-menu__item  mdl-menu__item--checked">Apellido 1</li>
                     <li class="mdl-menu__item">Apellido 2</li>
                     <li class="mdl-menu__item">Nombre</li>
                     <li class="mdl-menu__item">Unidad</li>
@@ -217,7 +216,7 @@
                         <thead>
                             <tr>
                                 <th class="mdl-data-table__cell--non-numeric">Foto</th>
-                                <th class="mdl-data-table__cell--non-numeric">Apellido 1</th>
+                                <th class="mdl-data-table__cell--non-numeric  mdl-data-table__header--sorted-ascending">Apellido 1</th>
                                 <th class="mdl-data-table__cell--non-numeric">Apellido 2</th>
                                 <th class="mdl-data-table__cell--non-numeric">Nombre</th>
                                 <th class="mdl-data-table__cell--non-numeric">Puesto</th>
@@ -435,6 +434,21 @@
                             </tr>
 
                         </tbody>
+                        <tfoot class="mdl-data-table__foot">
+                          <tr>
+                            <td colspan="8">
+                              <span>Filas por página:</span>
+                              <span>10</span>
+                              <span>1-10 de 700</span>
+                              <span>
+                                <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_left</i></button>
+                              </span>
+                              <span>
+                                <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_right</i></button>
+                              </span>
+                            </td>
+                          </tr>
+                        </tfoot>
                     </table>
                 </div>
 
