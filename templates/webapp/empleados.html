@@ -240,7 +240,7 @@
                                     <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
-                                    <div class="mdl-tooltip" data-mdl-for="send-email-button-1">
+                                    <div class="mdl-tooltip" for="send-email-button-1">
                                         Enviar correo electrónico
                                         <br> (abrirá su programa de correo)
                                     </div>
@@ -248,7 +248,7 @@
                                     <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">more_vert</i>
                                     </button>
-                                    <div class="mdl-tooltip" data-mdl-for="other-options-button-1">
+                                    <div class="mdl-tooltip" for="other-options-button-1">
                                         Otras opciones
                                     </div>
                                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="other-options-button-1">
@@ -437,13 +437,25 @@
                         <tfoot class="mdl-data-table__foot">
                           <tr>
                             <td colspan="8">
-                              <span>Filas por página:</span>
-                              <span>10</span>
-                              <span>1-10 de 700</span>
-                              <span>
+                              <span>Resultados por página:</span>
+                              <span class="mdl-data-table__foot__result-per-page-number">10</span>
+                              <span class="mdl-data-table__foot__result-per-page-select-button">
+                                <button id="table-footer__results-per-page" class="mdl-button mdl-js-button mdl-button--icon">
+                                    <i class="material-icons">arrow_drop_down</i>
+                                </button>
+                                <ul class="mdl-menu mdl-menu--top-left  mdl-js-menu mdl-js-ripple-effect" data-mdl-for="table-footer__results-per-page">
+                                    <li class="mdl-menu__item">10</li>
+                                    <li class="mdl-menu__item">20</li>
+                                    <li class="mdl-menu__item">30</li>
+                                    <li class="mdl-menu__item">40</li>
+                                    <li class="mdl-menu__item">50</li>
+                                </ul>
+                              </span>
+                              <span class="mdl-data-table__foot__results-index">1-10 de 700</span>
+                              <span class="mdl-data-table__foot__prev-page-button">
                                 <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_left</i></button>
                               </span>
-                              <span>
+                              <span class="mdl-data-table__foot__next-page-button">
                                 <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_right</i></button>
                               </span>
                             </td>

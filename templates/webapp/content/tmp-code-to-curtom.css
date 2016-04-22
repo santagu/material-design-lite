@@ -34,27 +34,77 @@ html, body {
 
 /* data-table */
 /* For make the entire tr "clickeable" */
-tr[data-mdl-href] {
-    cursor: pointer;
-}
+  tr[data-mdl-href] {
+      cursor: pointer;
+  }
 
-/* data table cell for images */
-.mdl-data-table__cell--img > img {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-}
+  /* data table cell for images */
+  .mdl-data-table__cell--img > img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+  }
 
-/* data table cell for actions on the row */
-.mdl-data-table__cell--actions {
-    color: rgb(0,0,0);
-    color: rgba(0,0,0,.54);
-}
+  /* data table cell for actions on the row */
+  .mdl-data-table__cell--actions {
+      color: rgb(0,0,0);
+      color: rgba(0,0,0,.54);
+  }
 
-.mdl-data-table__foot span {
-  color: rgb(0, 0, 0, .54);
-  font-size: 12px;
-}
+  .mdl-data-table__foot {
+    color: rgba(0, 0, 0, .54);
+    font-size: 12px;
+  }
+
+    .mdl-data-table__foot__result-per-page-number {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 40px;
+      text-align: rigth;
+    }
+
+    .mdl-data-table__foot__result-per-page-select-button {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      text-align: left;
+    }
+
+      .mdl-data-table__foot__result-per-page-select-button .mdl-button--icon {
+        display: inline-block;
+        margin: -6px;
+        padding: 0;
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+      }
+
+      .mdl-data-table__foot__results-index {
+        display: inline-block;
+        margin-left: 32px;
+        margin-right: 32px;
+        padding: 0;
+      }
+
+      .mdl-data-table__foot__prev-page-button {
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 8px;
+        padding: 0;
+      }
+
+      .mdl-data-table__foot__next-page-button {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+
+
+
 
 /* mdl-menu */
 
