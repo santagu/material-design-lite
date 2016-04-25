@@ -130,3 +130,8 @@ html, body {
   .mdl-menu__item.mdl-menu__item--checked {
       color: black;
   }
+
+
+  .mdl-textfield, .mdl-textfield__input {
+    font-size: 1em;
+  }

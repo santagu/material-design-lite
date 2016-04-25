@@ -189,7 +189,7 @@
                     </button>
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="button-user-menu">
                         <li class="mdl-menu__item">Desconectar</li>
-                        <li class="mdl-menu__item" id="show-login-dialog">Cambiar de usuario</li>
+                        <li class="mdl-menu__item">Cambiar de usuario</li>
                     </ul>
                 </div>
             </div>
@@ -544,46 +544,10 @@
             </div>
         </main>
     </div>
-
-    <dialog class="mdl-dialog" id="dialog-login">
-      <div class="mdl-dialog-title">
-        Identificación de usuario
-      </div>
-      <div class="mdl-dialog__content">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input  mdl-textfield--floating-label" type="text" id="user-id">
-            <label class="mdl-textfield__label" for="user-id">Usuario</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input  mdl-textfield--floating-label" type="text" id="user-password">
-            <label class="mdl-textfield__label" for="user-password">Clave</label>
-          </div>
-          <button type="button" class="mdl-button  mdl-button--accent  mdl-align-center">Usar usuario/clave</button>
-      </div>
-
-      <div class="mdl-dialog__actions mdl-dialog__actions">
-        <button type="button" class="mdl-button  mdl-button--accent  mdl-align-center">Identificación automática</button>
-        <button type="button" class="mdl-button  mdl-button--accent  mdl-align-center">Certificado digital</button>
-      </div>
-    </dialog>
-
     <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.js"></script>
     <script src="../../dist/material.js"></script>
     <!-- <script src="./content/material-design-lite-old/material-custom.js"></script> -->
-    <script>
-     var dialog = document.querySelector('#dialog-login');
-     var showModalButton = document.querySelector('#show-login-dialog');
-     if (!dialog.showModal) {
-       dialogPolyfill.registerDialog(dialog);
-     }
-     showModalButton.addEventListener('click', function() {
-       dialog.showModal();
-     });
-     dialog.querySelector('.close').addEventListener('click', function() {
-       dialog.close();
-     });
-   </script>
 </body>
 
 </html>
