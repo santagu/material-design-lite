@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="mdl-cell  mdl-cell--6-col">
                                     <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto" value="Analista Informático">
+                                        <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto">
                                         <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
                                     </div>
                                 </div>
@@ -136,8 +136,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <button id="button-sort" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">sort_by_alpha</i>
                 </button>
@@ -226,9 +224,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-mdl-href="http://www.google.es">
+                            <tr data-mdl-href="http://www.google.es" id="show-dialog-list-detail-1">
                                 <td class="mdl-data-table__cell--img">
-                                    <img src="./content/images/user2.jpg" class="mdl-avatar">
+                                    <img src="./content/images/user2.jpg">
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric">Flores</td>
                                 <td class="mdl-data-table__cell--non-numeric">García</td>
@@ -545,25 +543,149 @@
         </main>
     </div>
 
+    <!-- Dialog para mostrar parntalla de autenticacion -->
     <dialog class="mdl-dialog" id="dialog-login">
-      <div class="mdl-dialog-title">
-        Identificación de usuario
+      <div class="mdl-dialog__title">
+        Elija cómo identificarse
+      </div>
+      <div class="mdl-dialog__content  mdl-dialog__content--with-list">
+        <div class="mdl-list">
+          <div class="mdl-list__item" data-mdl-href="http://www.google.es">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons  mdl-list__item-icon">computer</i>
+              <span>Automáticamente con el usuario con el que ha entrado en windows</span>
+            </span>
+          </div>
+          <div class="mdl-list__item" data-mdl-href="http://www.google.es">
+            <span class="mdl-list__item-primary-content" >
+              <i class="material-icons  mdl-list__item-icon">credit_card</i>
+              <span>Con certificado digital</span>
+            </span>
+          </div>
+          <div class="mdl-list__item" data-mdl-href="http://www.google.es" id="show-user-pass-login-dialog">
+            <span class="mdl-list__item-primary-content" data-mdl-href="http://www.google.es">
+              <i class="material-icons  mdl-list__item-icon">keyboard</i>
+              <span>Con usuario y clave</span>
+            </span>
+          </div>
+        </div>
+        <div class="mdl-dialog__content">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-remember-login">
+            <input type="checkbox" id="checkbox-remember-login" class="mdl-checkbox__input" checked>
+            <span class="mdl-checkbox__label">No volver a preguntar en este ordenador</span>
+          </label>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Dialog para mostrar parntalla de autenticacion con usuario y clave -->
+    <dialog class="mdl-dialog" id="dialog-login-user-pass">
+      <div class="mdl-dialog__title">
+        Identifíquese con usuario y clave
       </div>
       <div class="mdl-dialog__content">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input  mdl-textfield--floating-label" type="text" id="user-id">
-            <label class="mdl-textfield__label" for="user-id">Usuario</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input  mdl-textfield--floating-label" type="text" id="user-password">
-            <label class="mdl-textfield__label" for="user-password">Clave</label>
-          </div>
-          <button type="button" class="mdl-button  mdl-button--accent  mdl-align-center">Usar usuario/clave</button>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="login__user-id">
+          <label class="mdl-textfield__label" for="login__user-id">Identificador de usuario</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="password" id="login__user-pass">
+          <label class="mdl-textfield__label" for="login__user-pass">Clave</label>
+        </div>
       </div>
+      <div class="mdl-dialog__actions">
+        <button class="mdl-button mdl-js-button mdl-button--primary">
+          Identificarse
+        </button>
+      </div>
+    </dialog>
 
-      <div class="mdl-dialog__actions mdl-dialog__actions">
-        <button type="button" class="mdl-button  mdl-button--accent  mdl-align-center">Identificación automática</button>
-        <button type="button" class="mdl-button  mdl-button--accent  mdl-align-center">Certificado digital</button>
+    <!-- Dialog para mostrar parntalla de autenticacion con usuario y clave -->
+    <dialog class="mdl-dialog  mdl-list-detail  app-list-detail--employee" id="dialog-list-detail-1">
+      <div class="mdl-list-detail__header">
+        <div class="mdl-list-detail__header__title">
+          Pepito García Flores
+        </div>
+        <div class="mdl-list-detail__header__actions">
+          <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">edit</i>
+          </button>
+          <div class="mdl-tooltip" for="button-detail-edit">
+              Editar datos de este empleado
+          </div>
+          <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">print</i>
+          </button>
+          <div class="mdl-tooltip" for="button-detail-print">
+              Imprimir ficha de este empleado
+          </div>
+        </div>
+      </div>
+      <div class="mdl-list-detail__content">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col">
+            <img src="./content/images/user2.jpg" class="app-employee-photo">
+          </div>
+          <div class="mdl-cell mdl-cell--9-col">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--6-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="employee-telefono" value="375478">
+                      <label class="mdl-textfield__label" for="employee-telefono">Teléfono interno</label>
+                  </div>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="employee-telefono" value="955455478">
+                    <label class="mdl-textfield__label" for="employee-telefono">Teléfono externo</label>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--12-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="email" id="searchbox__dropdown__puesto" value="pepito.flores.garcia@juntadeandalucia.es">
+                      <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Email</label>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto" value="Analista Informático">
+                  <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
+              </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad" value="Informática">
+                <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Unidad</label>
+              </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+              <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+                  <div class="mdl-selectfield__label">Provincia</div>
+                  <!-- /.mdl-selectfield__label -->
+                  <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select" >
+                      <option></option>
+                      <option value="1">Almería</option>
+                      <option value="2">Cádiz</option>
+                      <option value="3">Córdoba</option>
+                      <option value="4">Granada</option>
+                      <option value="5">Huelva</option>
+                      <option value="6">Jaén</option>
+                      <option value="7">Málaga</option>
+                      <option value="8" selected>Sevilla</option>
+                  </select>
+                  <div class="mdl-selectfield__error"></div>
+                  <!-- /.mdl-selectfield__error -->
+              </div>
+              <!-- /.mdl-selectfield -->
+            </div>
+        </div>
+
       </div>
     </dialog>
 
@@ -572,17 +694,34 @@
     <script src="../../dist/material.js"></script>
     <!-- <script src="./content/material-design-lite-old/material-custom.js"></script> -->
     <script>
-     var dialog = document.querySelector('#dialog-login');
-     var showModalButton = document.querySelector('#show-login-dialog');
-     if (!dialog.showModal) {
-       dialogPolyfill.registerDialog(dialog);
+     var loginDialog = document.querySelector('#dialog-login');
+     var showLoginDialogButton = document.querySelector('#show-login-dialog');
+     if (!loginDialog.showModal) {
+       dialogPolyfill.registerDialog(loginDialog);
      }
-     showModalButton.addEventListener('click', function() {
-       dialog.showModal();
+     showLoginDialogButton.addEventListener('click', function() {
+       loginDialog.showModal();
      });
-     dialog.querySelector('.close').addEventListener('click', function() {
-       dialog.close();
+
+     var userPassLoginDialog = document.querySelector('#dialog-login-user-pass');
+     var showuserPassLoginDialogButton = document.querySelector('#show-user-pass-login-dialog');
+     if (!userPassLoginDialog.showModal) {
+       dialogPolyfill.registerDialog(userPassLoginDialog);
+     }
+     showuserPassLoginDialogButton.addEventListener('click', function() {
+       loginDialog.close();
+       userPassLoginDialog.showModal();
      });
+
+     var listDetailDialog = document.querySelector('#dialog-list-detail-1');
+     var showListDetailDialogButton = document.querySelector('#show-dialog-list-detail-1');
+     if (!listDetailDialog.showModal) {
+       dialogPolyfill.registerDialog(listDetailDialog);
+     }
+     showListDetailDialogButton.addEventListener('click', function() {
+       listDetailDialog.showModal();
+     });
+
    </script>
 </body>
 

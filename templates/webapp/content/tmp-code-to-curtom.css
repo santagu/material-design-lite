@@ -1,12 +1,5 @@
 /** site specific **/
 
-
-
-/** elements */
-html, body {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-
 /**
   * Class for make header transparent and put a background image
   */
@@ -15,7 +8,54 @@ html, body {
               url('./images/toolbar-header-background.jpg') repeat-x;
 }
 
+
+.app-list-detail--employee {
+  width:600px;
+}
+
+.app-employee-photo {
+  width: 100%;
+  border-radius: 100%;
+}
+
 /** mdl customized (common)*/
+
+/** elements */
+html, body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: rgb(242, 242, 242);
+}
+
+/* list detail (to appply in dialog or in a page */
+.mdl-list-detail {
+  padding: 0;
+}
+
+  .mdl-list-detail .mdl-grid {
+    padding:0;
+  }
+
+  .mdl-list-detail__header {
+    position: relative;
+    padding: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+    .mdl-list-detail__header__title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .mdl-list-detail__header__actions {
+      position: absolute;
+      right:20px;
+      top:20px;
+      color: rgb(0,0,0);
+      color: rgba(0,0,0,.54);
+    }
+  .mdl-list-detail__content {
+    padding: 16px;
+  }
+
 
 /* layout navigation */
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
@@ -36,6 +76,10 @@ html, body {
 /* For make the entire tr "clickeable" */
   tr[data-mdl-href] {
       cursor: pointer;
+  }
+
+  tr[data-mdl-href]:hover {
+    background-color: #eeeeee;
   }
 
   /* data table cell for images */
@@ -135,3 +179,61 @@ html, body {
   .mdl-textfield, .mdl-textfield__input {
     font-size: 1em;
   }
+
+/* mdl-dialog */
+.mdl-dialog {
+  max-width: auto; /* Allow dialog be more long */
+}
+  .mdl-dialog__title {
+    padding: 10px; /*14px is in dialog polyfill */
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .mdl-dialog__content {
+    padding: 16px; /*14px is in dialog polyfill */
+    font-size: 14px;
+  }
+
+  .mdl-dialog__content.mdl-dialog__content--with-list {
+    padding: 0; /*14px is in dialog polyfill */
+  }
+
+  .mdl-dialog .mdl-list .mdl-list__item {
+  }
+
+  .mdl-dialog .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon {
+    margin-right: 16px;
+  }
+
+  .mdl-dialog--list-detail .mdl-dialog__content {
+    with:600px;
+  }
+
+/* mdl-list */
+
+.mdl-list__item[data-mdl-href] {
+    cursor: pointer;
+}
+
+.mdl-list__item[data-mdl-href]:hover {
+  background-color: #eeeeee;
+}
+
+/* mdl-searbox */
+
+.mdl-searchbox__advanced-search-dialog__title {
+  font-size: 19px;
+}
+
+
+/* mdl-layout */
+
+.mdl-layout__drawer__header__user-photo {
+  position: absolute;
+  left: 1em;
+  top: 20px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+}
