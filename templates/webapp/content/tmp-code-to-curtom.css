@@ -52,9 +52,16 @@ html, body {
       color: rgb(0,0,0);
       color: rgba(0,0,0,.54);
     }
+
   .mdl-list-detail__content {
     padding: 16px;
   }
+
+    .mdl-list-detail__content .mdl-textfield {
+      width:100%;
+    }
+
+
 
 
 /* layout navigation */
@@ -73,6 +80,32 @@ html, body {
 }
 
 /* data-table */
+/* title */
+  .mdl-data-table__head__title {
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 64px;
+    color: rgba(0,0,0,.87);
+  }
+
+  .mdl-data-table th.mdl-data-table__head__title__row {
+    height: 32px;
+    font-weight: normal;
+    text-align: left;
+    font-size: 20px;
+    color: inherit;
+  }
+
+  .mdl-data-table__head__title__row__text  {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .mdl-data-table__head__title__row__filters  {
+    display: inline-block;
+    vertical-align: top;
+  }
+
 /* For make the entire tr "clickeable" */
   tr[data-mdl-href] {
       cursor: pointer;
@@ -226,7 +259,6 @@ html, body {
   font-size: 19px;
 }
 
-
 /* mdl-layout */
 
 .mdl-layout__drawer__header__user-photo {
@@ -236,4 +268,9 @@ html, body {
   width: 64px;
   height: 64px;
   border-radius: 50px;
+}
+
+/* mdl-selectfield */
+.mdl-selectfield {
+  font-size: 1em;
 }

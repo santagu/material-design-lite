@@ -13,3 +13,8 @@ $color-accent: $palette-blue-A200;
 $color-primary-contrast: $color-dark-contrast;
 // Our accent is dark, so use $color-dark-contrast for overlaid text.
 $color-accent-contrast: $color-dark-contrast;
+
+/* CHIP */
+$chip-bg-color: rgb(222, 222, 222) !default;
+$chip-height: 24px !default;
+$chip-font-size: 13px !default;

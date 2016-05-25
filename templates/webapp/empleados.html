@@ -47,9 +47,9 @@
             <!-- Top row, always visible -->
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title  mdl-cell--hide-tablet  mdl-cell--hide-phone">Empleados > Últimos consultados</span>
+                <span class="mdl-layout-title  mdl-cell--hide-tablet  mdl-cell--hide-phone">Empleados > Favoritos</span>
                 <!-- El texto en móvil suele ser diferente y más corto, por eso se separa -->
-                <span class="mdl-layout-title  mdl-cell--hide-desktop">Recientes</span>
+                <span class="mdl-layout-title  mdl-cell--hide-desktop">Favoritos</span>
                 <div class="mdl-layout-spacer"></div>
 
                 <div class="mdl-search-box">
@@ -115,7 +115,7 @@
                                 <div class="mdl-cell  mdl-cell--6-col">
                                     <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                                         <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad">
-                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Unidad</label>
+                                        <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
                                     </div>
                                 </div>
                                 <div class="mdl-cell  mdl-cell--6-col">
@@ -143,7 +143,7 @@
                     <li class="mdl-menu__item  mdl-menu__item--checked">Apellido 1</li>
                     <li class="mdl-menu__item">Apellido 2</li>
                     <li class="mdl-menu__item">Nombre</li>
-                    <li class="mdl-menu__item">Unidad</li>
+                    <li class="mdl-menu__item">Centro de trabajo</li>
                     <li class="mdl-menu__item">Provincia</li>
                 </ul>
                 <div class="mdl-tooltip" for="button-sort">
@@ -196,10 +196,10 @@
                     <i class="mdl-color-text--blue-grey-400 material-icons">group</i>
                     Empleados
                 </span>
-                <a class="mdl-navigation__link  mdl-navigation__link--sublink" href="">Últimos consultados</a>
+                <a class="mdl-navigation__link  mdl-navigation__link--sublink" href="">Favoritos</a>
                 <a class="mdl-navigation__link  mdl-navigation__link--sublink" href="">Todos</a>
                 <a class="mdl-navigation__link" href="">
-                    <i class="mdl-color-text--blue-grey-400 material-icons">domain</i> Oficinas
+                    <i class="mdl-color-text--blue-grey-400 material-icons">domain</i> Centros de trabajo
                 </a>
                 <a class="mdl-navigation__link" href="">
                     <i class="mdl-color-text--blue-grey-400 material-icons">assignment</i> Solicitudes
@@ -212,13 +212,28 @@
                 <div class="mdl-cell  mdl-cell--12-col  mdl-cell--hide-tablet  mdl-cell--hide-phone">
                     <table class="mdl-data-table  mdl-js-data-table  mdl-shadow--2dp  mdl-align-center ">
                         <thead>
-                            <tr>
+                            <tr class="mdl-data-table__head__title">
+                              <th colspan="8" class="mdl-data-table__head__title__row">
+                                <span class="mdl-data-table__head__title__row__text">Resultado de la búsqueda: </span>
+                                <span class="mdl-data-table__head__title__row__filters">
+                                  <span class="mdl-chip mdl-chip--deletable">
+                                      <span class="mdl-chip__text"><strong>pepi</strong> (nombre)</span>
+                                      <button class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+                                  </span>
+                                  <span class="mdl-chip mdl-chip--deletable">
+                                      <span class="mdl-chip__text"><strong>Sevilla</strong> (provincia)</span>
+                                      <button class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+                                  </span>
+                                </span>
+                              </th>
+                            </tr>
+                            <tr class="mdl-data-table__head__columns">
                                 <th class="mdl-data-table__cell--non-numeric">Foto</th>
                                 <th class="mdl-data-table__cell--non-numeric  mdl-data-table__header--sorted-ascending">Apellido 1</th>
                                 <th class="mdl-data-table__cell--non-numeric">Apellido 2</th>
                                 <th class="mdl-data-table__cell--non-numeric">Nombre</th>
                                 <th class="mdl-data-table__cell--non-numeric">Puesto</th>
-                                <th class="mdl-data-table__cell--non-numeric">Unidad</th>
+                                <th class="mdl-data-table__cell--non-numeric">Centro de trabajo</th>
                                 <th class="mdl-data-table__cell--non-numeric">Provincia</th>
                                 <th class="mdl-data-table__cell--non-numeric">Acciones</th>
                             </tr>
@@ -235,6 +250,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
                                 <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -266,6 +287,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
                                 <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -291,6 +318,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
                                 <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -316,6 +349,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
                                 <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -341,6 +380,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
                                 <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -366,6 +411,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
                                 <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -391,6 +442,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Servicios Centrales</td>
                                 <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -416,6 +473,12 @@
                                 <td class="mdl-data-table__cell--non-numeric">Oficina Parque Público</td>
                                 <td class="mdl-data-table__cell--non-numeric">Cádiz</td>
                                 <td class="mdl-data-table__cell--actions">
+                                  <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon">
+                                      <i class="material-icons">star</i>
+                                  </button>
+                                  <div class="mdl-tooltip" for="button-favorite-1">
+                                      Guardar como favorito
+                                  </div>
                                     <button class="mdl-button mdl-js-button mdl-button--icon">
                                         <i class="material-icons">mail</i>
                                     </button>
@@ -613,12 +676,21 @@
           <div class="mdl-tooltip" for="button-detail-edit">
               Editar datos de este empleado
           </div>
+          <button id="button-detail-delete" class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">delete</i>
+          </button>
+          <div class="mdl-tooltip" for="button-detail-delete">
+              Editar datos de este empleado
+          </div>
           <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon">
               <i class="material-icons">print</i>
           </button>
           <div class="mdl-tooltip" for="button-detail-print">
               Imprimir ficha de este empleado
           </div>
+          <button id="button-detail-close" class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">close</i>
+          </button>
         </div>
       </div>
       <div class="mdl-list-detail__content">
@@ -628,25 +700,47 @@
           </div>
           <div class="mdl-cell mdl-cell--9-col">
             <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--6-col">
+              <div class="mdl-cell mdl-cell--3-col">
                   <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                       <input class="mdl-textfield__input" type="text" id="employee-telefono" value="375478">
-                      <label class="mdl-textfield__label" for="employee-telefono">Teléfono interno</label>
+                      <label class="mdl-textfield__label" for="employee-telefono">Telef. interno</label>
                   </div>
               </div>
-              <div class="mdl-cell mdl-cell--6-col">
+              <div class="mdl-cell mdl-cell--3-col">
                 <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type="text" id="employee-telefono" value="955455478">
-                    <label class="mdl-textfield__label" for="employee-telefono">Teléfono externo</label>
+                    <label class="mdl-textfield__label" for="employee-telefono">Telef. externo</label>
+                </div>
+              </div>
+
+              <div class="mdl-cell mdl-cell--3-col">
+                <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="employee-telefono-movil" value="757665">
+                    <label class="mdl-textfield__label" for="employee-telefono-movil">Móvil interno</label>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--3-col">
+                <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="employee-telefono-movil" value="67757665">
+                    <label class="mdl-textfield__label" for="employee-telefono-movil">Móvil externo</label>
                 </div>
               </div>
             </div>
             <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--12-col">
+              <div class="mdl-cell mdl-cell--11-col">
                   <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                       <input class="mdl-textfield__input" type="email" id="searchbox__dropdown__puesto" value="pepito.flores.garcia@juntadeandalucia.es">
                       <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Email</label>
                   </div>
+              </div>
+              <div class="mdl-cell mdl-cell--1-col  mdl-cell--middle">
+                <button id="button-detail-email" class="mdl-button mdl-js-button mdl-button--icon  mdl-button--primary">
+                    <i class="material-icons">email</i>
+                </button>
+                <div class="mdl-tooltip" for="button-detail-email">
+                  Enviar correo electrónico a esta dirección
+                  <br> (abrirá su programa de correo)
+                </div>
               </div>
             </div>
           </div>
@@ -661,7 +755,7 @@
           <div class="mdl-cell mdl-cell--4-col">
               <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad" value="Informática">
-                <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Unidad</label>
+                <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
               </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
