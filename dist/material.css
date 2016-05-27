@@ -12317,12 +12317,12 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-chip.mdl-chip--contact {
     padding-left: 0; }
   .mdl-chip .mdl-chip__text {
-    font-size: 13px;
+    font-size: 12px;
     vertical-align: middle;
     display: inline-block; }
   .mdl-chip .mdl-chip__action {
-    height: 14px;
-    width: 14px;
+    height: 13px;
+    width: 13px;
     background: transparent;
     opacity: 0.54;
     display: inline-block;
@@ -12332,14 +12332,14 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     padding: 0;
     margin: 0;
     margin-left: 4px;
-    font-size: 14px;
+    font-size: 13px;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.87);
     border: none;
     outline: none;
     overflow: hidden; }
   .mdl-chip .mdl-chip__action .material-icons {
-    font-size: 14px; }
+    font-size: 13px; }
   .mdl-chip .mdl-chip__contact {
     height: 24px;
     width: 24px;

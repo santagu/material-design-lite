@@ -89,21 +89,24 @@ html, body {
   }
 
   .mdl-data-table th.mdl-data-table__head__title__row {
-    height: 32px;
+    padding-top: 20px;
+    padding-bottom: 22px;
     font-weight: normal;
     text-align: left;
     font-size: 20px;
     color: inherit;
   }
 
+
   .mdl-data-table__head__title__row__text  {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: text-bottom;
   }
 
   .mdl-data-table__head__title__row__filters  {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
+    padding-bottom: 6px;
   }
 
 /* For make the entire tr "clickeable" */
