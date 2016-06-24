@@ -15,14 +15,23 @@
   function initializeListDetailDialog() {
 
     var listDetailDialog = document.querySelector('#dialog-list-detail-1');
-    var showListDetailDialogButton =
-      document.querySelector('#show-dialog-list-detail-1');
+    /**
+     * Contiene un NodeList con todos los nodos DOM que, al pulsarse, abren
+     * el dialogo de detalle del listado
+     * @type {NodeList}
+     */
+    var showDetailDialogNodeList =
+      document.querySelectorAll('.mld-js-show-dialog-list-detail');
 
     if (!listDetailDialog.showModal) {
       dialogPolyfill.registerDialog(listDetailDialog);
     }
-    showListDetailDialogButton.addEventListener('click', function() {
-      listDetailDialog.showModal();
+
+    // Por cada nodo se añade evento para que al pulsar se abra el dialogo
+    forEachNode(showDetailDialogNodeList, function(index, value) {
+      value.addEventListener('click', function() {
+        listDetailDialog.showModal();
+      });
     });
   }
 
@@ -50,6 +59,21 @@
       loginDialog.close();
       userPassLoginDialog.showModal();
     });
+  }
+
+  /**
+   * Para recorrer un NodeList tal como se haría con un array y foreach
+   * https://css-tricks.com/snippets/javascript/loop-queryselectorall-matches
+   *
+   * @param  {NodeList} nodelist lista de nodos tal como lo
+   *                             devuelve document.querySelector()
+   * @param  {Function} callback función a ejercutar por cada nodo
+   * @param  {Object}   scope  (opcional) this que se utiliza para esta función
+   */
+  function forEachNode(nodelist, callback, scope) {
+    for (var i = 0; i < nodelist.length; i++) {
+      callback.call(scope, i, nodelist[i]); // passes back stuff we need
+    }
   }
 
   /* Códigos a ejercutar cuando se carga la página */
