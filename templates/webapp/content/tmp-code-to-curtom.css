@@ -188,34 +188,14 @@ html, body {
 
 /* mdl-menu */
 
-.mdl-menu__item.mdl-menu__item--checked::after {
-        font-family: 'Material Icons';
-        font-weight: bold;
-        font-style: normal;
-        font-size: 24px;
-        line-height: 1;
-        letter-spacing: normal;
-        text-transform: none;
-        display: inline-block;
-        word-wrap: normal;
-        font-feature-settings: 'liga';
-        -webkit-font-feature-settings: 'liga';
-        -webkit-font-smoothing: antialiased;
-        font-size: 20px;
-        content: "\e5ca";
-        margin-left: 5px;
-        vertical-align: sub;
-  }
-
-  .mdl-menu__item.mdl-menu__item--checked {
-      color: black;
-  }
-
-
   .mdl-textfield, .mdl-textfield__input {
     font-size: 1em;
   }
 
+  .mdl-menu .mdl-radio {
+    font-size: 1em;
+  }
+  
 /* mdl-dialog */
 .mdl-dialog {
   max-width: auto; /* Allow dialog be more long */

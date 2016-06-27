@@ -1,8 +1,7 @@
 
-/* cabecera transparente (no funciona del todo )*/
-.mdl-layout__header,
-.mdl-layout__header .mdl-layout__drawer-button {}
 
+
+/* cabecera transparente (no funciona del todo )*/
 .mdl-layout--transparent-header  .mdl-layout__header {
     position: relative;
     top: 0;
@@ -24,8 +23,6 @@
 .mdl-content-center {
   margin: 0 auto;
 }
-
-
 
 .mdl-list__item  .mdl-avatar {
     float: left;
