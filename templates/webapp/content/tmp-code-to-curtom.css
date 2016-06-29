@@ -192,10 +192,14 @@ html, body {
     font-size: 1em;
   }
 
+  /**
+   * corrige el fallo de que en el menu el label del radio sale con un
+   * tamaño de 16px, en vezde 14px
+   */
   .mdl-menu .mdl-radio {
     font-size: 1em;
   }
-  
+
 /* mdl-dialog */
 .mdl-dialog {
   max-width: auto; /* Allow dialog be more long */
@@ -236,11 +240,7 @@ html, body {
   background-color: #eeeeee;
 }
 
-/* mdl-searbox */
 
-.mdl-searchbox__advanced-search-dialog__title {
-  font-size: 19px;
-}
 
 /* mdl-layout */
 

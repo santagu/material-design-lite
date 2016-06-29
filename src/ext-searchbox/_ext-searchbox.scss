@@ -1,7 +1,10 @@
 @import "../variables";
 @import "../mixins";
 
-.mdl-search-box {
+/**
+ * Extended searchbox component
+ */
+.mdle-searchbox {
     position: relative;
     margin-right: 1em;
     margin-left: 1em;
@@ -9,13 +12,13 @@
     border-radius: 4px;
 }
 
-    .mdl-search-box__search-button {
+    .mdle-searchbox__search-button {
         border-radius: 0;
         padding-right: 1em;
         padding-left: 1em;
     }
 
-    .mdl-search-box__input {
+    .mdle-searchbox__input {
         width: 259px;
         background: rgba(0, 0, 0, 0);
         border: none;
@@ -25,66 +28,66 @@
     }
 
       /* Placeholder color (if not set it shown as grey) */
-      .mdl-search-box__input::-webkit-input-placeholder {
+      .mdle-searchbox__input::-webkit-input-placeholder {
          color: $color-primary-contrast;
       }
 
-      .mdl-search-box__input:-moz-placeholder {
+      .mdle-searchbox__input:-moz-placeholder {
          color: $color-primary-contrast;
       }
 
-      .mdl-search-box__input::-moz-placeholder {
+      .mdle-searchbox__input::-moz-placeholder {
          color: $color-primary-contrast;
       }
 
-      .mdl-search-box__input:-ms-input-placeholder {
+      .mdle-searchbox__input:-ms-input-placeholder {
          color: $color-primary-contrast;
       }
 
-    .mdl-search-box__advanced-search-button {
+    .mdle-searchbox__advanced-search-button {
         position: relative;
         padding-right: 0;
         padding-right: 0;
         border-radius: 0px;
     }
 
-    .mdl-search-box__advanced-search-dialog {
+    .mdle-searchbox__advanced-search-dialog {
         padding-left: 0;
         padding-right: 0;
         color: rgba(0, 0, 0, 0.84);
     }
 
-      .mdl-searchbox__advanced-search-dialog__title {
+      .mdle-searchbox__advanced-search-dialog__title {
           height: 48px;
           line-height: 48px;
           padding-left: 1em;
           padding-right: 1em;
           color: rgba(0, 0, 0, 0.84);
-          font-size: 1.2em;
+          font-size: 18px;
           font-weight: bold;
       }
 
-      .mdl-searchbox__advanced-search-dialog__content {
+      .mdle-searchbox__advanced-search-dialog__content {
           padding-right: 0.5em;
           padding-left: 0.5em;
       }
 
-      .mdl-searchbox__advanced-search-dialog__buttons {
+      .mdle-searchbox__advanced-search-dialog__buttons {
           padding-top: 1em;
           padding-right: 0.5em;
           padding-bottom: 0;
           text-align: right;
       }
 
-        .mdl-searchbox__advanced-search-dialog__buttons .mdl-button {
+        .mdle-searchbox__advanced-search-dialog__buttons .mdl-button {
             vertical-align: text-bottom;
         }
 
-    .mdl-searchbox__advanced-search-dialog__content  .mdl-textfield__input,
-    .mdl-searchbox__advanced-search-dialog__content  .mdl-textfield__label,
-    .mdl-searchbox__advanced-search-dialog__content  .mdl-selectfield,
-    .mdl-searchbox__advanced-search-dialog__content  .mdl-selectfield__menu,
-    .mdl-searchbox__advanced-search-dialog__content  .mdl-selectfield__label
+    .mdle-searchbox__advanced-search-dialog__content  .mdl-textfield__input,
+    .mdle-searchbox__advanced-search-dialog__content  .mdl-textfield__label,
+    .mdle-searchbox__advanced-search-dialog__content  .mdl-selectfield,
+    .mdle-searchbox__advanced-search-dialog__content  .mdl-selectfield__menu,
+    .mdle-searchbox__advanced-search-dialog__content  .mdl-selectfield__label
     {
         font-size: 14px;
     }
