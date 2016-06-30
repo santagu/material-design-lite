@@ -54,21 +54,88 @@
 
         <div class="mdl-layout-spacer"></div>
 
-        <div class="mdle-searchbox">
-          <button id="searchbox__search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdle-button--searchbox__search">
+        <div class="mdle-searchbox  mdle-js-searchbox">
+          <button id="searchbox__simple-search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdle-button--searchbox__simple-search">
             <i class="material-icons">search</i>
           </button>
-          <div class="mdl-tooltip" for="searchbox__simple-search-button">
-            Buscar el texto introducido
-          </div>
           <input class="mdle-searchbox__input" type="text" placeholder="Buscar en empleados">
-        </div>
+          <button id="searchbox__advanced-search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdle-button--searchbox__advanced-search">
+            <i class="material-icons">arrow_drop_down</i>
+          </button>
+          <div class="mdl-tooltip" for="searchbox__advanced-search-button">
+            Búsqueda avanzada con más opciones
+          </div>
+          <!-- <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu  mdle-searchbox__advanced-search-dialog" data-mdl-for="searchbox__advanced-search-button"> -->
+          <div class="mdle-searchbox__advanced-search-dialog" data-mdl-for="searchbox__advanced-search-button">
+            <div class="mdle-searchbox__advanced-search-dialog__title" data-mdl-disabled>Buscar con más opciones</div>
+            <div class="mdle-searchbox__advanced-search-dialog__content">
+              <div class="mdl-grid">
+                <div class="mdl-cell  mdl-cell--6-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-apellido2">
+                    <label class="mdl-textfield__label" for="searchbox__dropdown__input-apellido2">Apellido 2</label>
+                  </div>
+                </div>
+                <div class="mdl-cell  mdl-cell--6-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-apellido1">
+                    <label class="mdl-textfield__label" for="searchbox__dropdown__input-apellido1">Apellido 1</label>
+                  </div>
+                </div>
+              </div>
+              <div class="mdl-grid">
+                <div class="mdl-cell  mdl-cell--6-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-nombre">
+                    <label class="mdl-textfield__label" for="searchbox__dropdown__input-nombre">Nombre</label>
+                  </div>
+                </div>
+                <div class="mdl-cell  mdl-cell--6-col">
+                  <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+                    <div class="mdl-selectfield__label">Provincia</div>
+                    <!-- /.mdl-selectfield__label -->
+                    <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select">
+                      <option></option>
+                      <option value="1">Almería</option>
+                      <option value="2">Cádiz</option>
+                      <option value="3">Córdoba</option>
+                      <option value="4">Granada</option>
+                      <option value="5">Huelva</option>
+                      <option value="6">Jaén</option>
+                      <option value="7">Málaga</option>
+                      <option value="8">Sevilla</option>
+                    </select>
+                    <div class="mdl-selectfield__error"></div>
+                    <!-- /.mdl-selectfield__error -->
+                  </div>
+                  <!-- /.mdl-selectfield -->
 
-        <button id="searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon">
-          <i class="material-icons">filter_list</i>
-        </button>
-        <div class="mdl-tooltip" for="searchbox__advanced-search-button">
-          Búsqueda avanzada con más opciones
+                </div>
+              </div>
+              <div class="mdl-grid">
+                <div class="mdl-cell  mdl-cell--6-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad">
+                    <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
+                  </div>
+                </div>
+                <div class="mdl-cell  mdl-cell--6-col">
+                  <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto">
+                    <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mdle-searchbox__advanced-search-dialog__buttons">
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+                Reestablecer
+              </button>
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+                Buscar
+              </button>
+            </div>
+          </div>
         </div>
         <button id="button-sort" class="mdl-button mdl-js-button mdl-button--icon">
           <i class="material-icons">sort_by_alpha</i>
@@ -125,7 +192,7 @@
           <li class="mdl-menu__item">Acerca de</li>
         </ul>
         <div class="mdl-tooltip" for="header__button-more-options">
-          Más acciones
+          Más opciones sobre este listado
         </div>
 
       </div>
@@ -567,80 +634,6 @@
     </main>
   </div>
 
-  <!-- Dialog para búsqueda avanzada -->
-  <dialog class="mdl-dialog" id="advanced-search-dialog">
-    <div class="mdl-dialog__title">
-      Introduzca criterios de búsqueda
-    </div>
-    <div class="mdl-dialog__content">
-      <div class="mdl-grid">
-        <div class="mdl-cell  mdl-cell--6-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-apellido2">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-apellido2">Apellido 2</label>
-          </div>
-        </div>
-        <div class="mdl-cell  mdl-cell--6-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-apellido1">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-apellido1">Apellido 1</label>
-          </div>
-        </div>
-      </div>
-      <div class="mdl-grid">
-        <div class="mdl-cell  mdl-cell--6-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-nombre">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-nombre">Nombre</label>
-          </div>
-        </div>
-        <div class="mdl-cell  mdl-cell--6-col">
-          <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
-            <div class="mdl-selectfield__label">Provincia</div>
-            <!-- /.mdl-selectfield__label -->
-            <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select">
-              <option></option>
-              <option value="1">Almería</option>
-              <option value="2">Cádiz</option>
-              <option value="3">Córdoba</option>
-              <option value="4">Granada</option>
-              <option value="5">Huelva</option>
-              <option value="6">Jaén</option>
-              <option value="7">Málaga</option>
-              <option value="8">Sevilla</option>
-            </select>
-            <div class="mdl-selectfield__error"></div>
-            <!-- /.mdl-selectfield__error -->
-          </div>
-          <!-- /.mdl-selectfield -->
-
-        </div>
-      </div>
-      <div class="mdl-grid">
-        <div class="mdl-cell  mdl-cell--6-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
-          </div>
-        </div>
-        <div class="mdl-cell  mdl-cell--6-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mdl-dialog__actions">
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
-        Reestablecer
-      </button>
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
-        Buscar
-      </button>
-    </div>
-  </dialog>
-
   <!-- Dialog para mostrar parntalla de autenticacion -->
   <dialog class="mdl-dialog" id="dialog-login">
     <div class="mdl-dialog__title">
@@ -676,7 +669,7 @@
     </div>
   </dialog>
 
-  <!-- Dialog para mostrar pantalla de autenticacion con usuario y clave -->
+  <!-- Dialog para mostrar parntalla de autenticacion con usuario y clave -->
   <dialog class="mdl-dialog" id="dialog-login-user-pass">
     <div class="mdl-dialog__title">
       Identifíquese con usuario y clave

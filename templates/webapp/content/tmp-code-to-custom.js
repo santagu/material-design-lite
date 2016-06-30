@@ -2,10 +2,57 @@
   'use strict';
 
   /* Códigos a ejecutar cuando se carga la página */
+  initializeAdvancedSearchDialog();
   initializeListDetailDialog();
   initializeLoginDialog();
 
-  /************************ Funciones *************************************/
+  /**************** Funciones (en orden alfabético) **************************/
+
+  /**
+   * Registra en el evento click de un elemento que se abra un determinado
+   * diálogo.
+   *
+   * @param  {String} dialogId id del dialog que se abrirá al hacer click en el
+   *                           elemento
+   * @param  {String} clickeableElementsQuerySelector cadena de selección de
+   *                                                  elementos que cuando se
+   *                                                  pulsen abren el dialogo
+   */
+  function addShowDialogActionOnClickListener(dialogId,
+    clickeableElementsQuerySelector) {
+
+    var dialogToShow = document.querySelector(dialogId);
+    /**
+     * contiene un NodeList con todos los nodos DOM que, al pulsarse, abren
+     * el dialogo de detalle del listado
+     * @type {NodeList}
+     */
+    var clickebleElementsNodeList =
+      document.querySelectorAll(clickeableElementsQuerySelector);
+
+    // Registramos el polyfill por si el navegador no soporta elemento dialog
+    if (!dialogToShow.showModal) {
+      dialogPolyfill.registerDialog(dialogToShow);
+    }
+
+    // Por cada nodo se añade evento para que al pulsar se abra el dialogo
+    forEachNode(clickebleElementsNodeList, function(index, value) {
+      value.addEventListener('click', function() {
+        dialogToShow.showModal();
+      });
+    });
+  }
+
+  /**
+   * Ejecuta todo el js necesario para que funcione el diálogo de búsqueda
+   * avanzada cuando se pulsa sobre el icono de la barra de herramientas
+   * o la ayuda de la búsqueda
+   */
+  function initializeAdvancedSearchDialog() {
+
+    addShowDialogActionOnClickListener(
+      '#advanced-search-dialog', '#searchbox__advanced-search-button');
+  }
 
   /**
    * Ejecuta todo el javascrit necesario para que funcione correctamente
@@ -14,25 +61,8 @@
    */
   function initializeListDetailDialog() {
 
-    var listDetailDialog = document.querySelector('#dialog-list-detail-1');
-    /**
-     * Contiene un NodeList con todos los nodos DOM que, al pulsarse, abren
-     * el dialogo de detalle del listado
-     * @type {NodeList}
-     */
-    var showDetailDialogNodeList =
-      document.querySelectorAll('.mld-js-show-dialog-list-detail');
-
-    if (!listDetailDialog.showModal) {
-      dialogPolyfill.registerDialog(listDetailDialog);
-    }
-
-    // Por cada nodo se añade evento para que al pulsar se abra el dialogo
-    forEachNode(showDetailDialogNodeList, function(index, value) {
-      value.addEventListener('click', function() {
-        listDetailDialog.showModal();
-      });
-    });
+    addShowDialogActionOnClickListener(
+      '#dialog-list-detail-1', '.mld-js-show-dialog-list-detail');
   }
 
   /**
@@ -40,25 +70,11 @@
    * se pulsa sobre el menú del usuario en desconectar o cambiar de usuario
    */
   function initializeLoginDialog() {
-    var loginDialog = document.querySelector('#dialog-login');
-    var showLoginDialogButton = document.querySelector('#show-login-dialog');
-    if (!loginDialog.showModal) {
-      dialogPolyfill.registerDialog(loginDialog);
-    }
-    showLoginDialogButton.addEventListener('click', function() {
-      loginDialog.showModal();
-    });
 
-    var userPassLoginDialog = document.querySelector('#dialog-login-user-pass');
-    var showuserPassLoginDialogButton =
-      document.querySelector('#show-user-pass-login-dialog');
-    if (!userPassLoginDialog.showModal) {
-      dialogPolyfill.registerDialog(userPassLoginDialog);
-    }
-    showuserPassLoginDialogButton.addEventListener('click', function() {
-      loginDialog.close();
-      userPassLoginDialog.showModal();
-    });
+    addShowDialogActionOnClickListener(
+      '#dialog-login', '#show-login-dialog');
+    addShowDialogActionOnClickListener(
+      '#dialog-login-user-pass', '#show-user-pass-login-dialog');
   }
 
   /**

@@ -22,6 +22,10 @@
  * limitations under the License.
  */
 /* Material Design Lite */
+/**
+ * Extended framework: variables
+ * Variables que se añaden al framewrok original
+ */
 /*------------------------------------*    $CUSTOMIZED COLORS
 \*------------------------------------*/
 /**
@@ -11923,7 +11927,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px; }
 
-.mdle-searchbox__search-button {
+.mdle-button--searchbox__search {
   border-radius: 0;
   padding-right: 1em;
   padding-left: 1em; }
@@ -11948,46 +11952,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 
 .mdle-searchbox__input:-ms-input-placeholder {
   color: white; }
-
-.mdle-searchbox__advanced-search-button {
-  position: relative;
-  padding-right: 0;
-  padding-right: 0;
-  border-radius: 0px; }
-
-.mdle-searchbox__advanced-search-dialog {
-  padding-left: 0;
-  padding-right: 0;
-  color: rgba(0, 0, 0, 0.84); }
-
-.mdle-searchbox__advanced-search-dialog__title {
-  height: 48px;
-  line-height: 48px;
-  padding-left: 1em;
-  padding-right: 1em;
-  color: rgba(0, 0, 0, 0.84);
-  font-size: 18px;
-  font-weight: bold; }
-
-.mdle-searchbox__advanced-search-dialog__content {
-  padding-right: 0.5em;
-  padding-left: 0.5em; }
-
-.mdle-searchbox__advanced-search-dialog__buttons {
-  padding-top: 1em;
-  padding-right: 0.5em;
-  padding-bottom: 0;
-  text-align: right; }
-
-.mdle-searchbox__advanced-search-dialog__buttons .mdl-button {
-  vertical-align: text-bottom; }
-
-.mdle-searchbox__advanced-search-dialog__content .mdl-textfield__input,
-.mdle-searchbox__advanced-search-dialog__content .mdl-textfield__label,
-.mdle-searchbox__advanced-search-dialog__content .mdl-selectfield,
-.mdle-searchbox__advanced-search-dialog__content .mdl-selectfield__menu,
-.mdle-searchbox__advanced-search-dialog__content .mdl-selectfield__label {
-  font-size: 14px; }
 
 /**
  * WARNING: THis code is stil not PR ready.
