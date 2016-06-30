@@ -8,7 +8,6 @@
               url('./images/toolbar-header-background.jpg') repeat-x;
 }
 
-
 .app-list-detail--employee {
   width:600px;
 }
@@ -204,6 +203,13 @@ html, body {
 .mdl-dialog {
   max-width: auto; /* Allow dialog be more long */
 }
+
+/* poner en scss @media (min-width: $grid-tablet-breakpoint) { */
+.mdl-dialog--medium {
+  min-width: 25em;
+}
+
+
   .mdl-dialog__title {
     padding: 10px; /*14px is in dialog polyfill */
     font-size: 20px;

@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="../../dist/material.css">
   <link rel="stylesheet" href="./content/tmp-code-to-curtom.css">
-  <!-- <link rel="stylesheet" href="./content/material-design-lite-old/material-custom.css"> -->
+
   <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
   <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.css">
 </head>
@@ -54,7 +54,7 @@
 
         <div class="mdl-layout-spacer"></div>
 
-        <div class="mdle-searchbox">
+        <div class="mdle-searchbox  mdl-cell--hide-phone"> <!-- TODO: temporal se esconde en movil, arreglar para que sea autom -->
           <button id="searchbox__search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdle-button--searchbox__search">
             <i class="material-icons">search</i>
           </button>
@@ -568,7 +568,7 @@
   </div>
 
   <!-- Dialog para búsqueda avanzada -->
-  <dialog class="mdl-dialog" id="advanced-search-dialog">
+  <dialog class="mdl-dialog  mdl-dialog--medium" id="advanced-search-dialog">
     <div class="mdl-dialog__title">
       Introduzca criterios de búsqueda
     </div>
