@@ -24,7 +24,7 @@
 /* Material Design Lite */
 /**
  * Extended framework: variables
- * Variables que se añaden al framewrok original
+ * Variables que se añaden al framework original
  */
 /*------------------------------------*    $CUSTOMIZED COLORS
 \*------------------------------------*/
@@ -67,7 +67,10 @@
  * This is used for generating invalid CSS with placeholders for colors that can
  * then be customized into valid CSS without using Sass.
  */
-/* CHIP */
+/**
+ * Adaptación del componente de chip a nuestras necesidades, ya que lo
+ * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
+ */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

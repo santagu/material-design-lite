@@ -1,6 +1,6 @@
 /**
  * Extended framework: variables
- * Variables que se añaden al framewrok original
+ * Variables que se añaden al framework original
  */
 
 /*------------------------------------*\
@@ -19,7 +19,10 @@ $color-primary-contrast: $color-dark-contrast;
 // Our accent is dark, so use $color-dark-contrast for overlaid text.
 $color-accent-contrast: $color-dark-contrast;
 
-/* CHIP */
+/**
+ * Adaptación del componente de chip a nuestras necesidades, ya que lo
+ * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
+ */
 $chip-bg-color: rgb(222, 222, 222) !default;
 $chip-height: 24px !default;
 $chip-font-size: 12px !default;
