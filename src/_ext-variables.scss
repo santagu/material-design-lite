@@ -20,6 +20,12 @@ $color-primary-contrast: $color-dark-contrast;
 $color-accent-contrast: $color-dark-contrast;
 
 /**
+ * mdl intenta optimizar las fuentes pero nos interesa mejor que 
+ * quede todo "superbonito"
+ */
+$performance_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+/**
  * Adaptación del componente de chip a nuestras necesidades, ya que lo
  * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
  */

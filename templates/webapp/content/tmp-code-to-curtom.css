@@ -20,11 +20,11 @@
 /** mdl customized (common)*/
 
 /** elements */
-html, body {
+/* html, body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   background-color: rgb(242, 242, 242);
 }
-
+ */
 /* list detail (to appply in dialog or in a page */
 .mdl-list-detail {
   padding: 0;

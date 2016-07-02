@@ -46,6 +46,10 @@
  * limitations under the License.
  */
 /* Material Design Lite */
+/**
+ * Extended framework: variables
+ * Variables que se añaden al framework original
+ */
 /*------------------------------------*    $CUSTOMIZED COLORS
 \*------------------------------------*/
 /**
@@ -86,6 +90,14 @@
  *
  * This is used for generating invalid CSS with placeholders for colors that can
  * then be customized into valid CSS without using Sass.
+ */
+/**
+ * mdl intenta optimizar las fuentes pero nos interesa mejor que 
+ * quede todo "superbonito"
+ */
+/**
+ * Adaptación del componente de chip a nuestras necesidades, ya que lo
+ * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
  */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -598,6 +610,12 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */ }
+
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */ }
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -897,7 +915,7 @@ main {
 /* Animations */
 /* Dialog */
 html, body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
@@ -10207,7 +10225,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   display: block;
   font-size: 16px;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   margin: 0;
   padding: 4px 0;
   width: 100%;
@@ -10312,619 +10330,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     max-width: 600px; }
   .mdl-textfield__expandable-holder .mdl-textfield__label:after {
     bottom: 0; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*------------------------------------*    $CONTENTS
-\*------------------------------------*/
-/**
- * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
- * -----Typography
- * -----Colors
- * -----Textfield
- * -----Switch
- * -----Spinner
- * -----Radio
- * -----Menu
- * -----List
- * -----Layout
- * -----Icon toggles
- * -----Footer
- * -----Column
- * -----Checkbox
- * -----Card
- * -----Button
- * -----Animation
- * -----Progress
- * -----Badge
- * -----Shadows
- * -----Grid
- * -----Data table
- * -----Dialog
- * -----Snackbar
- *
- * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
- * visual distortions (like alignment issues) that are hard to track down
- * and fix.
- */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * If passed a color, behaves just like the built-in `rgba`.
- * Otherwise, generates an `rgba` literal.
- *
- * This is used for generating invalid CSS with placeholders for colors that can
- * then be customized into valid CSS without using Sass.
- */
-/* ==========  IMAGES  ========== */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* ==========  Date picker ========= */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* LAYOUT */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/*mini-footer*/
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-/* BADGE */
-/* SHADOWS */
-/* GRID */
-/* DATA TABLE */
-/* DIALOG */
-/* SNACKBAR */
-/* TOOLTIP */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* Typography */
-/* Shadows */
-/* Animations */
-/* Dialog */
-.mdl-search-box {
-  position: relative;
-  margin-right: 1em;
-  margin-left: 1em;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 4px; }
-
-.mdl-search-box__search-button {
-  border-radius: 0;
-  padding-right: 1em;
-  padding-left: 1em; }
-
-.mdl-search-box__input {
-  width: 259px;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: inherit;
-  font-size: inherit; }
-
-/* Placeholder color (if not set it shown as grey) */
-.mdl-search-box__input::-webkit-input-placeholder {
-  color: #primcontrast; }
-
-.mdl-search-box__input:-moz-placeholder {
-  color: #primcontrast; }
-
-.mdl-search-box__input::-moz-placeholder {
-  color: #primcontrast; }
-
-.mdl-search-box__input:-ms-input-placeholder {
-  color: #primcontrast; }
-
-.mdl-search-box__advanced-search-button {
-  position: relative;
-  padding-right: 0;
-  padding-right: 0;
-  border-radius: 0px; }
-
-.mdl-search-box__advanced-search-dialog {
-  padding-left: 0;
-  padding-right: 0;
-  color: rgba(0, 0, 0, 0.84); }
-
-.mdl-searchbox__advanced-search-dialog__title {
-  height: 48px;
-  line-height: 48px;
-  padding-left: 1em;
-  padding-right: 1em;
-  color: rgba(0, 0, 0, 0.84);
-  font-size: 1.2em;
-  font-weight: bold; }
-
-.mdl-searchbox__advanced-search-dialog__content {
-  padding-right: 0.5em;
-  padding-left: 0.5em; }
-
-.mdl-searchbox__advanced-search-dialog__buttons {
-  padding-top: 1em;
-  padding-right: 0.5em;
-  padding-bottom: 0;
-  text-align: right; }
-
-.mdl-searchbox__advanced-search-dialog__buttons .mdl-button {
-  vertical-align: text-bottom; }
-
-.mdl-searchbox__advanced-search-dialog__content .mdl-textfield__input,
-.mdl-searchbox__advanced-search-dialog__content .mdl-textfield__label,
-.mdl-searchbox__advanced-search-dialog__content .mdl-selectfield,
-.mdl-searchbox__advanced-search-dialog__content .mdl-selectfield__menu,
-.mdl-searchbox__advanced-search-dialog__content .mdl-selectfield__label {
-  font-size: 14px; }
-
-/**
- * WARNING: THis code is stil not PR ready.
- * Most of the values need to be extractd into variables.
- */
-.mdl-selectfield {
-  position: relative;
-  font-size: 16px;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 300px;
-  max-width: 100%;
-  outline: 0;
-  margin: 0;
-  padding: 20px 0; }
-  .mdl-selectfield__select {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    display: none;
-    height: 1px;
-    line-height: 0px;
-    margin: 0;
-    opacity: 0;
-    padding: 0;
-    pointer-events: none;
-    position: absolute;
-    width: 1px; }
-  .mdl-selectfield__selected-option {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    cursor: pointer;
-    height: 16px;
-    line-height: 16px;
-    padding: 4px 0;
-    padding-right: 25px;
-    position: relative; }
-    .mdl-selectfield__selected-option-title {
-      box-sizing: border-box;
-      display: inline-block;
-      height: 16px;
-      margin-right: 24px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 100%; }
-    .mdl-selectfield__selected-option:after {
-      border-bottom: 2px solid #primary;
-      content: '';
-      display: block;
-      height: 20px;
-      line-height: 20px;
-      margin: 0 auto;
-      position: absolute;
-      top: 4px;
-      left: 0;
-      right: 0;
-      transition: width .5s;
-      transition-duration: .2s;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      width: 0; }
-    .mdl-selectfield__selected-option .material-icons {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 24px; }
-  .mdl-selectfield.is-invalid .mdl-selectfield__selected-option {
-    border-bottom: 1px solid #d50000; }
-  .mdl-selectfield__menu {
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    font-size: 16px;
-    margin: 0 -16px;
-    max-height: 240px;
-    min-width: 128px;
-    opacity: 0;
-    padding: 8px 16px;
-    top: 0;
-    overflow: auto;
-    position: absolute;
-    width: 100%;
-    transition: opacity .25s;
-    z-index: 9999; }
-  .mdl-selectfield.is-opened .mdl-selectfield__menu {
-    opacity: 1; }
-  .mdl-selectfield__menu-item {
-    box-sizing: border-box;
-    cursor: pointer;
-    height: 48px;
-    line-height: 48px;
-    margin: 0 -16px;
-    padding: 0 16px;
-    position: relative; }
-    .mdl-selectfield__menu-item.is-selected {
-      background-color: #eeeeee;
-      color: #primary; }
-      .mdl-selectfield__menu-item.is-selected .mdl-selectfield__menu-item-icon-checked {
-        color: #primary;
-        display: block; }
-      .mdl-selectfield__menu-item.is-selected .mdl-selectfield__menu-item-icon-unchecked {
-        display: none; }
-    .mdl-selectfield__menu-item.is-active {
-      color: #accent; }
-  .mdl-selectfield__label {
-    bottom: 0;
-    color: rgba(0, 0, 0, 0.26);
-    font-size: 16px;
-    line-height: 16px;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-    position: absolute;
-    display: block;
-    top: 24px;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: left;
-    transition-duration: .2s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-  .mdl-selectfield__error {
-    color: #d50000;
-    display: block;
-    font-size: 12px;
-    position: absolute;
-    top: 48px;
-    visibility: hidden; }
-  .mdl-selectfield.is-focused .mdl-selectfield__label, .mdl-selectfield.is-dirty .mdl-selectfield__label {
-    color: #3f51b5;
-    font-size: 12px;
-    top: 4px;
-    visibility: visible; }
-  .mdl-selectfield.is-invalid .mdl-selectfield__error {
-    visibility: visible; }
-  .mdl-selectfield.is-focused .mdl-selectfield__selected-option:after {
-    width: 100%; }
-  .mdl-selectfield.is-focused .mdl-selectfield__error {
-    visibility: hidden; }
-  .mdl-selectfield.is-disabled .mdl-selectfield__label,
-  .mdl-selectfield.is-disabled .mdl-selectfield__selected-option {
-    cursor: default;
-    color: rgba(0, 0, 0, 0.26) !important; }
-
-/**
- * Coded customized for selecfield
- */
-.mdl-selectfield.is-focused .mdl-selectfield__label, .mdl-selectfield.is-dirty .mdl-selectfield__label {
-  color: #primary;
-  /* in order to label take the color defined in
-                                variables.sscs, as input text field */ }
-
-.mdl-datepicker--landscape .mdl-datepicker__widget {
-  width: 440px; }
-
-.mdl-datepicker--landscape .mdl-datepicker__header {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 160px; }
-
-.mdl-datepicker--landscape .mdl-datepicker__calendar {
-  margin-left: 160px; }
-
-.mdl-datepicker__backdrop {
-  background: rgba(0, 0, 0, 0.4);
-  bottom: 0;
-  left: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 5; }
-
-.mdl-datepicker__widget {
-  background-color: white;
-  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.25), 0 10px 18px rgba(0, 0, 0, 0.22);
-  box-sizing: border-box;
-  color: #212121;
-  display: none;
-  font-size: 16px;
-  height: auto;
-  left: 0;
-  margin: 10px auto 45px 0;
-  position: absolute;
-  right: 0;
-  width: 280px;
-  z-index: 9999; }
-  @media (max-width: 839px) and (orientation: landscape) {
-    .mdl-datepicker__widget {
-      width: 440px; } }
-  .mdl-datepicker__widget.is-visible {
-    display: block; }
-    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__week-days,
-    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__navigation,
-    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__month {
-      display: none; }
-    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__header-year {
-      color: white; }
-    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__header-date {
-      color: rgba(255, 255, 255, 0.6); }
-    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__year-picker {
-      display: block; }
-  .mdl-datepicker__widget.is-fixed {
-    display: block;
-    margin: auto;
-    margin-top: 10px;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    -webkit-transform: translate(0, -100%);
-            transform: translate(0, -100%);
-    transition: opacity .3s linear, -webkit-transform .3s linear;
-    transition: transform .3s linear, opacity .3s linear;
-    transition: transform .3s linear, opacity .3s linear, -webkit-transform .3s linear;
-    will-change: transform;
-    z-index: 6; }
-    .mdl-datepicker__widget.is-fixed.is-visible {
-      opacity: 1;
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0); }
-
-.mdl-datepicker--inline {
-  display: inline-block; }
-  .mdl-datepicker--inline .mdl-datepicker__widget {
-    position: relative;
-    z-index: auto; }
-
-.mdl-datepicker__input {
-  outline: none; }
-
-.mdl-datepicker__header {
-  background-color: #accent;
-  box-sizing: border-box;
-  line-height: initial;
-  padding: 20px; }
-  @media (max-width: 839px) and (orientation: landscape) {
-    .mdl-datepicker__header {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 160px; } }
-  .mdl-datepicker__header-year {
-    color: rgba(255, 255, 255, 0.6);
-    cursor: pointer;
-    margin-bottom: 10px; }
-  .mdl-datepicker__header-date {
-    color: white;
-    cursor: pointer;
-    font-size: 36px;
-    line-height: 36px; }
-
-.mdl-datepicker__calendar {
-  background-color: white;
-  box-sizing: border-box;
-  padding: 14px;
-  padding-bottom: 0; }
-  @media (max-width: 839px) and (orientation: landscape) {
-    .mdl-datepicker__calendar {
-      margin-left: 160px; } }
-
-.mdl-datepicker__navigation {
-  box-sizing: border-box;
-  font-size: 14px;
-  height: 32px;
-  line-height: 32px;
-  text-align: center; }
-
-.mdl-datepicker__month .mdl-datepicker__date:active, .mdl-datepicker__month .mdl-datepicker__date:focus, .mdl-datepicker__month .mdl-datepicker__date:hover, .mdl-datepicker__month .mdl-datepicker__date.is-selected {
-  background-color: #accent;
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  outline: none; }
-
-.mdl-datepicker__previous-month {
-  float: left; }
-
-.mdl-datepicker__current-month {
-  display: inline-block;
-  font-weight: 600;
-  line-height: 32px; }
-
-.mdl-datepicker__next-month {
-  float: right; }
-
-.mdl-datepicker__week-days .mdl-datepicker__date {
-  color: #9e9e9e; }
-
-.mdl-datepicker__week {
-  clear: both;
-  margin: 2px 0;
-  overflow: hidden; }
-
-.mdl-datepicker__date {
-  background-color: transparent;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  float: left;
-  font-size: 12px;
-  height: 36px;
-  line-height: 34px;
-  outline: none;
-  text-align: center;
-  vertical-align: middle;
-  width: 36px;
-  transition: background-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; }
-  .mdl-datepicker__date.is-today {
-    color: #accent;
-    font-weight: 600; }
-  .mdl-datepicker__date.is-empty {
-    cursor: default !important;
-    background-color: transparent !important; }
-    .mdl-datepicker__date.is-empty:hover {
-      cursor: default !important;
-      background-color: transparent !important; }
-  .mdl-datepicker__date.is-disabled {
-    color: #bdbdbd;
-    cursor: default !important;
-    background-color: transparent !important; }
-    .mdl-datepicker__date.is-disabled:active, .mdl-datepicker__date.is-disabled:focus, .mdl-datepicker__date.is-disabled:hover {
-      color: #bdbdbd !important;
-      cursor: default !important;
-      background-color: transparent !important; }
-
-.mdl-datepicker__year-picker {
-  display: none;
-  height: 235px;
-  overflow: auto;
-  position: relative; }
-
-.mdl-datepicker__year {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: block;
-  font-size: 16px;
-  height: 32px;
-  line-height: 32px;
-  outline: none;
-  position: relative;
-  text-align: center;
-  width: 100%; }
-  .mdl-datepicker__year.is-selected {
-    color: #accent;
-    font-size: 24px;
-    height: 40px;
-    line-height: 40px; }
-  .mdl-datepicker__year.is-disabled, .mdl-datepicker__year.is-disabled:active, .mdl-datepicker__year.is-disabled:focus {
-    cursor: default;
-    color: #bdbdbd; }
-
-.mdl-datepicker__actions {
-  margin: 0 -14px;
-  padding: 8px;
-  text-align: right; }
-
-.mdl-datepicker .mdl-button {
-  bottom: auto;
-  position: relative; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -12165,6 +11570,788 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-grid.mdl-grid--no-spacing > .mdl-cell--11-offset, .mdl-grid.mdl-grid--no-spacing >
     .mdl-cell--11-offset-desktop.mdl-cell--11-offset-desktop {
       margin-left: 91.6666666667%; } }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* ==========  Date picker ========= */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+.mdl-chip {
+  height: 24px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 24px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background-color: #dedede;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 2px 0;
+  font-size: 0; }
+  .mdl-chip.mdl-chip--deletable {
+    padding-right: 4px; }
+  .mdl-chip.mdl-chip--contact {
+    padding-left: 0; }
+  .mdl-chip .mdl-chip__text {
+    font-size: 12px;
+    vertical-align: middle;
+    display: inline-block; }
+  .mdl-chip .mdl-chip__action {
+    height: 13px;
+    width: 13px;
+    background: transparent;
+    opacity: 0.54;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    margin-left: 4px;
+    font-size: 13px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    border: none;
+    outline: none;
+    overflow: hidden; }
+  .mdl-chip .mdl-chip__action .material-icons {
+    font-size: 13px; }
+  .mdl-chip .mdl-chip__contact {
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    overflow: hidden; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* ==========  Date picker ========= */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
+/**
+ * Extended searchbox component
+ */
+.mdle-searchbox {
+  position: relative;
+  margin-right: 1em;
+  margin-left: 1em;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px; }
+
+.mdle-button--searchbox__search {
+  border-radius: 0;
+  padding-right: 1em;
+  padding-left: 1em; }
+
+.mdle-searchbox__input {
+  width: 259px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit; }
+
+/* Placeholder color (if not set it shown as grey) */
+.mdle-searchbox__input::-webkit-input-placeholder {
+  color: #primcontrast; }
+
+.mdle-searchbox__input:-moz-placeholder {
+  color: #primcontrast; }
+
+.mdle-searchbox__input::-moz-placeholder {
+  color: #primcontrast; }
+
+.mdle-searchbox__input:-ms-input-placeholder {
+  color: #primcontrast; }
+
+/**
+ * WARNING: THis code is stil not PR ready.
+ * Most of the values need to be extractd into variables.
+ */
+.mdl-selectfield {
+  position: relative;
+  font-size: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  outline: 0;
+  margin: 0;
+  padding: 20px 0; }
+  .mdl-selectfield__select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    display: none;
+    height: 1px;
+    line-height: 0px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 1px; }
+  .mdl-selectfield__selected-option {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    height: 16px;
+    line-height: 16px;
+    padding: 4px 0;
+    padding-right: 25px;
+    position: relative; }
+    .mdl-selectfield__selected-option-title {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 16px;
+      margin-right: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%; }
+    .mdl-selectfield__selected-option:after {
+      border-bottom: 2px solid #primary;
+      content: '';
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      margin: 0 auto;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      right: 0;
+      transition: width .5s;
+      transition-duration: .2s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0; }
+    .mdl-selectfield__selected-option .material-icons {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 24px; }
+  .mdl-selectfield.is-invalid .mdl-selectfield__selected-option {
+    border-bottom: 1px solid #d50000; }
+  .mdl-selectfield__menu {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    margin: 0 -16px;
+    max-height: 240px;
+    min-width: 128px;
+    opacity: 0;
+    padding: 8px 16px;
+    top: 0;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    transition: opacity .25s;
+    z-index: 9999; }
+  .mdl-selectfield.is-opened .mdl-selectfield__menu {
+    opacity: 1; }
+  .mdl-selectfield__menu-item {
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 48px;
+    line-height: 48px;
+    margin: 0 -16px;
+    padding: 0 16px;
+    position: relative; }
+    .mdl-selectfield__menu-item.is-selected {
+      background-color: #eeeeee;
+      color: #primary; }
+      .mdl-selectfield__menu-item.is-selected .mdl-selectfield__menu-item-icon-checked {
+        color: #primary;
+        display: block; }
+      .mdl-selectfield__menu-item.is-selected .mdl-selectfield__menu-item-icon-unchecked {
+        display: none; }
+    .mdl-selectfield__menu-item.is-active {
+      color: #accent; }
+  .mdl-selectfield__label {
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.26);
+    font-size: 16px;
+    line-height: 16px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 24px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .mdl-selectfield__error {
+    color: #d50000;
+    display: block;
+    font-size: 12px;
+    position: absolute;
+    top: 48px;
+    visibility: hidden; }
+  .mdl-selectfield.is-focused .mdl-selectfield__label, .mdl-selectfield.is-dirty .mdl-selectfield__label {
+    color: #3f51b5;
+    font-size: 12px;
+    top: 4px;
+    visibility: visible; }
+  .mdl-selectfield.is-invalid .mdl-selectfield__error {
+    visibility: visible; }
+  .mdl-selectfield.is-focused .mdl-selectfield__selected-option:after {
+    width: 100%; }
+  .mdl-selectfield.is-focused .mdl-selectfield__error {
+    visibility: hidden; }
+  .mdl-selectfield.is-disabled .mdl-selectfield__label,
+  .mdl-selectfield.is-disabled .mdl-selectfield__selected-option {
+    cursor: default;
+    color: rgba(0, 0, 0, 0.26) !important; }
+
+/**
+ * Coded customized for selecfield
+ */
+.mdl-selectfield.is-focused .mdl-selectfield__label, .mdl-selectfield.is-dirty .mdl-selectfield__label {
+  color: #primary;
+  /* in order to label take the color defined in
+                                variables.sscs, as input text field */ }
+
+.mdl-datepicker--landscape .mdl-datepicker__widget {
+  width: 440px; }
+
+.mdl-datepicker--landscape .mdl-datepicker__header {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 160px; }
+
+.mdl-datepicker--landscape .mdl-datepicker__calendar {
+  margin-left: 160px; }
+
+.mdl-datepicker__backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5; }
+
+.mdl-datepicker__widget {
+  background-color: white;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.25), 0 10px 18px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
+  color: #212121;
+  display: none;
+  font-size: 16px;
+  height: auto;
+  left: 0;
+  margin: 10px auto 45px 0;
+  position: absolute;
+  right: 0;
+  width: 280px;
+  z-index: 9999; }
+  @media (max-width: 839px) and (orientation: landscape) {
+    .mdl-datepicker__widget {
+      width: 440px; } }
+  .mdl-datepicker__widget.is-visible {
+    display: block; }
+    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__week-days,
+    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__navigation,
+    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__month {
+      display: none; }
+    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__header-year {
+      color: white; }
+    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__header-date {
+      color: rgba(255, 255, 255, 0.6); }
+    .mdl-datepicker__widget.is-visible.is-year-picker .mdl-datepicker__year-picker {
+      display: block; }
+  .mdl-datepicker__widget.is-fixed {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    -webkit-transform: translate(0, -100%);
+            transform: translate(0, -100%);
+    transition: opacity .3s linear, -webkit-transform .3s linear;
+    transition: transform .3s linear, opacity .3s linear;
+    transition: transform .3s linear, opacity .3s linear, -webkit-transform .3s linear;
+    will-change: transform;
+    z-index: 6; }
+    .mdl-datepicker__widget.is-fixed.is-visible {
+      opacity: 1;
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0); }
+
+.mdl-datepicker--inline {
+  display: inline-block; }
+  .mdl-datepicker--inline .mdl-datepicker__widget {
+    position: relative;
+    z-index: auto; }
+
+.mdl-datepicker__input {
+  outline: none; }
+
+.mdl-datepicker__header {
+  background-color: #accent;
+  box-sizing: border-box;
+  line-height: initial;
+  padding: 20px; }
+  @media (max-width: 839px) and (orientation: landscape) {
+    .mdl-datepicker__header {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 160px; } }
+  .mdl-datepicker__header-year {
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    margin-bottom: 10px; }
+  .mdl-datepicker__header-date {
+    color: white;
+    cursor: pointer;
+    font-size: 36px;
+    line-height: 36px; }
+
+.mdl-datepicker__calendar {
+  background-color: white;
+  box-sizing: border-box;
+  padding: 14px;
+  padding-bottom: 0; }
+  @media (max-width: 839px) and (orientation: landscape) {
+    .mdl-datepicker__calendar {
+      margin-left: 160px; } }
+
+.mdl-datepicker__navigation {
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center; }
+
+.mdl-datepicker__month .mdl-datepicker__date:active, .mdl-datepicker__month .mdl-datepicker__date:focus, .mdl-datepicker__month .mdl-datepicker__date:hover, .mdl-datepicker__month .mdl-datepicker__date.is-selected {
+  background-color: #accent;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  outline: none; }
+
+.mdl-datepicker__previous-month {
+  float: left; }
+
+.mdl-datepicker__current-month {
+  display: inline-block;
+  font-weight: 600;
+  line-height: 32px; }
+
+.mdl-datepicker__next-month {
+  float: right; }
+
+.mdl-datepicker__week-days .mdl-datepicker__date {
+  color: #9e9e9e; }
+
+.mdl-datepicker__week {
+  clear: both;
+  margin: 2px 0;
+  overflow: hidden; }
+
+.mdl-datepicker__date {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  height: 36px;
+  line-height: 34px;
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  width: 36px;
+  transition: background-color 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; }
+  .mdl-datepicker__date.is-today {
+    color: #accent;
+    font-weight: 600; }
+  .mdl-datepicker__date.is-empty {
+    cursor: default !important;
+    background-color: transparent !important; }
+    .mdl-datepicker__date.is-empty:hover {
+      cursor: default !important;
+      background-color: transparent !important; }
+  .mdl-datepicker__date.is-disabled {
+    color: #bdbdbd;
+    cursor: default !important;
+    background-color: transparent !important; }
+    .mdl-datepicker__date.is-disabled:active, .mdl-datepicker__date.is-disabled:focus, .mdl-datepicker__date.is-disabled:hover {
+      color: #bdbdbd !important;
+      cursor: default !important;
+      background-color: transparent !important; }
+
+.mdl-datepicker__year-picker {
+  display: none;
+  height: 235px;
+  overflow: auto;
+  position: relative; }
+
+.mdl-datepicker__year {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  height: 32px;
+  line-height: 32px;
+  outline: none;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+  .mdl-datepicker__year.is-selected {
+    color: #accent;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px; }
+  .mdl-datepicker__year.is-disabled, .mdl-datepicker__year.is-disabled:active, .mdl-datepicker__year.is-disabled:focus {
+    cursor: default;
+    color: #bdbdbd; }
+
+.mdl-datepicker__actions {
+  margin: 0 -14px;
+  padding: 8px;
+  text-align: right; }
+
+.mdl-datepicker .mdl-button {
+  bottom: auto;
+  position: relative; }
 
 body {
   margin: 0px; }

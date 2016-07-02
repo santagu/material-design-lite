@@ -68,6 +68,10 @@
  * then be customized into valid CSS without using Sass.
  */
 /**
+ * mdl intenta optimizar las fuentes pero nos interesa mejor que 
+ * quede todo "superbonito"
+ */
+/**
  * Adaptación del componente de chip a nuestras necesidades, ya que lo
  * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
  */
@@ -582,6 +586,12 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */ }
+
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */ }
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -881,7 +891,7 @@ main {
 /* Animations */
 /* Dialog */
 html, body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
@@ -10191,7 +10201,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   display: block;
   font-size: 16px;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   margin: 0;
   padding: 4px 0;
   width: 100%;
