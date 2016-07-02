@@ -42,7 +42,6 @@
 @import "menu/menu";
 @import "progress/progress";
 @import "layout/layout";
-@import "layout/layout-customized";
 @import "radio/radio";
 @import "slider/slider";
 @import "snackbar/snackbar";
@@ -56,6 +55,7 @@
 @import "chip/chip";
 
 // extended framework: Componentes que no están en el framework original mdl
+@import "ext-layout/ext-layout"; // search-box component
 @import "ext-searchbox/ext-searchbox"; // search-box component
 @import "selectfield/selectfield";
 @import "selectfield/selectfield-customized"; // correct a color fix with label

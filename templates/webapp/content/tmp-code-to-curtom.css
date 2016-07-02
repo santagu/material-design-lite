@@ -19,12 +19,6 @@
 
 /** mdl customized (common)*/
 
-/** elements */
-/* html, body {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  background-color: rgb(242, 242, 242);
-}
- */
 /* list detail (to appply in dialog or in a page */
 .mdl-list-detail {
   padding: 0;
@@ -63,15 +57,6 @@
 
 
 
-/* layout navigation */
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--sublink {
-  padding-left: 56px;
-}
 
 /* utils */
 .mdl-align-center  {
@@ -250,14 +235,7 @@
 
 /* mdl-layout */
 
-.mdl-layout__drawer__header__user-photo {
-  position: absolute;
-  left: 1em;
-  top: 20px;
-  width: 64px;
-  height: 64px;
-  border-radius: 50px;
-}
+
 
 /* mdl-selectfield */
 .mdl-selectfield {
