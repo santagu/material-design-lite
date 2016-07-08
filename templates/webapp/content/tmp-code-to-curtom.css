@@ -55,8 +55,16 @@
     }
 
 
-
-
+/* para que en móvil tome todo el espacio del contenido */
+.mdl-layout__content {
+  padding: 0;
+}
+/* @media (max-width: $grid-desktop-breakpoint - 1) {*/
+@media (min-width: 1024px) {
+  .mdl-layout__content {
+      padding: 24px;
+  }
+}
 
 /* utils */
 .mdl-align-center  {
@@ -65,6 +73,7 @@
 
 /* data-table */
 /* title */
+
   .mdl-data-table__head__title {
     padding-left: 24px;
     padding-right: 24px;
@@ -167,6 +176,116 @@
         padding: 0;
       }
 
+
+
+      /* @media (max-width: $grid-desktop-breakpoint - 1) {*/
+      @media (max-width: 1023px) {
+
+         .mdle-data-table--list-on-phone {
+
+         }
+
+         .mdle-data-table--list-on-phone  .mdl-data-table__head__columns,
+         .mdle-data-table--list-on-phone  .mdl-data-table__head__title__row__text {
+           display: none;
+         }
+
+         .mdle-data-table--list-on-phone  tbody > tr {
+           display: -webkit-flex;
+           display: flex;
+           -webkit-flex-flow: row;
+                   flex-flow: row;
+           min-height: 80px;
+           border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+         }
+
+         .mdle-data-table--list-on-phone  tbody > tr > td,
+         .mdle-data-table--list-on-phone  tbody > tr > td:first-of-type {
+           display: none; /* se esconden todos menos los del list */
+           padding: 16px;
+           min-height: 80px;
+           height: 80px;
+           border: none;
+         }
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__left-content {
+           flex: 1 72px;
+           order: 1;
+        }
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__left-content > img {
+          width: 48px;
+          height: 48px;
+          border-radius: 100%;
+        }
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1 {
+      		flex: 1 auto;
+          order: 2;
+      		padding-left: 0;
+      		padding-bottom: 0;
+      		margin-bottom: 0;
+      		margin-left: 80px;
+      		max-width: 80%;
+      		overflow: none;
+      	}
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line2 {
+          display: none;
+          position: relative;
+          top: 4px;
+          left: 0;
+          padding-left: 0;
+          padding-top: 0;
+          margin-top: 0;
+          margin-left: 72px;
+          max-width: 85%;
+          width:85%;
+          overflow: none;
+          text-align: justify;
+          color: #9E9E9E; /* gray 500 */
+        }
+
+    }
+
+
+      	.md-list--layout-list  .md-list__item__text--line2 {
+      		display: inline-block;
+      		position: relative;
+      		top: 4px;
+      		left: 0;
+      		padding-left: 0;
+      		padding-top: 0;
+      		margin-top: 0;
+      		margin-left: 72px;
+      		max-width: 85%;
+      		width:85%;
+      		overflow: none;
+      		text-align: justify;
+      		color: #9E9E9E; /* gray 500 */
+      	}
+
+      	.md-list--layout-list  .md-list__content__item__right-content {
+      		position: absolute;
+      		top: 0;
+      		right: 0;
+      		bottom: 0;
+      		color: #9E9E9E; /* gray 500 */
+      	}
+
+       	/* mobile: always shown as a list */
+
+
+      		/* header is hidden and show in title */
+      		.md-list__header {
+      			display: none;
+      		}
+
+      		/* In mobile, content follow the header, so padding-top is lower than desktop */
+      		.md-list--layout-list  .md-list__item__text--line1 {
+      			max-width: 55%;
+      			text-align: justify;
+      		}
 
 
 
