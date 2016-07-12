@@ -197,6 +197,7 @@
                    flex-flow: row;
            min-height: 80px;
            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+           width: 100%;
          }
 
          .mdle-data-table--list-on-phone  tbody > tr > td,
@@ -209,7 +210,8 @@
          }
 
         .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__left-content {
-           flex: 1 72px;
+           display: flex;
+           flex: 0 72px;
            order: 1;
         }
 
@@ -219,17 +221,39 @@
           border-radius: 100%;
         }
 
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1 {
-      		flex: 1 auto;
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1,
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1-1 {
+      		display: flex;
+          flex: 0 auto;
           order: 2;
-      		padding-left: 0;
-      		padding-bottom: 0;
-      		margin-bottom: 0;
-      		margin-left: 80px;
-      		max-width: 80%;
-      		overflow: none;
+          padding-left: 0;
+          padding-right: 0.25em;
+      	}
+        
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1-2 {
+      		display: flex;
+          flex: 0 auto;
+          order: 3;
+          padding-left: 0;
+          padding-right: 0.25em;
       	}
 
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1-3 {
+      		display: flex;
+          flex: 0;
+          order: 4;
+          padding-left: 0;
+          padding-right: 0.25em;
+      	}
+        
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--rigth-content {
+      		display: flex;
+          flex: 0 auto;
+          order: 5;
+          padding-left: 0;
+          padding-right: 0.25em;
+      	}
+        
         .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line2 {
           display: none;
           position: relative;
