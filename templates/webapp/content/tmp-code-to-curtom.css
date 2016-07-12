@@ -181,12 +181,13 @@
       /* @media (max-width: $grid-desktop-breakpoint - 1) {*/
       @media (max-width: 1023px) {
 
-         .mdle-data-table--list-on-phone {
-
+         table.mdle-data-table--list-on-phone {
+           width: 100%;
          }
 
          .mdle-data-table--list-on-phone  .mdl-data-table__head__columns,
-         .mdle-data-table--list-on-phone  .mdl-data-table__head__title__row__text {
+         .mdle-data-table--list-on-phone  .mdl-data-table__head__title__row__text,
+         .mdl-data-table__foot {
            display: none;
          }
 
@@ -195,17 +196,15 @@
            display: flex;
            -webkit-flex-flow: row;
                    flex-flow: row;
-           min-height: 80px;
-           border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-           width: 100%;
+           min-height: 88px;
+           border-top: 1px solid rgba(0, 0, 0, 0.12);
          }
 
          .mdle-data-table--list-on-phone  tbody > tr > td,
          .mdle-data-table--list-on-phone  tbody > tr > td:first-of-type {
            display: none; /* se esconden todos menos los del list */
            padding: 16px;
-           min-height: 80px;
-           height: 80px;
+           height: 88px;
            border: none;
          }
 
@@ -221,16 +220,23 @@
           border-radius: 100%;
         }
 
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1,
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1-1 {
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1 {
       		display: flex;
           flex: 0 auto;
           order: 2;
           padding-left: 0;
           padding-right: 0.25em;
       	}
-        
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1-2 {
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1:last-child {
+      		display: flex;
+          flex: 1 auto;
+          order: 2;
+          padding-left: 0;
+          padding-right: 0.25em;
+      	}
+
+        /*.mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--2 {
       		display: flex;
           flex: 0 auto;
           order: 3;
@@ -238,27 +244,27 @@
           padding-right: 0.25em;
       	}
 
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1-3 {
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--3 {
       		display: flex;
-          flex: 0;
+          flex: 1 auto;
           order: 4;
           padding-left: 0;
           padding-right: 0.25em;
-      	}
-        
+      	}*/
+
         .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--rigth-content {
       		display: flex;
           flex: 0 auto;
           order: 5;
           padding-left: 0;
-          padding-right: 0.25em;
+          padding-right: 16px;
       	}
-        
+
         .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line2 {
-          display: none;
-          position: relative;
-          top: 4px;
-          left: 0;
+          display: inline-block;
+          position: absolute;
+          top: 36px; /* 16px + 16px + 4px*/
+          left: 8px;
           padding-left: 0;
           padding-top: 0;
           margin-top: 0;
@@ -266,6 +272,24 @@
           max-width: 85%;
           width:85%;
           overflow: none;
+          font-size: 12px;
+          text-align: justify;
+          color: #9E9E9E; /* gray 500 */
+        }
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line3 {
+          display: inline-block;
+          position: absolute;
+          top: 56px; /* 16px + 16px + 4px + 16px + 4px*/
+          left: 8px;
+          padding-left: 0;
+          padding-top: 0;
+          margin-top: 0;
+          margin-left: 72px;
+          max-width: 85%;
+          width:85%;
+          overflow: none;
+          font-size: 12px;
           text-align: justify;
           color: #9E9E9E; /* gray 500 */
         }
