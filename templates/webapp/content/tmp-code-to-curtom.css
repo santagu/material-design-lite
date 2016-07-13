@@ -59,8 +59,8 @@
 .mdl-layout__content {
   padding: 0;
 }
-/* @media (max-width: $grid-desktop-breakpoint - 1) {*/
-@media (min-width: 1024px) {
+/* @media (min-width: $grid-desktop-tablet) {*/
+@media (min-width: 840px) {
   .mdl-layout__content {
       padding: 24px;
   }
@@ -71,9 +71,11 @@
   margin: 0 auto;
 }
 
+
 /* data-table */
 /* title */
-
+.mdl-data-table {
+}
   .mdl-data-table__head__title {
     padding-left: 24px;
     padding-right: 24px;
@@ -90,6 +92,9 @@
     color: inherit;
   }
 
+  .mdl-data-table__cell--non-numeric {
+    word-wrap: break-word;
+  }
 
   .mdl-data-table__head__title__row__text  {
     display: inline-block;
@@ -122,6 +127,10 @@
   .mdl-data-table__cell--actions {
       color: rgb(0,0,0);
       color: rgba(0,0,0,.54);
+  }
+
+  td.mdl-data-table__cell--non-numeric {
+    white-space: normal;
   }
 
   .mdl-data-table__foot {
@@ -178,8 +187,8 @@
 
 
 
-      /* @media (max-width: $grid-desktop-breakpoint - 1) {*/
-      @media (max-width: 1023px) {
+      /* @media (max-width: $grid-tablet-breakpoint - 1) {*/
+      @media (max-width: 839px) {
 
          table.mdle-data-table--list-on-phone {
            width: 100%;
@@ -197,6 +206,7 @@
            -webkit-flex-flow: row;
                    flex-flow: row;
            min-height: 88px;
+           width: 100%;
            border-top: 1px solid rgba(0, 0, 0, 0.12);
          }
 
@@ -222,37 +232,29 @@
 
         .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1 {
       		display: flex;
-          flex: 0 auto;
-          order: 2;
-          padding-left: 0;
-          padding-right: 0.25em;
-      	}
-
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1:last-child {
-      		display: flex;
           flex: 1 auto;
           order: 2;
           padding-left: 0;
           padding-right: 0.25em;
       	}
 
-        /*.mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--2 {
-      		display: flex;
-          flex: 0 auto;
-          order: 3;
-          padding-left: 0;
-          padding-right: 0.25em;
-      	}
+          /* Para componer la linea 1 de diferentes columnas */
+          .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--1of3 {
+            flex: 0 auto;
+            order: 2;
+        	}
 
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--3 {
-      		display: flex;
-          flex: 1 auto;
-          order: 4;
-          padding-left: 0;
-          padding-right: 0.25em;
-      	}*/
+          .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--2of3 {
+            flex: 0 auto;
+            order: 3;
+        	}
 
-        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--rigth-content {
+          .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--line1--3of3 {
+            flex: 1 auto;
+            order: 4;
+        	}
+
+        .mdle-data-table--list-on-phone  tbody > tr > td.mdle-data-table--list-on-phone__item__text--right-content {
       		display: flex;
           flex: 0 auto;
           order: 5;

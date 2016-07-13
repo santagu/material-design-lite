@@ -68,12 +68,18 @@
  * then be customized into valid CSS without using Sass.
  */
 /**
- * mdl intenta optimizar las fuentes pero nos interesa mejor que 
+ * mdl intenta optimizar las fuentes pero nos interesa mejor que
  * quede todo "superbonito"
  */
 /**
  * Adaptación del componente de chip a nuestras necesidades, ya que lo
  * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
+ */
+/**
+ * Adaptación del límite para que se esconda el drawer o menú lateral
+ * En nuestro caso lo subimos a 1280 para que se siga viendo en 1024
+ * todo el listado ( por defecto se esconde a 1024 )
+ * @type {number}
  */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -586,12 +592,6 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */ }
-
-@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */ }
-
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -10979,7 +10979,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--3-offset-phone.mdl-cell--3-offset-phone {
       margin-left: 75%; } }
 
-@media (min-width: 480px) and (max-width: 839px) {
+@media (min-width: 480px) and (max-width: 1279px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -11140,7 +11140,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-cell--7-offset-tablet.mdl-cell--7-offset-tablet {
       margin-left: 87.5%; } }
 
-@media (min-width: 840px) {
+@media (min-width: 1280px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -12178,7 +12178,7 @@ body {
   right: 0;
   width: 280px;
   z-index: 9999; }
-  @media (max-width: 839px) and (orientation: landscape) {
+  @media (max-width: 1279px) and (orientation: landscape) {
     .mdl-datepicker__widget {
       width: 440px; } }
   .mdl-datepicker__widget.is-visible {
@@ -12226,7 +12226,7 @@ body {
   box-sizing: border-box;
   line-height: initial;
   padding: 20px; }
-  @media (max-width: 839px) and (orientation: landscape) {
+  @media (max-width: 1279px) and (orientation: landscape) {
     .mdl-datepicker__header {
       bottom: 0;
       left: 0;
@@ -12248,7 +12248,7 @@ body {
   box-sizing: border-box;
   padding: 14px;
   padding-bottom: 0; }
-  @media (max-width: 839px) and (orientation: landscape) {
+  @media (max-width: 1279px) and (orientation: landscape) {
     .mdl-datepicker__calendar {
       margin-left: 160px; } }
 
