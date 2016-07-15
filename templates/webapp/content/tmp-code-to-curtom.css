@@ -195,8 +195,7 @@
          }
 
          .mdle-data-table--list-on-phone  .mdl-data-table__head__columns,
-         .mdle-data-table--list-on-phone  .mdl-data-table__head__title__row__text,
-         .mdl-data-table__foot {
+         .mdle-data-table--list-on-phone  .mdl-data-table__head__title__row__text {
            display: none;
          }
 
@@ -294,6 +293,12 @@
           font-size: 12px;
           text-align: justify;
           color: #9E9E9E; /* gray 500 */
+        }
+
+        /* No se muestran algunos elementos para que quepan en el móvil */
+        .mdl-data-table__foot  .mdl-data-table__foot__result-per-page-number,
+        .mdl-data-table__foot  .mdl-data-table__foot__result-per-page-select-button {
+          display: none;
         }
 
     }
