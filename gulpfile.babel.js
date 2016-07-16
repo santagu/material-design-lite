@@ -552,7 +552,7 @@ gulp.task('serve', () => {
   $.connect.server({
     root: '.',
     port: 5000,
-    livereload: true
+    livereload: false
   });
 
   watch();

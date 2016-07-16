@@ -1,8 +1,8 @@
-/** site specific **/
+  /** site specific **/
 
-/**
-  * Class for make header transparent and put a background image
-  */
+  /**
+    * Class for make header transparent and put a background image
+    */
 .mdl-layout__header--transparent-image {
   background: linear-gradient(rgba(139, 195, 74, 0.97), rgba(139, 195, 74, 0.97)),
               url('./images/toolbar-header-background.jpg') repeat-x;
@@ -92,6 +92,7 @@
     color: inherit;
   }
 
+  /* Para que si no cabe pase a la otra línea */
   .mdl-data-table__cell--non-numeric {
     word-wrap: break-word;
   }
@@ -299,6 +300,13 @@
         .mdl-data-table__foot  .mdl-data-table__foot__result-per-page-number,
         .mdl-data-table__foot  .mdl-data-table__foot__result-per-page-select-button {
           display: none;
+        }
+        
+        /* pq si no no cabe en movil */
+        .mdl-data-table__foot__results-index {
+          display: inline-block;
+          margin-left: 0em;
+          margin-right: 1em;
         }
 
     }
