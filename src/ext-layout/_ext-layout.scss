@@ -12,14 +12,14 @@ body {
   background-color: rgb(242, 242, 242);
 }
     // Drawer header like android apps
-    .mdle-layout__drawer__header {
+    .mdl-layout__drawer__header {
       position: relative;
       height: $layout-header-desktop-row-height * 2;
       background-color: $color-primary;
       color: $color-primary-contrast;
     }
 
-      .mdle-layout__drawer__header__title {
+      .mdl-layout__drawer__header__title {
         position: absolute;
         right: 1em;
         top: 1em;
@@ -29,7 +29,7 @@ body {
         text-align: right;
       }
 
-/*       .mdle-layout__drawer__header__user-photo {
+/*       .mdl-layout__drawer__header__user-photo {
         position: absolute;
         left: 1em;
         bottom: 2.5em;
@@ -38,7 +38,7 @@ body {
         border-radius: 50px;
       } */
 
-     .mdle-layout__drawer__header__user-photo {
+     .mdl-layout__drawer__header__user-photo {
         position: absolute;
         left: 1em;
         top: 20px;
@@ -47,7 +47,7 @@ body {
         border-radius: 50px;
       }
 
-      .mdle-layout__drawer__header__user-name {
+      .mdl-layout__drawer__header__user-name {
         position: absolute;
         right: 2em;
         left: 1em;
@@ -58,7 +58,7 @@ body {
         text-align: left;
       }
 
-      .mdle-layout__drawer__header__user-menu-button {
+      .mdl-layout__drawer__header__user-menu-button {
         position: absolute;
         right: 0.5em;
         bottom: 0.4em;
@@ -70,11 +70,11 @@ body {
 
       /* layout navigation */
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link,
-      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link .mdle-navigation__link--level-1 {
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link .mdl-navigation__link--level-1 {
         padding-left: 16px;
         padding-right: 16px;
       }
 
-      .mdl-layout__drawer .mdl-navigation .mdle-navigation__link--level-2 {
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--level-2 {
         padding-left: 56px;
       }

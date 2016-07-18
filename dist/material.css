@@ -592,12 +592,6 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */ }
-
-@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */ }
-
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -11717,20 +11711,20 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /**
  * Extended layout component
  */
-/** 
-  * Para que se diferencie el fondo un poco del 
+/**
+  * Para que se diferencie el fondo un poco del
   * contenido, tal como se hace en google inbox
   */
 body {
   background-color: #f2f2f2; }
 
-.mdle-layout__drawer__header {
+.mdl-layout__drawer__header {
   position: relative;
   height: 128px;
   background-color: #8bc34a;
   color: white; }
 
-.mdle-layout__drawer__header__title {
+.mdl-layout__drawer__header__title {
   position: absolute;
   right: 1em;
   top: 1em;
@@ -11739,7 +11733,7 @@ body {
   font-weight: 500;
   text-align: right; }
 
-/*       .mdle-layout__drawer__header__user-photo {
+/*       .mdl-layout__drawer__header__user-photo {
         position: absolute;
         left: 1em;
         bottom: 2.5em;
@@ -11747,7 +11741,7 @@ body {
         height: 64px;
         border-radius: 50px;
       } */
-.mdle-layout__drawer__header__user-photo {
+.mdl-layout__drawer__header__user-photo {
   position: absolute;
   left: 1em;
   top: 20px;
@@ -11755,7 +11749,7 @@ body {
   height: 64px;
   border-radius: 50px; }
 
-.mdle-layout__drawer__header__user-name {
+.mdl-layout__drawer__header__user-name {
   position: absolute;
   right: 2em;
   left: 1em;
@@ -11765,7 +11759,7 @@ body {
   font-weight: 500;
   text-align: left; }
 
-.mdle-layout__drawer__header__user-menu-button {
+.mdl-layout__drawer__header__user-menu-button {
   position: absolute;
   right: 0.5em;
   bottom: 0.4em;
@@ -11776,11 +11770,11 @@ body {
 
 /* layout navigation */
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link,
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link .mdle-navigation__link--level-1 {
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link .mdl-navigation__link--level-1 {
   padding-left: 16px;
   padding-right: 16px; }
 
-.mdl-layout__drawer .mdl-navigation .mdle-navigation__link--level-2 {
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--level-2 {
   padding-left: 56px; }
 
 /**
@@ -11963,19 +11957,19 @@ body {
 /**
  * Extended searchbox component
  */
-.mdle-searchbox {
+.mdl-searchbox {
   position: relative;
   margin-right: 1em;
   margin-left: 1em;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px; }
 
-.mdle-button--searchbox__search {
+.mdl-button--searchbox__search {
   border-radius: 0;
   padding-right: 1em;
   padding-left: 1em; }
 
-.mdle-searchbox__input {
+.mdl-searchbox__input {
   width: 259px;
   background: transparent;
   border: none;
@@ -11984,16 +11978,16 @@ body {
   font-size: inherit; }
 
 /* Placeholder color (if not set it shown as grey) */
-.mdle-searchbox__input::-webkit-input-placeholder {
+.mdl-searchbox__input::-webkit-input-placeholder {
   color: white; }
 
-.mdle-searchbox__input:-moz-placeholder {
+.mdl-searchbox__input:-moz-placeholder {
   color: white; }
 
-.mdle-searchbox__input::-moz-placeholder {
+.mdl-searchbox__input::-moz-placeholder {
   color: white; }
 
-.mdle-searchbox__input:-ms-input-placeholder {
+.mdl-searchbox__input:-ms-input-placeholder {
   color: white; }
 
 /**
