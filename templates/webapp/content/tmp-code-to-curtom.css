@@ -8,8 +8,10 @@
               url('./images/toolbar-header-background.jpg') repeat-x;
 }
 
-.app-list-detail--employee {
-  width:600px;
+@media (min-width: 840px) {
+  .app-dialog--list-detail--employee {
+    width: 600px;
+  }
 }
 
 .app-employee-photo {
@@ -19,26 +21,61 @@
 
 /** mdl customized (common)*/
 
-/* list detail (to appply in dialog or in a page */
-.mdl-list-detail {
-  padding: 0;
-}
 
-  .mdl-list-detail .mdl-grid {
-    padding:0;
+/**
+ * Extended dialog component
+ */
+  .mdl-dialog--extended {
+    max-width: auto; /* Allow dialog be more long */
   }
 
-  .mdl-list-detail__header {
-    position: relative;
-    padding: 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  /* poner en scss @media (min-width: $grid-tablet-breakpoint) { */
+  .mdl-dialog--medium {
+    min-width: 25em;
   }
-    .mdl-list-detail__header__title {
+
+    .mdl-dialog--extended .mdl-dialog__title {
+      padding: 10px; /*14px is in dialog polyfill */
       font-size: 20px;
       font-weight: bold;
     }
 
-    .mdl-list-detail__header__actions {
+    .mdl-dialog--extended  .mdl-dialog__content {
+      padding: 16px; /*14px is in dialog polyfill */
+      font-size: 14px;
+    }
+
+    .mdl-dialog--extended  .mdl-dialog__content.mdl-dialog__content--with-list {
+      padding: 0; /*14px is in dialog polyfill */
+    }
+
+    .mdl-dialog--extended  .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon {
+      margin-right: 16px;
+    }
+
+  /*
+   * mdl-dialog--list-detail
+   * dialogo espesiá para el detalle de los listados
+   */
+  .mdl-dialog--list-detail {
+    padding: 0;
+  }
+
+  .mdl-dialog--list-detail .mdl-grid {
+    padding:0;
+  }
+
+  .mdl-dialog--list-detail__header {
+    position: relative;
+    padding: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+    .mdl-dialog--list-detail__header__title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .mdl-dialog--list-detail__header__actions {
       position: absolute;
       right:20px;
       top:20px;
@@ -46,38 +83,29 @@
       color: rgba(0,0,0,.54);
     }
 
-  .mdl-list-detail__content {
+  .mdl-dialog--list-detail__content {
     padding: 16px;
   }
 
-    .mdl-list-detail__content .mdl-textfield {
+    .mdl-dialog--list-detail__content .mdl-textfield {
       width:100%;
     }
 
-
-/* para que en móvil tome todo el espacio del contenido */
-.mdl-layout__content {
-  padding: 0;
-}
-/* @media (min-width: $grid-desktop-tablet) {*/
-@media (min-width: 840px) {
-  .mdl-layout__content {
-      padding: 24px;
+  @media (max-width: 839px) {
+    
+    .mdl-dialog--list-detail {
+      width: inherit;
+    }
+    
+    .mdl-dialog--list-detail__header {
+      background-color: #8bc34a; /* sustituir por color-primary */
+      color: white; /* sustituir por color-contrast o algo así */
+    }
+    
+    .mdl-dialog--list-detail__header__actions {
+      color: white;
+    }
   }
-}
-
-/* utils */
-.mdl-align-center  {
-  margin: 0 auto;
-}
-
-
-/* data-table */
-/* title */
-
-
-
-
 
 /* mdl-menu */
 
@@ -94,41 +122,6 @@
   }
 
 /* mdl-dialog */
-.mdl-dialog {
-  max-width: auto; /* Allow dialog be more long */
-}
-
-/* poner en scss @media (min-width: $grid-tablet-breakpoint) { */
-.mdl-dialog--medium {
-  min-width: 25em;
-}
-
-
-  .mdl-dialog__title {
-    padding: 10px; /*14px is in dialog polyfill */
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .mdl-dialog__content {
-    padding: 16px; /*14px is in dialog polyfill */
-    font-size: 14px;
-  }
-
-  .mdl-dialog__content.mdl-dialog__content--with-list {
-    padding: 0; /*14px is in dialog polyfill */
-  }
-
-  .mdl-dialog .mdl-list .mdl-list__item {
-  }
-
-  .mdl-dialog .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon {
-    margin-right: 16px;
-  }
-
-  .mdl-dialog--list-detail .mdl-dialog__content {
-    with:600px;
-  }
 
 /* mdl-list */
 

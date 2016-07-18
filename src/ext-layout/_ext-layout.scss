@@ -11,6 +11,18 @@
 body {
   background-color: rgb(242, 242, 242);
 }
+    /* para que en móvil tome todo el espacio del contenido */
+    .mdl-layout__content {
+      padding: 0;
+    }
+    /* Al pasar a resolución de móvil se quita el padding porque 
+       no aplica */
+    @media (min-width: $grid-desktop-breakpoint) {
+      .mdl-layout__content {
+          padding: 24px;
+      }
+    }
+
     // Drawer header like android apps
     .mdl-layout__drawer__header {
       position: relative;
@@ -28,15 +40,6 @@ body {
         font-weight: 500;
         text-align: right;
       }
-
-/*       .mdl-layout__drawer__header__user-photo {
-        position: absolute;
-        left: 1em;
-        bottom: 2.5em;
-        width: 64px;
-        height: 64px;
-        border-radius: 50px;
-      } */
 
      .mdl-layout__drawer__header__user-photo {
         position: absolute;

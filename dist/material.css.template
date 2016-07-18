@@ -92,7 +92,7 @@
  * then be customized into valid CSS without using Sass.
  */
 /**
- * mdl intenta optimizar las fuentes pero nos interesa mejor que 
+ * mdl intenta optimizar las fuentes pero nos interesa mejor que
  * quede todo "superbonito"
  */
 /**
@@ -10874,7 +10874,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     width: calc(100% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
       width: 100%; }
-  .mdl-cell--hide-phone {
+  .mdl-cell--hide-phone, .mdl-hide-phone {
     display: none !important; }
   .mdl-cell--order-1-phone.mdl-cell--order-1-phone {
     -webkit-order: 1;
@@ -11011,7 +11011,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     width: calc(50% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
       width: 50%; }
-  .mdl-cell--hide-tablet {
+  .mdl-cell--hide-tablet, .mdl-hide-tablet {
     display: none !important; }
   .mdl-cell--order-1-tablet.mdl-cell--order-1-tablet {
     -webkit-order: 1;
@@ -11172,7 +11172,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     width: calc(33.3333333333% - 16px); }
     .mdl-grid--no-spacing > .mdl-cell {
       width: 33.3333333333%; }
-  .mdl-cell--hide-desktop {
+  .mdl-cell--hide-desktop, .mdl-hide-desktop {
     display: none !important; }
   .mdl-cell--order-1-desktop.mdl-cell--order-1-desktop {
     -webkit-order: 1;
@@ -11735,20 +11735,30 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /**
  * Extended layout component
  */
-/** 
-  * Para que se diferencie el fondo un poco del 
+/**
+  * Para que se diferencie el fondo un poco del
   * contenido, tal como se hace en google inbox
   */
 body {
   background-color: #f2f2f2; }
 
-.mdle-layout__drawer__header {
+/* para que en móvil tome todo el espacio del contenido */
+.mdl-layout__content {
+  padding: 0; }
+
+/* Al pasar a resolución de móvil se quita el padding porque 
+       no aplica */
+@media (min-width: 840px) {
+  .mdl-layout__content {
+    padding: 24px; } }
+
+.mdl-layout__drawer__header {
   position: relative;
   height: 128px;
   background-color: #primary;
   color: #primcontrast; }
 
-.mdle-layout__drawer__header__title {
+.mdl-layout__drawer__header__title {
   position: absolute;
   right: 1em;
   top: 1em;
@@ -11757,15 +11767,7 @@ body {
   font-weight: 500;
   text-align: right; }
 
-/*       .mdle-layout__drawer__header__user-photo {
-        position: absolute;
-        left: 1em;
-        bottom: 2.5em;
-        width: 64px;
-        height: 64px;
-        border-radius: 50px;
-      } */
-.mdle-layout__drawer__header__user-photo {
+.mdl-layout__drawer__header__user-photo {
   position: absolute;
   left: 1em;
   top: 20px;
@@ -11773,7 +11775,7 @@ body {
   height: 64px;
   border-radius: 50px; }
 
-.mdle-layout__drawer__header__user-name {
+.mdl-layout__drawer__header__user-name {
   position: absolute;
   right: 2em;
   left: 1em;
@@ -11783,7 +11785,7 @@ body {
   font-weight: 500;
   text-align: left; }
 
-.mdle-layout__drawer__header__user-menu-button {
+.mdl-layout__drawer__header__user-menu-button {
   position: absolute;
   right: 0.5em;
   bottom: 0.4em;
@@ -11794,11 +11796,11 @@ body {
 
 /* layout navigation */
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link,
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link .mdle-navigation__link--level-1 {
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link.mdl-navigation__link--level-1 {
   padding-left: 16px;
   padding-right: 16px; }
 
-.mdl-layout__drawer .mdl-navigation .mdle-navigation__link--level-2 {
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--level-2 {
   padding-left: 56px; }
 
 /**
@@ -11981,19 +11983,19 @@ body {
 /**
  * Extended searchbox component
  */
-.mdle-searchbox {
+.mdl-searchbox {
   position: relative;
   margin-right: 1em;
   margin-left: 1em;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px; }
 
-.mdle-button--searchbox__search {
+.mdl-button--searchbox__search {
   border-radius: 0;
   padding-right: 1em;
   padding-left: 1em; }
 
-.mdle-searchbox__input {
+.mdl-searchbox__input {
   width: 259px;
   background: transparent;
   border: none;
@@ -12002,16 +12004,16 @@ body {
   font-size: inherit; }
 
 /* Placeholder color (if not set it shown as grey) */
-.mdle-searchbox__input::-webkit-input-placeholder {
+.mdl-searchbox__input::-webkit-input-placeholder {
   color: #primcontrast; }
 
-.mdle-searchbox__input:-moz-placeholder {
+.mdl-searchbox__input:-moz-placeholder {
   color: #primcontrast; }
 
-.mdle-searchbox__input::-moz-placeholder {
+.mdl-searchbox__input::-moz-placeholder {
   color: #primcontrast; }
 
-.mdle-searchbox__input:-ms-input-placeholder {
+.mdl-searchbox__input:-ms-input-placeholder {
   color: #primcontrast; }
 
 /**
@@ -12377,6 +12379,754 @@ body {
   bottom: auto;
   position: relative; }
 
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* ==========  Date picker ========= */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
+/**
+ * Extended data-table component. Header, foot, table as list in phone resolution
+ */
+/**
+  * Para que se diferencie el fondo un poco del
+  * contenido, tal como se hace en google inbox
+  */
+.mdl-data-table--extended .mdl-data-table__head__title {
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 64px;
+  color: rgba(0, 0, 0, 0.87); }
+
+.mdl-data-table--extended .mdl-data-table__head__title > th {
+  padding-top: 20px;
+  padding-bottom: 22px;
+  font-weight: normal;
+  text-align: left;
+  font-size: 20px;
+  color: inherit; }
+
+.mdl-data-table--extended .mdl-data-table__cell--non-numeric {
+  word-wrap: break-word; }
+
+.mdl-data-table--extended .mdl-data-table__head__title__row__text {
+  display: inline-block;
+  vertical-align: text-bottom; }
+
+.mdl-data-table--extended .mdl-data-table__head__title__row__filters {
+  display: inline-block;
+  vertical-align: middle;
+  padding-bottom: 6px; }
+
+/* For make the entire tr "clickeable" */
+.mdl-data-table--extended tr[data-mdl-href] {
+  cursor: pointer; }
+
+.mdl-data-table--extended tr[data-mdl-href]:hover {
+  background-color: #eeeeee; }
+
+/* data table cell for images */
+.mdl-data-table--extended .mdl-data-table__cell--img > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px; }
+
+/* data table cell for actions on the row */
+.mdl-data-table--extended .mdl-data-table__cell--actions {
+  color: black;
+  color: rgba(0, 0, 0, 0.54); }
+
+.mdl-data-table--extended td.mdl-data-table__cell--non-numeric {
+  white-space: normal; }
+
+.mdl-data-table--extended .mdl-data-table__foot {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px; }
+
+.mdl-data-table--extended .mdl-data-table__foot__result-per-page-number {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  text-align: rigth; }
+
+.mdl-data-table--extended .mdl-data-table__foot__result-per-page-select-button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  text-align: left; }
+
+.mdl-data-table--extended .mdl-data-table__foot__result-per-page-select-button .mdl-button--icon {
+  display: inline-block;
+  margin: -6px;
+  padding: 0;
+  width: 24px;
+  min-width: 24px;
+  height: 24px; }
+
+.mdl-data-table--extended .mdl-data-table__foot__results-index {
+  display: inline-block;
+  margin-left: 32px;
+  margin-right: 32px;
+  padding: 0; }
+
+.mdl-data-table--extended .mdl-data-table__foot__prev-page-button {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 8px;
+  padding: 0; }
+
+.mdl-data-table--extended .mdl-data-table__foot__next-page-button {
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+
+/**
+       * Cuando pasa de desktop suponemos que es versión tablet vertical ó
+       * móvil, y entonces hay que mostrar la tabla de otra manera como lista
+       */
+@media (max-width: 839px) {
+  table.mdl-data-table--list-on-phone {
+    width: 100%; }
+  .mdl-data-table--list-on-phone .mdl-data-table__head__columns,
+  .mdl-data-table--list-on-phone .mdl-data-table__head__title__row__text {
+    display: none; }
+  .mdl-data-table--list-on-phone tbody > tr {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    min-height: 88px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.12); }
+  .mdl-data-table--list-on-phone tbody > tr > td,
+  .mdl-data-table--list-on-phone tbody > tr > td:first-of-type {
+    display: none;
+    /* se esconden todos menos los del list */
+    padding: 16px;
+    height: 88px;
+    border: none; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__left-content {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 0 72px;
+            flex: 0 72px;
+    -webkit-order: 1;
+            order: 1; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__left-content > img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1 {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1 auto;
+            flex: 1 auto;
+    -webkit-order: 2;
+            order: 2;
+    padding-left: 0;
+    padding-right: 0.25em; }
+  /* Para componer la linea 1 de diferentes columnas */
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1--1of3 {
+    -webkit-flex: 0 auto;
+            flex: 0 auto;
+    -webkit-order: 2;
+            order: 2; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1--2of3 {
+    -webkit-flex: 0 auto;
+            flex: 0 auto;
+    -webkit-order: 3;
+            order: 3; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1--3of3 {
+    -webkit-flex: 1 auto;
+            flex: 1 auto;
+    -webkit-order: 4;
+            order: 4; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--right-content {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 0 auto;
+            flex: 0 auto;
+    -webkit-order: 5;
+            order: 5;
+    padding-left: 0;
+    padding-right: 16px; }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--line2 {
+    display: inline-block;
+    position: absolute;
+    top: 36px;
+    /* 16px + 16px + 4px*/
+    left: 80px;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 0;
+    max-width: 85%;
+    width: 85%;
+    overflow: none;
+    font-size: 12px;
+    text-align: justify;
+    color: #9E9E9E;
+    /* gray 500 */ }
+  .mdl-data-table--list-on-phone tbody > tr > td.mdl-data-table--list-on-phone__item__text--line3 {
+    display: inline-block;
+    position: absolute;
+    top: 56px;
+    /* 16px + 16px + 4px + 16px + 4px*/
+    left: 80px;
+    padding-left: 0;
+    padding-top: 0;
+    max-width: 85%;
+    width: 85%;
+    overflow: none;
+    font-size: 12px;
+    text-align: justify;
+    color: #9E9E9E;
+    /* gray 500 */ }
+  /* No se muestran algunos elementos para que quepan en el móvil */
+  .mdl-data-table--list-on-phone .mdl-data-table__foot .mdl-data-table__foot__result-per-page-number,
+  .mdl-data-table--list-on-phone .mdl-data-table__foot .mdl-data-table__foot__result-per-page-select-button {
+    display: none; }
+  .mdl-data-table--list-on-phone .mdl-data-table__foot__results-index {
+    margin-left: 0.5em;
+    margin-right: 0.5em; } }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* ==========  Date picker ========= */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
+/**
+ * Extended helper clases
+ */
+/**
+ * Para alinear en el centro un contenedor (div)
+ */
+.mdl-align-center {
+  margin: 0 auto; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * If passed a color, behaves just like the built-in `rgba`.
+ * Otherwise, generates an `rgba` literal.
+ *
+ * This is used for generating invalid CSS with placeholders for colors that can
+ * then be customized into valid CSS without using Sass.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* ==========  Date picker ========= */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
 body {
   margin: 0px; }
 

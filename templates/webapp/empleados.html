@@ -508,88 +508,11 @@
         </tfoot>
       </table>
 
-      <!-- <div class="mdl-cell  mdl-hide-desktop  mdl-cell--12-tablet  mdl-cell--12-phone">
-          <ul class="mdl-list">
-            <li class="mdl-list__item mdl-list__item--two-line  mdl-js-ripple-effect">
-              <img src="./content/images/user2.jpg" class="mdl-avatar">
-              <span class="mdl-list__item-primary-content">
-                                <span>Flores García, Pepito</span>
-              <span class="mdl-list__item-sub-title">Servicios Centrales</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user3.jpg" class="mdl-avatar">
-                                <span>Nmenonic Cool, Johny</span>
-              <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user2.jpg" class="mdl-avatar">
-                                <span>Flores García, Pepito</span>
-              <span class="mdl-list__item-sub-title">Servicios Centrales</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user3.jpg" class="mdl-avatar">
-                                <span>Nmenonic Cool, Johny</span>
-              <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user2.jpg" class="mdl-avatar">
-                                <span>Flores García, Pepito</span>
-              <span class="mdl-list__item-sub-title">Servicios Centrales</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user3.jpg" class="mdl-avatar">
-                                <span>Nmenonic Cool, Johny</span>
-              <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-          </ul>
-        </div> -->
-
     </main>
   </div>
 
   <!-- Dialog para búsqueda avanzada -->
-  <dialog class="mdl-dialog  mdl-dialog--medium" id="advanced-search-dialog">
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--medium" id="advanced-search-dialog">
     <div class="mdl-dialog__title">
       Introduzca criterios de búsqueda
     </div>
@@ -663,7 +586,7 @@
   </dialog>
 
   <!-- Dialog para mostrar parntalla de autenticacion -->
-  <dialog class="mdl-dialog" id="dialog-login">
+  <dialog class="mdl-dialog  mdl-dialog--extended" id="dialog-login">
     <div class="mdl-dialog__title">
       Elija cómo identificarse
     </div>
@@ -698,7 +621,7 @@
   </dialog>
 
   <!-- Dialog para mostrar pantalla de autenticacion con usuario y clave -->
-  <dialog class="mdl-dialog" id="dialog-login-user-pass">
+  <dialog class="mdl-dialog  mdl-dialog--extended" id="dialog-login-user-pass">
     <div class="mdl-dialog__title">
       Identifíquese con usuario y clave
     </div>
@@ -720,12 +643,17 @@
   </dialog>
 
   <!-- Dialog para mostrar parntalla de autenticacion con usuario y clave -->
-  <dialog class="mdl-dialog  mdl-list-detail  app-list-detail--employee" id="dialog-list-detail-1">
-    <div class="mdl-list-detail__header">
-      <div class="mdl-list-detail__header__title">
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="dialog-list-detail-1">
+    <div class="mdl-dialog--list-detail__header">
+      <div>
+        <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">arrow_back</i>
+        </button>
+      </div>
+      <div class="mdl-dialog--list-detail__header__title">
         Pepito García Flores
       </div>
-      <div class="mdl-list-detail__header__actions">
+      <div class="mdl-dialog--list-detail__header__actions">
         <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
           <i class="material-icons">edit</i>
         </button>
@@ -738,18 +666,18 @@
         <div class="mdl-tooltip" for="button-detail-delete">
           Editar datos de este empleado
         </div>
-        <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">print</i>
         </button>
-        <div class="mdl-tooltip" for="button-detail-print">
+        <div class="mdl-tooltip" for="button-detail-print  mdl-hide-phone  mdl-hide-tablet">
           Imprimir ficha de este empleado
         </div>
-        <button id="button-detail-close" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="button-detail-close" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">close</i>
         </button>
       </div>
     </div>
-    <div class="mdl-list-detail__content">
+    <div class="mdl-dialog--list-detail__content">
       <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--3-col">
           <img src="./content/images/user2.jpg" class="app-employee-photo">

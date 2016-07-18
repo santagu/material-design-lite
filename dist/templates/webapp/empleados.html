@@ -47,22 +47,22 @@
       <!-- Top row, always visible -->
       <div class="mdl-layout__header-row">
         <!-- Title -->
-        <span class="mdl-layout-title  mdl-cell--hide-phone  mdl-cell--hide-tablet">Empleados > Favoritos</span>
+        <span class="mdl-layout-title  mdl-hide-phone  mdl-hide-tablet">Empleados > Favoritos</span>
 
         <!-- El texto en móvil suele ser diferente y más corto, por eso se separa -->
-        <span class="mdl-layout-title  mdl-cell--hide-desktop">Favoritos</span>
+        <span class="mdl-layout-title  mdl-hide-desktop">Favoritos</span>
 
         <div class="mdl-layout-spacer"></div>
 
-        <div class="mdle-searchbox  mdl-cell--hide-phone">
+        <div class="mdl-searchbox  mdl-hide-phone">
           <!-- TODO: temporal se esconde en movil, arreglar para que sea autom -->
-          <button id="searchbox__search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdle-button--searchbox__search">
+          <button id="searchbox__search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdl-button--searchbox__search">
             <i class="material-icons">search</i>
           </button>
           <div class="mdl-tooltip" for="searchbox__simple-search-button">
             Buscar el texto introducido
           </div>
-          <input class="mdle-searchbox__input" type="text" placeholder="Buscar en empleados">
+          <input class="mdl-searchbox__input" type="text" placeholder="Buscar en empleados">
         </div>
 
         <button id="searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon">
@@ -137,11 +137,11 @@
     </header>
 
     <div class="mdl-layout__drawer">
-      <div class="mdle-layout__drawer__header  mdle-layout__header--transparent-image">
-        <div class="mdl-layout__drawer__header__row  mdle-layout__drawer__header__title">Listín</div>
-        <img class="mdle-layout__drawer__header__user-photo" src="./content/images/user.jpg">
-        <div class="mdle-layout__drawer__header__user-name">Salvador Santander Gutiérrez</div>
-        <div class="mdle-layout__drawer__header__user-menu-button">
+      <div class="mdl-layout__drawer__header  mdl-layout__header--transparent-image">
+        <div class="mdl-layout__drawer__header__row  mdl-layout__drawer__header__title">Listín</div>
+        <img class="mdl-layout__drawer__header__user-photo" src="./content/images/user.jpg">
+        <div class="mdl-layout__drawer__header__user-name">Salvador Santander Gutiérrez</div>
+        <div class="mdl-layout__drawer__header__user-menu-button">
           <button id="drawer__header__user-menu-button" class="mdl-button mdl-js-button mdl-button--icon">
             <i class="material-icons">arrow_drop_down</i>
           </button>
@@ -152,25 +152,25 @@
         </div>
       </div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link  mdle-navigation__link--level-1" href="">
+        <a class="mdl-navigation__link  mdl-navigation__link--level-1" href="">
           <i class="mdl-color-text--blue-grey-400 material-icons">group</i> Empleados
         </a>
-        <a class="mdl-navigation__link  mdle-navigation__link--level-2" href="">Favoritos</a>
-        <a class="mdl-navigation__link  mdle-navigation__link--level-2" href="">Todos</a>
+        <a class="mdl-navigation__link  mdl-navigation__link--level-2" href="">Favoritos</a>
+        <a class="mdl-navigation__link  mdl-navigation__link--level-2" href="">Todos</a>
         <a class="mdl-navigation__link" href="">
           <i class="mdl-color-text--blue-grey-400 material-icons">domain</i> Centros de trabajo
         </a>
-        <a class="mdl-navigation__link  mdle-navigation__link--level-1" href="">
+        <a class="mdl-navigation__link  mdl-navigation__link--level-1" href="">
           <i class="mdl-color-text--blue-grey-400 material-icons">assignment</i> Solicitudes
         </a>
       </nav>
     </div>
 
     <main class="mdl-layout__content">
-      <table class="mdl-data-table  mdl-js-data-table  mdle-data-table--extended  mdle-data-table--list-on-phone mdl-shadow--2dp  mdl-align-center">
+      <table class="mdl-data-table  mdl-js-data-table  mdl-data-table--extended  mdl-data-table--list-on-phone  mdl-shadow--2dp  mdl-align-center">
         <thead>
           <tr class="mdl-data-table__head__title">
-            <th colspan="8" class="mdl-data-table__head__title__row">
+            <th colspan="8">
               <span class="mdl-data-table__head__title__row__text">Resultados de la búsqueda: </span>
               <span class="mdl-data-table__head__title__row__filters">
                                     <span class="mdl-chip mdl-chip--deletable">
@@ -199,32 +199,32 @@
         </thead>
         <tbody>
           <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
-            <td class="mdl-data-table__cell--img  mdle-data-table--list-on-phone__item__left-content">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--3of3">García</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">García</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
             <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
-            <td class="mdl-data-table__cell--actions  mdle-data-table--list-on-phone__item__text--right-content">
-              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-phone">
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-tablet  mdl-cell--hide-desktop">
+              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
                 <i class="material-icons">phone</i>
               </a>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
-              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
               <div class="mdl-tooltip" for="send-email-button-1">
@@ -232,7 +232,7 @@
                 <br> (abrirá su programa de correo)
               </div>
               <!-- Right aligned menu below button -->
-              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">more_vert</i>
               </button>
               <div class="mdl-tooltip" for="other-options-button-1">
@@ -245,32 +245,32 @@
             </td>
           </tr>
           <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
-            <td class="mdl-data-table__cell--img  mdle-data-table--list-on-phone__item__left-content">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line3">SC.Dirección - Act. Sing. - Alamillo</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">SC.Dirección - Act. Sing. - Alamillo</td>
             <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
-            <td class="mdl-data-table__cell--actions  mdle-data-table--list-on-phone__item__text--right-content">
-              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-phone">
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-tablet  mdl-cell--hide-desktop">
+              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-tablet  mdl-hide-desktop">
                 <i class="material-icons">phone</i>
               </button>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
-              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
               <div class="mdl-tooltip" for="send-email-button-1">
@@ -278,7 +278,7 @@
                 <br> (abrirá su programa de correo)
               </div>
               <!-- Right aligned menu below button -->
-              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">more_vert</i>
               </button>
               <div class="mdl-tooltip" for="other-options-button-1">
@@ -292,32 +292,32 @@
           </tr>
 
           <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
-            <td class="mdl-data-table__cell--img  mdle-data-table--list-on-phone__item__left-content">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--3of3">García</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">García</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
             <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
-            <td class="mdl-data-table__cell--actions  mdle-data-table--list-on-phone__item__text--right-content">
-              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-phone">
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-tablet  mdl-cell--hide-desktop">
+              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-tablet  mdl-hide-desktop">
                 <i class="material-icons">phone</i>
               </button>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
-              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
               <div class="mdl-tooltip" for="send-email-button-1">
@@ -325,7 +325,7 @@
                 <br> (abrirá su programa de correo)
               </div>
               <!-- Right aligned menu below button -->
-              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">more_vert</i>
               </button>
               <div class="mdl-tooltip" for="other-options-button-1">
@@ -338,32 +338,32 @@
             </td>
           </tr>
           <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
-            <td class="mdl-data-table__cell--img  mdle-data-table--list-on-phone__item__left-content">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line3">SC.Dirección -Actuaciones Singular- Alamillo</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">SC.Dirección -Actuaciones Singular- Alamillo</td>
             <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
-            <td class="mdl-data-table__cell--actions  mdle-data-table--list-on-phone__item__text--right-content">
-              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-phone">
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-tablet  mdl-cell--hide-desktop">
+              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-tablet  mdl-hide-desktop">
                 <i class="material-icons">phone</i>
               </button>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
-              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
               <div class="mdl-tooltip" for="send-email-button-1">
@@ -371,7 +371,7 @@
                 <br> (abrirá su programa de correo)
               </div>
               <!-- Right aligned menu below button -->
-              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">more_vert</i>
               </button>
               <div class="mdl-tooltip" for="other-options-button-1">
@@ -385,32 +385,32 @@
           </tr>
 
           <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
-            <td class="mdl-data-table__cell--img  mdle-data-table--list-on-phone__item__left-content">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--3of3">García</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">García</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
             <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
-            <td class="mdl-data-table__cell--actions  mdle-data-table--list-on-phone__item__text--right-content">
-              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-phone">
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-tablet  mdl-cell--hide-desktop">
+              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-tablet  mdl-hide-desktop">
                 <i class="material-icons">phone</i>
               </button>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
-              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
               <div class="mdl-tooltip" for="send-email-button-1">
@@ -418,7 +418,7 @@
                 <br> (abrirá su programa de correo)
               </div>
               <!-- Right aligned menu below button -->
-              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">more_vert</i>
               </button>
               <div class="mdl-tooltip" for="other-options-button-1">
@@ -431,32 +431,32 @@
             </td>
           </tr>
           <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
-            <td class="mdl-data-table__cell--img  mdle-data-table--list-on-phone__item__left-content">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
             <td class="mdl-data-table__cell--non-numeric
-                           mdle-data-table--list-on-phone__item__text--line1
-                           mdle-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
-            <td class="mdl-data-table__cell--non-numeric  mdle-data-table--list-on-phone__item__text--line3">SC.Dirección -Actuaciones Singular- Alamillo</td>
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">SC.Dirección -Actuaciones Singular- Alamillo</td>
             <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
-            <td class="mdl-data-table__cell--actions  mdle-data-table--list-on-phone__item__text--right-content">
-              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-phone">
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-cell--hide-tablet  mdl-cell--hide-desktop">
+              <button id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon   mdl-hide-tablet  mdl-hide-desktop">
                 <i class="material-icons">phone</i>
               </button>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
-              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
               <div class="mdl-tooltip" for="send-email-button-1">
@@ -464,7 +464,7 @@
                 <br> (abrirá su programa de correo)
               </div>
               <!-- Right aligned menu below button -->
-              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-cell--hide-phone">
+              <button id="other-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">more_vert</i>
               </button>
               <div class="mdl-tooltip" for="other-options-button-1">
@@ -508,88 +508,11 @@
         </tfoot>
       </table>
 
-      <!-- <div class="mdl-cell  mdl-cell--hide-desktop  mdl-cell--12-tablet  mdl-cell--12-phone">
-          <ul class="mdl-list">
-            <li class="mdl-list__item mdl-list__item--two-line  mdl-js-ripple-effect">
-              <img src="./content/images/user2.jpg" class="mdl-avatar">
-              <span class="mdl-list__item-primary-content">
-                                <span>Flores García, Pepito</span>
-              <span class="mdl-list__item-sub-title">Servicios Centrales</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user3.jpg" class="mdl-avatar">
-                                <span>Nmenonic Cool, Johny</span>
-              <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user2.jpg" class="mdl-avatar">
-                                <span>Flores García, Pepito</span>
-              <span class="mdl-list__item-sub-title">Servicios Centrales</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user3.jpg" class="mdl-avatar">
-                                <span>Nmenonic Cool, Johny</span>
-              <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user2.jpg" class="mdl-avatar">
-                                <span>Flores García, Pepito</span>
-              <span class="mdl-list__item-sub-title">Servicios Centrales</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-            <li class="mdl-list__item mdl-list__item--two-line">
-              <span class="mdl-list__item-primary-content">
-                                <img src="./content/images/user3.jpg" class="mdl-avatar">
-                                <span>Nmenonic Cool, Johny</span>
-              <span class="mdl-list__item-sub-title">Oficina Parque Público</span>
-              </span>
-              <span class="mdl-list__item-secondary-content">
-                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--accent">
-                                    <i class="material-icons">call</i>
-                                </button>
-                            </span>
-            </li>
-          </ul>
-        </div> -->
-
     </main>
   </div>
 
   <!-- Dialog para búsqueda avanzada -->
-  <dialog class="mdl-dialog  mdl-dialog--medium" id="advanced-search-dialog">
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--medium" id="advanced-search-dialog">
     <div class="mdl-dialog__title">
       Introduzca criterios de búsqueda
     </div>
@@ -663,7 +586,7 @@
   </dialog>
 
   <!-- Dialog para mostrar parntalla de autenticacion -->
-  <dialog class="mdl-dialog" id="dialog-login">
+  <dialog class="mdl-dialog  mdl-dialog--extended" id="dialog-login">
     <div class="mdl-dialog__title">
       Elija cómo identificarse
     </div>
@@ -698,7 +621,7 @@
   </dialog>
 
   <!-- Dialog para mostrar pantalla de autenticacion con usuario y clave -->
-  <dialog class="mdl-dialog" id="dialog-login-user-pass">
+  <dialog class="mdl-dialog  mdl-dialog--extended" id="dialog-login-user-pass">
     <div class="mdl-dialog__title">
       Identifíquese con usuario y clave
     </div>
@@ -720,12 +643,17 @@
   </dialog>
 
   <!-- Dialog para mostrar parntalla de autenticacion con usuario y clave -->
-  <dialog class="mdl-dialog  mdl-list-detail  app-list-detail--employee" id="dialog-list-detail-1">
-    <div class="mdl-list-detail__header">
-      <div class="mdl-list-detail__header__title">
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="dialog-list-detail-1">
+    <div class="mdl-dialog--list-detail__header">
+      <div>
+        <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">arrow_back</i>
+        </button>
+      </div>
+      <div class="mdl-dialog--list-detail__header__title">
         Pepito García Flores
       </div>
-      <div class="mdl-list-detail__header__actions">
+      <div class="mdl-dialog--list-detail__header__actions">
         <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
           <i class="material-icons">edit</i>
         </button>
@@ -738,18 +666,18 @@
         <div class="mdl-tooltip" for="button-detail-delete">
           Editar datos de este empleado
         </div>
-        <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">print</i>
         </button>
-        <div class="mdl-tooltip" for="button-detail-print">
+        <div class="mdl-tooltip" for="button-detail-print  mdl-hide-phone  mdl-hide-tablet">
           Imprimir ficha de este empleado
         </div>
-        <button id="button-detail-close" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="button-detail-close" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">close</i>
         </button>
       </div>
     </div>
-    <div class="mdl-list-detail__content">
+    <div class="mdl-dialog--list-detail__content">
       <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--3-col">
           <img src="./content/images/user2.jpg" class="app-employee-photo">
