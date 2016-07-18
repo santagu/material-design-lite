@@ -32,11 +32,3 @@ $performance_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 $chip-bg-color: rgb(222, 222, 222) !default;
 $chip-height: 24px !default;
 $chip-font-size: 12px !default;
-
-/**
- * Adaptación del límite para que se esconda el drawer o menú lateral
- * En nuestro caso lo subimos a 1280 para que se siga viendo en 1024
- * todo el listado ( por defecto se esconde a 1024 )
- * @type {number}
- */
-$grid-desktop-breakpoint: 1280px;
