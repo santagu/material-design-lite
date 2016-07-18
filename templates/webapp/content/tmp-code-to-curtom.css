@@ -72,18 +72,18 @@
 }
 
 
-/* data-table */
+/* mdle-data-table */
 /* title */
-.mdl-data-table {
+.mdle-data-table--extended {
 }
-  .mdl-data-table__head__title {
+  .mdle-data-table--extended  .mdl-data-table__head__title {
     padding-left: 24px;
     padding-right: 24px;
     height: 64px;
     color: rgba(0,0,0,.87);
   }
 
-  .mdl-data-table th.mdl-data-table__head__title__row {
+  .mdle-data-table--extended  th.mdl-data-table__head__title__row {
     padding-top: 20px;
     padding-bottom: 22px;
     font-weight: normal;
@@ -93,22 +93,22 @@
   }
 
   /* Para que si no cabe pase a la otra línea */
-  .mdl-data-table__cell--non-numeric {
+  .mdle-data-table--extended  .mdl-data-table__cell--non-numeric {
     word-wrap: break-word;
   }
 
-  .mdl-data-table__head__title__row__text  {
+  .mdle-data-table--extended  .mdl-data-table__head__title__row__text  {
     display: inline-block;
     vertical-align: text-bottom;
   }
 
-  .mdl-data-table__head__title__row__filters  {
+  .mdle-data-table--extended  .mdl-data-table__head__title__row__filters  {
     display: inline-block;
     vertical-align: middle;
     padding-bottom: 6px;
   }
 
-/* For make the entire tr "clickeable" */
+  /* For make the entire tr "clickeable" */
   tr[data-mdl-href] {
       cursor: pointer;
   }
@@ -117,29 +117,29 @@
     background-color: #eeeeee;
   }
 
-  /* data table cell for images */
-  .mdl-data-table__cell--img > img {
+  /* data table cell for images */ 
+  .mdl-data-table__cell--img  img {
       width: 40px;
       height: 40px;
       border-radius: 20px;
   }
 
   /* data table cell for actions on the row */
-  .mdl-data-table__cell--actions {
+  .mdle-data-table--extended  .mdle-data-table__cell--actions {
       color: rgb(0,0,0);
       color: rgba(0,0,0,.54);
   }
 
-  td.mdl-data-table__cell--non-numeric {
+  .mdle-data-table--extended  td.mdl-data-table__cell--non-numeric {
     white-space: normal;
   }
 
-  .mdl-data-table__foot {
+  .mdle-data-table--extended  .mdl-data-table__foot {
     color: rgba(0, 0, 0, .54);
     font-size: 12px;
   }
 
-    .mdl-data-table__foot__result-per-page-number {
+    .mdle-data-table--extended  .mdl-data-table__foot__result-per-page-number {
       display: inline-block;
       margin: 0;
       padding: 0;
@@ -147,7 +147,7 @@
       text-align: rigth;
     }
 
-    .mdl-data-table__foot__result-per-page-select-button {
+    .mdle-data-table--extended  .mdl-data-table__foot__result-per-page-select-button {
       display: inline-block;
       margin: 0;
       padding: 0;
@@ -157,7 +157,7 @@
       text-align: left;
     }
 
-      .mdl-data-table__foot__result-per-page-select-button .mdl-button--icon {
+      .mdle-data-table--extended  .mdl-data-table__foot__result-per-page-select-button .mdl-button--icon {
         display: inline-block;
         margin: -6px;
         padding: 0;
@@ -166,14 +166,14 @@
         height: 24px;
       }
 
-      .mdl-data-table__foot__results-index {
+     .mdle-data-table--extended   .mdl-data-table__foot__results-index {
         display: inline-block;
         margin-left: 32px;
         margin-right: 32px;
         padding: 0;
       }
 
-      .mdl-data-table__foot__prev-page-button {
+      .mdle-data-table--extended  .mdl-data-table__foot__prev-page-button {
         display: inline-block;
         margin-left: 0;
         margin-right: 8px;
@@ -266,13 +266,10 @@
           display: inline-block;
           position: absolute;
           top: 36px; /* 16px + 16px + 4px*/
-          left: 8px;
+          left: 80px;
           padding-left: 0;
           padding-top: 0;
-          margin-top: 0;
-          margin-left: 72px;
-          max-width: 85%;
-          width:85%;
+          max-width: 65%;
           overflow: none;
           font-size: 12px;
           text-align: justify;
@@ -283,13 +280,10 @@
           display: inline-block;
           position: absolute;
           top: 56px; /* 16px + 16px + 4px + 16px + 4px*/
-          left: 8px;
+          left: 80px;
           padding-left: 0;
           padding-top: 0;
-          margin-top: 0;
-          margin-left: 72px;
-          max-width: 85%;
-          width:85%;
+          max-width: 65%;
           overflow: none;
           font-size: 12px;
           text-align: justify;
@@ -310,45 +304,6 @@
         }
 
     }
-
-
-      	.md-list--layout-list  .md-list__item__text--line2 {
-      		display: inline-block;
-      		position: relative;
-      		top: 4px;
-      		left: 0;
-      		padding-left: 0;
-      		padding-top: 0;
-      		margin-top: 0;
-      		margin-left: 72px;
-      		max-width: 85%;
-      		width:85%;
-      		overflow: none;
-      		text-align: justify;
-      		color: #9E9E9E; /* gray 500 */
-      	}
-
-      	.md-list--layout-list  .md-list__content__item__right-content {
-      		position: absolute;
-      		top: 0;
-      		right: 0;
-      		bottom: 0;
-      		color: #9E9E9E; /* gray 500 */
-      	}
-
-       	/* mobile: always shown as a list */
-
-
-      		/* header is hidden and show in title */
-      		.md-list__header {
-      			display: none;
-      		}
-
-      		/* In mobile, content follow the header, so padding-top is lower than desktop */
-      		.md-list--layout-list  .md-list__item__text--line1 {
-      			max-width: 55%;
-      			text-align: justify;
-      		}
 
 
 
