@@ -577,10 +577,10 @@
     </div>
     <div class="mdl-dialog__actions">
       <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
-        Reestablecer
+        Buscar
       </button>
       <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
-        Buscar
+        Reestablecer
       </button>
     </div>
   </dialog>
@@ -642,29 +642,32 @@
     </div>
   </dialog>
 
-  <!-- Dialog para mostrar parntalla de autenticacion con usuario y clave -->
-  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="dialog-list-detail-1">
+  <!-- Dialog para mostrar parntalla de detalle al pulsar sobre el listado -->
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="dialog-list-detail">
     <div class="mdl-dialog--list-detail__header">
-      <div>
-        <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
+      <div class="mdl-dialog--list-detail__header__navigation-actions">
+        <button id="dialog-list-detail-back" class="mdl-button mdl-js-button mdl-button--icon">
           <i class="material-icons">arrow_back</i>
         </button>
+        <div class="mdl-tooltip" for="dialog-list-detail-back">
+          Volver al listado
+        </div>
       </div>
       <div class="mdl-dialog--list-detail__header__title">
         Pepito García Flores
       </div>
       <div class="mdl-dialog--list-detail__header__actions">
-        <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">edit</i>
         </button>
         <div class="mdl-tooltip" for="button-detail-edit">
           Editar datos de este empleado
         </div>
-        <button id="button-detail-delete" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="button-detail-delete" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">delete</i>
         </button>
         <div class="mdl-tooltip" for="button-detail-delete">
-          Editar datos de este empleado
+          Borrar este empleado
         </div>
         <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">print</i>
@@ -672,98 +675,103 @@
         <div class="mdl-tooltip" for="button-detail-print  mdl-hide-phone  mdl-hide-tablet">
           Imprimir ficha de este empleado
         </div>
-        <button id="button-detail-close" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
-          <i class="material-icons">close</i>
+
+        <!-- en movil cabe poco asi que lo ponemos en un boton de más acciones -->
+        <button id="dialog-list-detail__more-options" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop">
+          <i class="material-icons">more_vert</i>
         </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="dialog-list-detail__more-options">
+          <li class="mdl-menu__item">Editar</li>
+          <li class="mdl-menu__item">Borrar</li>
+        </ul>
       </div>
     </div>
     <div class="mdl-dialog--list-detail__content">
+      
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--3-col">
+        <div class="mdl-cell  mdl-cell--3-col">
           <img src="./content/images/user2.jpg" class="app-employee-photo">
         </div>
-        <div class="mdl-cell mdl-cell--9-col">
+
+        <div class="mdl-cell  mdl-cell--9-col">
           <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col">
+             <div class="mdl-cell  mdl-cell--6-col">
+                <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto" value="Analista Informático">
+                  <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
+                </div>
+            </div>
+            
+            <div class="mdl-cell  mdl-cell--6-col">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad" value="Informática">
+                <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
+              </div>
+            </div>
+          
+            <div class="mdl-cell  mdl-cell--3-col">
+              <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+                <div class="mdl-selectfield__label">Provincia</div>
+                <!-- /.mdl-selectfield__label -->
+                <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select">
+                  <option></option>
+                  <option value="1">Almería</option>
+                  <option value="2">Cádiz</option>
+                  <option value="3">Córdoba</option>
+                  <option value="4">Granada</option>
+                  <option value="5">Huelva</option>
+                  <option value="6">Jaén</option>
+                  <option value="7">Málaga</option>
+                  <option value="8" selected>Sevilla</option>
+                </select>
+                <div class="mdl-selectfield__error"></div>
+                <!-- /.mdl-selectfield__error -->
+              </div>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--9-col">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="email" id="searchbox__dropdown__puesto" value="pepito.flores.garcia@juntadeandalucia.es">
+                <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Email</label>
+              </div>
+            </div>
+            
+            <div class="mdl-cell  mdl-cell--6-col">
               <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono" value="375478">
                 <label class="mdl-textfield__label" for="employee-telefono">Telef. interno</label>
               </div>
             </div>
-            <div class="mdl-cell mdl-cell--3-col">
-              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="employee-telefono" value="955455478">
-                <label class="mdl-textfield__label" for="employee-telefono">Telef. externo</label>
-              </div>
-            </div>
-
-            <div class="mdl-cell mdl-cell--3-col">
+            
+            <div class="mdl-cell  mdl-cell--6-col">
               <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono-movil" value="757665">
                 <label class="mdl-textfield__label" for="employee-telefono-movil">Móvil interno</label>
               </div>
             </div>
-            <div class="mdl-cell mdl-cell--3-col">
+             
+            <div class="mdl-cell  mdl-cell--6-col">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="employee-telefono" value="955455478">
+                <label class="mdl-textfield__label" for="employee-telefono">Telef. externo</label>
+              </div> 
+            </div>
+             
+            <div class="mdl-cell  mdl-cell--6-col">
               <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono-movil" value="67757665">
                 <label class="mdl-textfield__label" for="employee-telefono-movil">Móvil externo</label>
               </div>
             </div>
           </div>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--11-col">
-              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="email" id="searchbox__dropdown__puesto" value="pepito.flores.garcia@juntadeandalucia.es">
-                <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Email</label>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--1-col  mdl-cell--middle">
-              <button id="button-detail-email" class="mdl-button mdl-js-button mdl-button--icon  mdl-button--primary">
-                <i class="material-icons">email</i>
-              </button>
-              <div class="mdl-tooltip" for="button-detail-email">
-                Enviar correo electrónico a esta dirección
-                <br> (abrirá su programa de correo)
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--4-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto" value="Analista Informático">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
-          </div>
-        </div>
-        <div class="mdl-cell mdl-cell--4-col">
-          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad" value="Informática">
-            <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
-          </div>
-        </div>
-        <div class="mdl-cell mdl-cell--4-col">
-          <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
-            <div class="mdl-selectfield__label">Provincia</div>
-            <!-- /.mdl-selectfield__label -->
-            <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select">
-              <option></option>
-              <option value="1">Almería</option>
-              <option value="2">Cádiz</option>
-              <option value="3">Córdoba</option>
-              <option value="4">Granada</option>
-              <option value="5">Huelva</option>
-              <option value="6">Jaén</option>
-              <option value="7">Málaga</option>
-              <option value="8" selected>Sevilla</option>
-            </select>
-            <div class="mdl-selectfield__error"></div>
-            <!-- /.mdl-selectfield__error -->
-          </div>
-          <!-- /.mdl-selectfield -->
-        </div>
-      </div>
-
+      </div>   
+       
+            
+      
+      
+      
+      
     </div>
   </dialog>
 

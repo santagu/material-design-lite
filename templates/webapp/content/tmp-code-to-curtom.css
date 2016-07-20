@@ -8,11 +8,15 @@
     max-width: auto; /* Allow dialog be more long */
   }
 
+    .mdl-dialog--extended .mdl-button--icon {
+       color: #8bc34a; /*$color-primary;*/
+     }
+
   /* poner en scss @media (min-width: $grid-tablet-breakpoint) { */
   .mdl-dialog--medium {
     min-width: 25em;
   }
-
+    
     .mdl-dialog--extended .mdl-dialog__title {
       padding: 10px; /*14px is in dialog polyfill */
       font-size: 20px;
@@ -55,6 +59,10 @@
     color: white; /* sustituir por color-contrast o algo así */
   }
 
+  .mdl-dialog--list-detail__header  .mdl-button--icon {
+    color: inherit;
+  }
+
   .mdl-dialog--list-detail__header__navigation-actions {
     flex: 0 auto;
     order: 1;
@@ -67,8 +75,6 @@
     order: 2;
     line-height: 32px;
     font-size: 20px;
-    color: rgb(0, 0, 0);
-    color: rgba(0, 0, 0, .87);
   }
 
   .mdl-dialog--list-detail__header__actions {
@@ -77,6 +83,7 @@
     color: inherit;
   }
 
+  
   @media (min-width: 840px) {
 
     .mdl-dialog--list-detail__header {
@@ -85,14 +92,20 @@
       background-color: inherit;
       color: inherit;
     }
-
-      .mdl-dialog--list-detail__header__title {
-
+      
+      .mdl-dialog--list-detail__header  .mdl-button--icon {
+        color: #8bc34a; /*$color-primary;*/
       }
 
-    .mdl-dialog--list-detail__content {
-      padding: 16px;
-    }
+    
+      .mdl-dialog--list-detail__header__title {
+        color: rgb(0, 0, 0);
+        color: rgba(0, 0, 0, .87);
+      }
+      
+      .mdl-dialog--list-detail__content {
+        padding: 16px;
+      }
 
       .mdl-dialog--list-detail__content .mdl-textfield {
         width:100%;

@@ -587,6 +587,12 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */ }
+
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */ }
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -11717,6 +11723,10 @@ body {
 .mdl-layout__content {
   padding: 0; }
 
+/* Los botones por defecto van a ser del color primary o contrast */
+.mdl-layout__content .mdl-button--icon {
+  color: #689f38; }
+
 /* Al pasar a resolución de móvil se quita el padding porque 
        no aplica */
 @media (min-width: 840px) {
@@ -13471,7 +13481,3 @@ body {
 /**
  * Extended button components.
  */
-/* Los botones por defecto van a ser del color primary o contrast */
-.mdl-layout__content .mdl-button--icon,
-.mdl-dialog--extended .mdl-button--icon {
-  color: #689f38; }
