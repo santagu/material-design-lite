@@ -1,25 +1,7 @@
-/** site specific **/
-
-/**
-  * Class for make header transparent and put a background image
-  */
-.mdl-layout__header--transparent-image {
-  background: linear-gradient(rgba(139, 195, 74, 0.97), rgba(139, 195, 74, 0.97)),
-              url('./images/toolbar-header-background.jpg') repeat-x;
-}
-
-@media (min-width: 840px) {
-  .app-dialog--list-detail--employee {
-    width: 600px;
-  }
-}
-
-.app-employee-photo {
-  width: 100%;
-  border-radius: 100%;
-}
 
 /** mdl customized (common)*/
+
+
 
 
 /**
@@ -59,52 +41,65 @@
    */
   .mdl-dialog--list-detail {
     padding: 0;
+    width: inherit;
   }
 
   .mdl-dialog--list-detail .mdl-grid {
-    padding:0;
+    padding: 0;
   }
 
   .mdl-dialog--list-detail__header {
-    position: relative;
-    padding: 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  }
-    .mdl-dialog--list-detail__header__title {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .mdl-dialog--list-detail__header__actions {
-      position: absolute;
-      right:20px;
-      top:20px;
-      color: rgb(0,0,0);
-      color: rgba(0,0,0,.54);
-    }
-
-  .mdl-dialog--list-detail__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     padding: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: #8bc34a; /* sustituir por color-primary */
+    color: white; /* sustituir por color-contrast o algo así */
   }
 
-    .mdl-dialog--list-detail__content .mdl-textfield {
-      width:100%;
+  .mdl-dialog--list-detail__header__navigation-actions {
+    flex: 0 auto;
+    order: 1;
+    padding-right: 24px;
+    color: inherit;
+  }
+
+  .mdl-dialog--list-detail__header__title {
+    flex: 1 auto;
+    order: 2;
+    line-height: 32px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, .87);
+  }
+
+  .mdl-dialog--list-detail__header__actions {
+    flex: 0 auto;
+    order: 3;
+    color: inherit;
+  }
+
+  @media (min-width: 840px) {
+
+    .mdl-dialog--list-detail__header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      background-color: inherit;
+      color: inherit;
     }
 
-  @media (max-width: 839px) {
-    
-    .mdl-dialog--list-detail {
-      width: inherit;
+      .mdl-dialog--list-detail__header__title {
+
+      }
+
+    .mdl-dialog--list-detail__content {
+      padding: 16px;
     }
-    
-    .mdl-dialog--list-detail__header {
-      background-color: #8bc34a; /* sustituir por color-primary */
-      color: white; /* sustituir por color-contrast o algo así */
-    }
-    
-    .mdl-dialog--list-detail__header__actions {
-      color: white;
-    }
+
+      .mdl-dialog--list-detail__content .mdl-textfield {
+        width:100%;
+      }
   }
 
 /* mdl-menu */
@@ -142,4 +137,26 @@
 /* mdl-selectfield */
 .mdl-selectfield {
   font-size: 1em;
+}
+
+/** site specific **/
+
+/**
+  * Class for make header transparent and put a background image
+  */
+.mdl-layout__header--transparent-image {
+  /* color-primary 500 */
+  background: linear-gradient(rgba(139, 195, 74, 0.97), rgba(139, 195, 74, 0.97)),
+              url('./images/toolbar-header-background.jpg') repeat-x;
+}
+
+@media (min-width: 840px) {
+  .app-dialog--list-detail--employee {
+    width: 600px;
+  }
+}
+
+.app-employee-photo {
+  width: 100%;
+  border-radius: 100%;
 }

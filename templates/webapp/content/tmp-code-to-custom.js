@@ -62,7 +62,7 @@
   function initializeListDetailDialog() {
 
     addShowDialogActionOnClickListener(
-      '#dialog-list-detail-1', '.mld-js-show-dialog-list-detail');
+      '#dialog-list-detail', '.mld-js-show-dialog-list-detail');
   }
 
   /**

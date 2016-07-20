@@ -1,0 +1,12 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended button components.
+ */
+
+/* Los botones por defecto van a ser del color primary o contrast */
+ .mdl-layout__content .mdl-button--icon,
+ .mdl-dialog--extended .mdl-button--icon {
+   color: $color-primary;
+ }

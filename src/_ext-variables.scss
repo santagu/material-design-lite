@@ -10,8 +10,8 @@
 @import "color-definitions";
 @import "functions";
 
-$color-primary: $palette-light-green-500;
-$color-primary-dark: $palette-light-green-700;
+$color-primary: $palette-light-green-700;
+$color-primary-dark: $palette-light-green-900;
 $color-accent: $palette-blue-A200;
 
 // Our primary is dark, so use $color-dark-contrast for overlaid text.
@@ -32,3 +32,6 @@ $performance_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 $chip-bg-color: rgb(222, 222, 222) !default;
 $chip-height: 24px !default;
 $chip-font-size: 12px !default;
+
+/* No está defionido el color secondary */
+$text-color-secondary: rgba-tpl($color-black, 0.54) !default;
