@@ -16,3 +16,7 @@
  .mdl-selectfield.is-dirty:not(.is-focused) .mdl-selectfield__label {
    color: $text-color-secondary;
  }
+
+ .mdl-textfield, .mdl-textfield__input {
+   font-size: 1em;
+ }

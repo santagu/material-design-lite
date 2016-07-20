@@ -13288,6 +13288,9 @@ body {
 .mdl-selectfield.is-dirty:not(.is-focused) .mdl-selectfield__label {
   color: rgba(0, 0, 0, 0.54); }
 
+.mdl-textfield, .mdl-textfield__input {
+  font-size: 1em; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

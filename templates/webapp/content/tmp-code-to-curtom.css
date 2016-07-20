@@ -1,9 +1,6 @@
 
 /** mdl customized (common)*/
 
-
-
-
 /**
  * Extended dialog component
  */
@@ -102,19 +99,15 @@
       }
   }
 
-/* mdl-menu */
+/* mdl-radio */
 
-  .mdl-textfield, .mdl-textfield__input {
-    font-size: 1em;
-  }
-
-  /**
-   * corrige el fallo de que en el menu el label del radio sale con un
-   * tamaño de 16px, en vezde 14px
-   */
-  .mdl-menu .mdl-radio {
-    font-size: 1em;
-  }
+/**
+ * corrige el fallo de que en el menu el label del radio sale con un
+ * tamaño de 16px, en vezde 14px
+ */
+.mdl-radio {
+  font-size: 1em;
+}
 
 /* mdl-dialog */
 
