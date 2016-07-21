@@ -197,3 +197,7 @@
     z-index: -1;
   }
 }
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
