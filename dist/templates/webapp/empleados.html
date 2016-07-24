@@ -65,7 +65,8 @@
           <input class="mdl-searchbox__input" type="text" placeholder="Buscar en empleados">
         </div>
 
-        <button id="searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon"
+                data-mdl-on-click-open-dialog-id="advanced-search-dialog">
           <i class="material-icons">filter_list</i>
         </button>
         <div class="mdl-tooltip" for="searchbox__advanced-search-button">
@@ -147,7 +148,8 @@
           </button>
           <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="drawer__header__user-menu-button">
             <li class="mdl-menu__item">Desconectar</li>
-            <li class="mdl-menu__item" id="show-login-dialog">Cambiar de usuario</li>
+            <li class="mdl-menu__item"  
+                data-mdl-on-click-open-dialog-id="dialog-login">Cambiar de usuario</li>
           </ul>
         </div>
       </div>
@@ -198,7 +200,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
@@ -218,12 +220,12 @@
               <button id="button-favorite-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">star</i>
               </button>
-              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
-                <i class="material-icons">phone</i>
-              </a>
               <div class="mdl-tooltip" for="button-favorite-1">
                 Guardar como favorito
               </div>
+              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
               <button id="send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
                 <i class="material-icons">mail</i>
               </button>
@@ -244,7 +246,7 @@
               </ul>
             </td>
           </tr>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
@@ -291,7 +293,7 @@
             </td>
           </tr>
 
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
@@ -337,7 +339,7 @@
               </ul>
             </td>
           </tr>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
@@ -384,7 +386,7 @@
             </td>
           </tr>
 
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
@@ -430,7 +432,7 @@
               </ul>
             </td>
           </tr>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
@@ -604,7 +606,8 @@
               <span>Con certificado digital</span>
           </span>
         </div>
-        <div class="mdl-list__item" data-mdl-href="http://www.google.es" id="show-user-pass-login-dialog">
+        <div class="mdl-list__item" id="show-user-pass-login-dialog"
+             data-mdl-on-click-open-dialog-id="dialog-login-user-pass">
           <span class="mdl-list__item-primary-content" data-mdl-href="http://www.google.es">
               <i class="material-icons  mdl-list__item-icon">keyboard</i>
               <span>Con usuario y clave</span>
@@ -646,7 +649,8 @@
   <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="dialog-list-detail">
     <div class="mdl-dialog--list-detail__header">
       <div class="mdl-dialog--list-detail__header__navigation-actions">
-        <button id="dialog-list-detail-back" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="dialog-list-detail-back" class="mdl-button mdl-js-button mdl-button--icon"  
+                data-mdl-on-click-close-dialog-id="dialog-list-detail">
           <i class="material-icons">arrow_back</i>
         </button>
         <div class="mdl-tooltip" for="dialog-list-detail-back">
@@ -657,17 +661,11 @@
         Pepito García Flores
       </div>
       <div class="mdl-dialog--list-detail__header__actions">
-        <button id="button-detail-edit" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
-          <i class="material-icons">edit</i>
+        <button id="list-detail__button-favorite" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">star</i>
         </button>
-        <div class="mdl-tooltip" for="button-detail-edit">
-          Editar datos de este empleado
-        </div>
-        <button id="button-detail-delete" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
-          <i class="material-icons">delete</i>
-        </button>
-        <div class="mdl-tooltip" for="button-detail-delete">
-          Borrar este empleado
+        <div class="mdl-tooltip" for="list-detail__button-favorite">
+          Guardar como favorito
         </div>
         <button id="button-detail-print" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
           <i class="material-icons">print</i>
@@ -677,7 +675,7 @@
         </div>
 
         <!-- en movil cabe poco asi que lo ponemos en un boton de más acciones -->
-        <button id="dialog-list-detail__more-options" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop">
+        <button id="dialog-list-detail__more-options" class="mdl-button mdl-js-button mdl-button--icon">
           <i class="material-icons">more_vert</i>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="dialog-list-detail__more-options">
@@ -687,29 +685,29 @@
       </div>
     </div>
     <div class="mdl-dialog--list-detail__content">
-      
+
       <div class="mdl-grid">
-        <div class="mdl-cell  mdl-cell--3-col">
+        <div class="mdl-cell  mdl-cell--3-col  mdl-cell--2-col-tablet  mdl-cell--hide-phone">
           <img src="./content/images/user2.jpg" class="app-employee-photo">
         </div>
 
-        <div class="mdl-cell  mdl-cell--9-col">
+        <div class="mdl-cell  mdl-cell--9-col  mdl-cell--6-col-tablet  mdl-cell--4-col-phone">
           <div class="mdl-grid">
-             <div class="mdl-cell  mdl-cell--6-col">
+             <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-3-phone">
                 <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__puesto" value="Analista Informático">
                   <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Puesto</label>
                 </div>
             </div>
-            
-            <div class="mdl-cell  mdl-cell--6-col">
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-4-phone">
               <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="searchbox__dropdown__input-unidad" value="Informática">
                 <label class="mdl-textfield__label" for="searchbox__dropdown__input-provincia">Centro de trabajo</label>
               </div>
             </div>
-          
-            <div class="mdl-cell  mdl-cell--3-col">
+
+            <div class="mdl-cell  mdl-cell--3-col  mdl-cell--2-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-5-phone">
               <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
                 <div class="mdl-selectfield__label">Provincia</div>
                 <!-- /.mdl-selectfield__label -->
@@ -729,7 +727,7 @@
               </div>
             </div>
 
-            <div class="mdl-cell  mdl-cell--9-col">
+            <div class="mdl-cell  mdl-cell--9-col  mdl-cell--6-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-6-phone">
               <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
                 <input class="mdl-textfield__input" type="email" id="searchbox__dropdown__puesto" value="pepito.flores.garcia@juntadeandalucia.es">
                 <label class="mdl-textfield__label" for="searchbox__dropdown__input-puesto">Email</label>
@@ -742,43 +740,56 @@
                 <br> (abrirá su programa de correo)
               </div>
             </div>
-            
-            <div class="mdl-cell  mdl-cell--6-col">
-              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--2-col-phone  mdl-cell--order-1-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono" value="375478">
                 <label class="mdl-textfield__label" for="employee-telefono">Telef. interno</label>
               </div>
+              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone</i>
+              </a>
             </div>
-            
-            <div class="mdl-cell  mdl-cell--6-col">
-              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--2-col-phone  mdl-cell--order-2-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono-movil" value="757665">
                 <label class="mdl-textfield__label" for="employee-telefono-movil">Móvil interno</label>
               </div>
+              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone_android</i>
+              </a>
             </div>
-             
-            <div class="mdl-cell  mdl-cell--6-col">
-              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-7-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono" value="955455478">
                 <label class="mdl-textfield__label" for="employee-telefono">Telef. externo</label>
-              </div> 
+              </div>
+              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone</i>
+              </a>
+
             </div>
-             
-            <div class="mdl-cell  mdl-cell--6-col">
-              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-8-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
                 <input class="mdl-textfield__input" type="text" id="employee-telefono-movil" value="67757665">
                 <label class="mdl-textfield__label" for="employee-telefono-movil">Móvil externo</label>
               </div>
+              <a href="tel:661946570" id="data-table__phone-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone_android</i>
+              </a>
             </div>
           </div>
         </div>
-      </div>   
-       
-            
-      
-      
-      
-      
+      </div>
+
+
+
+
+
+
     </div>
   </dialog>
 

@@ -2,12 +2,11 @@
   'use strict';
 
   /* Códigos a ejecutar cuando se carga la página */
-  initializeAdvancedSearchDialog();
-  initializeListDetailDialog();
-  initializeLoginDialog();
-
+  initializeExtendedDialogActions();
+  
   /**************** Funciones (en orden alfabético) **************************/
 
+  
   /**
    * Registra en el evento click de un elemento que se abra un determinado
    * diálogo.
@@ -48,21 +47,43 @@
    * avanzada cuando se pulsa sobre el icono de la barra de herramientas
    * o la ayuda de la búsqueda
    */
+  function initializeExtendedDialogActions() {
+    var elementsWichOpenDialog =
+      document.querySelectorAll("*[data-mdl-on-click-open-dialog-id]");
+
+    // Por cada nodo se añade evento para que al pulsar se abra el dialogo
+    forEachNode(elementsWichOpenDialog, function(index, value) {
+      var dialogIdToShow = value.getAttribute("data-mdl-on-click-open-dialog-id");
+      var dialogToShow = document.querySelector("#" + dialogIdToShow);
+      value.addEventListener('click', function() {
+        dialogToShow.showModal();
+      });
+    });    
+      
+     var elementsWichCloseDialog =
+      document.querySelectorAll("*[data-mdl-on-click-close-dialog-id]");
+
+    // Por cada nodo se añade evento para que al pulsar se abra el dialogo
+    forEachNode(elementsWichCloseDialog, function(index, value) {
+      var dialogIdToClose = value.getAttribute("data-mdl-on-click-close-dialog-id");
+      var dialogToClose = document.querySelector("#" + dialogIdToClose);
+      value.addEventListener('click', function() {
+        dialogToClose.close();
+      });
+    });
+    
+  }
+
+  /**
+   * Inicializa las acciones asociadas al mdl-dialog--extended:
+   * Asocia los eventos de abrir el dialogo y cerrarlo donde se 
+   * encuentre el data-mdl-open-dialgo-id o close correspondiente
+   * Esto facilita el desarrollo
+   */
   function initializeAdvancedSearchDialog() {
 
     addShowDialogActionOnClickListener(
       '#advanced-search-dialog', '#searchbox__advanced-search-button');
-  }
-
-  /**
-   * Ejecuta todo el javascrit necesario para que funcione correctamente
-   * diálogo de detalle del listado. Cuando se pulsa sobre una fila de un
-   * listado se debe abrir un dialogo con el detalle.
-   */
-  function initializeListDetailDialog() {
-
-    addShowDialogActionOnClickListener(
-      '#dialog-list-detail', '.mld-js-show-dialog-list-detail');
   }
 
   /**

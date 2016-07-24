@@ -105,6 +105,20 @@
       }
   }
 
+/**
+  * Para cuando se llama a abrir un dialog en una tabla
+  */
+tr[data-mdl-on-click-open-dialog-id],
+.mdl-list__item[data-mdl-on-click-open-dialog-id] {
+    cursor: pointer;
+}
+
+.mdl-list__item[data-mdl-href]:hover,
+.mdl-list__item[data-mdl-on-click-open-dialog-id]:hover {
+  background-color: #eeeeee;
+}
+
+
 /* mdl-radio */
 
 /**
@@ -118,14 +132,6 @@
 /* mdl-dialog */
 
 /* mdl-list */
-
-.mdl-list__item[data-mdl-href] {
-    cursor: pointer;
-}
-
-.mdl-list__item[data-mdl-href]:hover {
-  background-color: #eeeeee;
-}
 
 
 

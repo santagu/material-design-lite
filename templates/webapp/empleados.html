@@ -65,7 +65,8 @@
           <input class="mdl-searchbox__input" type="text" placeholder="Buscar en empleados">
         </div>
 
-        <button id="searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon"
+                data-mdl-on-click-open-dialog-id="advanced-search-dialog">
           <i class="material-icons">filter_list</i>
         </button>
         <div class="mdl-tooltip" for="searchbox__advanced-search-button">
@@ -147,7 +148,8 @@
           </button>
           <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="drawer__header__user-menu-button">
             <li class="mdl-menu__item">Desconectar</li>
-            <li class="mdl-menu__item" id="show-login-dialog">Cambiar de usuario</li>
+            <li class="mdl-menu__item"  
+                data-mdl-on-click-open-dialog-id="dialog-login">Cambiar de usuario</li>
           </ul>
         </div>
       </div>
@@ -198,7 +200,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
@@ -244,7 +246,7 @@
               </ul>
             </td>
           </tr>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
@@ -291,7 +293,7 @@
             </td>
           </tr>
 
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
@@ -337,7 +339,7 @@
               </ul>
             </td>
           </tr>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
@@ -384,7 +386,7 @@
             </td>
           </tr>
 
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user2.jpg">
             </td>
@@ -430,7 +432,7 @@
               </ul>
             </td>
           </tr>
-          <tr data-mdl-href="http://www.google.es" class="mld-js-show-dialog-list-detail">
+          <tr data-mdl-on-click-open-dialog-id="dialog-list-detail">
             <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
               <img src="./content/images/user3.jpg">
             </td>
@@ -604,7 +606,8 @@
               <span>Con certificado digital</span>
           </span>
         </div>
-        <div class="mdl-list__item" data-mdl-href="http://www.google.es" id="show-user-pass-login-dialog">
+        <div class="mdl-list__item" id="show-user-pass-login-dialog"
+             data-mdl-on-click-open-dialog-id="dialog-login-user-pass">
           <span class="mdl-list__item-primary-content" data-mdl-href="http://www.google.es">
               <i class="material-icons  mdl-list__item-icon">keyboard</i>
               <span>Con usuario y clave</span>
@@ -646,7 +649,8 @@
   <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="dialog-list-detail">
     <div class="mdl-dialog--list-detail__header">
       <div class="mdl-dialog--list-detail__header__navigation-actions">
-        <button id="dialog-list-detail-back" class="mdl-button mdl-js-button mdl-button--icon">
+        <button id="dialog-list-detail-back" class="mdl-button mdl-js-button mdl-button--icon"  
+                data-mdl-on-click-close-dialog-id="dialog-list-detail">
           <i class="material-icons">arrow_back</i>
         </button>
         <div class="mdl-tooltip" for="dialog-list-detail-back">
