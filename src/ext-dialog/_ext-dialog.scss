@@ -12,9 +12,10 @@
        color: #8bc34a; /*$color-primary;*/
      }
 
-  /* poner en scss @media (min-width: $grid-tablet-breakpoint) { */
-  .mdl-dialog--medium {
-    min-width: 25em;
+  @media (min-width: $grid-tablet-breakpoint) {
+    .mdl-dialog--medium {
+      min-width: 25em;
+    }
   }
 
     .mdl-dialog--extended .mdl-dialog__title {
@@ -78,7 +79,7 @@
   }
 
 
-  @media (max-width: $grid-desktop-breakpoint - 1) {{
+  @media (max-width: $grid-desktop-breakpoint - 1) {
 
     .mdl-dialog--list-detail__header {
       padding: 24px;
