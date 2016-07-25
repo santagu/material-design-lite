@@ -56,6 +56,10 @@
       var dialogIdToShow = value.getAttribute("data-mdl-on-click-open-dialog-id");
       var dialogToShow = document.querySelector("#" + dialogIdToShow);
       value.addEventListener('click', function() {
+        // Registramos el polyfill por si el navegador no soporta elemento dialog
+        if (!dialogToShow.showModal) {
+          dialogPolyfill.registerDialog(dialogToShow);
+        }
         dialogToShow.showModal();
       });
     });    
@@ -68,34 +72,14 @@
       var dialogIdToClose = value.getAttribute("data-mdl-on-click-close-dialog-id");
       var dialogToClose = document.querySelector("#" + dialogIdToClose);
       value.addEventListener('click', function() {
+        // Registramos el polyfill por si el navegador no soporta elemento dialog
+        if (!dialogToClose.close) {
+          dialogPolyfill.registerDialog(dialogToClose);
+        }
         dialogToClose.close();
       });
     });
     
-  }
-
-  /**
-   * Inicializa las acciones asociadas al mdl-dialog--extended:
-   * Asocia los eventos de abrir el dialogo y cerrarlo donde se 
-   * encuentre el data-mdl-open-dialgo-id o close correspondiente
-   * Esto facilita el desarrollo
-   */
-  function initializeAdvancedSearchDialog() {
-
-    addShowDialogActionOnClickListener(
-      '#advanced-search-dialog', '#searchbox__advanced-search-button');
-  }
-
-  /**
-   * Ejecuta todo el js necesario para que funcione el diálogo de login cuando
-   * se pulsa sobre el menú del usuario en desconectar o cambiar de usuario
-   */
-  function initializeLoginDialog() {
-
-    addShowDialogActionOnClickListener(
-      '#dialog-login', '#show-login-dialog');
-    addShowDialogActionOnClickListener(
-      '#dialog-login-user-pass', '#show-user-pass-login-dialog');
   }
 
   /**
