@@ -1,0 +1,22 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended helper clases
+ */
+
+ /**
+  *  Esto es para que apezca floating label en gris (como dice material design)
+  *  (antes aparecía en color-primary)
+  */
+ .mdl-textfield--floating-label.is-dirty:not(.is-focused) .mdl-textfield__label {
+   color: $text-color-secondary;
+ }
+
+ .mdl-selectfield.is-dirty:not(.is-focused) .mdl-selectfield__label {
+   color: $text-color-secondary;
+ }
+
+ .mdl-textfield, .mdl-textfield__input {
+   font-size: 1em;
+ }

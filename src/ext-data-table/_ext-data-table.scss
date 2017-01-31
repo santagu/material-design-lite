@@ -1,0 +1,239 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended data-table component. Header, foot, table as list in phone resolution
+ */
+/**
+  * Para que se diferencie el fondo un poco del
+  * contenido, tal como se hace en google inbox
+  */
+  .mdl-data-table--extended  .mdl-data-table__head__title {
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 64px;
+    color: rgba(0,0,0,.87);
+  }
+
+  .mdl-data-table--extended  .mdl-data-table__head__title > th {
+    padding-top: 20px;
+    padding-bottom: 22px;
+    font-weight: normal;
+    text-align: left;
+    font-size: 20px;
+    color: inherit;
+  }
+
+  .mdl-data-table--extended  .mdl-data-table__cell--non-numeric {
+    word-wrap: break-word;
+  }
+
+  .mdl-data-table--extended  .mdl-data-table__head__title__row__text  {
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+
+  .mdl-data-table--extended  .mdl-data-table__head__title__row__filters  {
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 6px;
+  }
+
+/* For make the entire tr "clickeable" */
+  .mdl-data-table--extended  tr[data-mdl-href] {
+      cursor: pointer;
+  }
+
+  .mdl-data-table--extended  tr[data-mdl-href]:hover {
+    background-color: #eeeeee;
+  }
+
+  /* data table cell for images */
+  .mdl-data-table--extended  .mdl-data-table__cell--img > img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+  }
+
+  /* data table cell for actions on the row */
+  .mdl-data-table--extended  .mdl-data-table__cell--actions {
+      color: rgb(0,0,0);
+      color: rgba(0,0,0,.54);
+  }
+
+  .mdl-data-table--extended  td.mdl-data-table__cell--non-numeric {
+    white-space: normal;
+  }
+
+  .mdl-data-table--extended  .mdl-data-table__foot {
+    color: rgba(0, 0, 0, .54);
+    font-size: 12px;
+  }
+
+    .mdl-data-table--extended  .mdl-data-table__foot__result-per-page-number {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 40px;
+      text-align: rigth;
+    }
+
+    .mdl-data-table--extended  .mdl-data-table__foot__result-per-page-select-button {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      text-align: left;
+    }
+
+      .mdl-data-table--extended  .mdl-data-table__foot__result-per-page-select-button .mdl-button--icon {
+        display: inline-block;
+        margin: -6px;
+        padding: 0;
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+      }
+
+      .mdl-data-table--extended  .mdl-data-table__foot__results-index {
+        display: inline-block;
+        margin-left: 32px;
+        margin-right: 32px;
+        padding: 0;
+      }
+
+      .mdl-data-table--extended  .mdl-data-table__foot__prev-page-button {
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 8px;
+        padding: 0;
+      }
+
+      .mdl-data-table--extended    .mdl-data-table__foot__next-page-button {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+
+
+      /**
+       * Cuando pasa de desktop suponemos que es versión tablet vertical ó
+       * móvil, y entonces hay que mostrar la tabla de otra manera como lista
+       */
+      @media (max-width: $grid-desktop-breakpoint - 1) {
+         table.mdl-data-table--list-on-phone {
+           width: 100%;
+         }
+
+         .mdl-data-table--list-on-phone  .mdl-data-table__head__columns,
+         .mdl-data-table--list-on-phone  .mdl-data-table__head__title__row__text {
+           display: none;
+         }
+
+         .mdl-data-table--list-on-phone  tbody > tr {
+           display: -webkit-flex;
+           display: flex;
+           -webkit-flex-flow: row;
+                   flex-flow: row;
+           min-height: 88px;
+           width: 100%;
+           border-top: 1px solid rgba(0, 0, 0, 0.12);
+         }
+
+         .mdl-data-table--list-on-phone  tbody > tr > td,
+         .mdl-data-table--list-on-phone  tbody > tr > td:first-of-type {
+           display: none; /* se esconden todos menos los del list */
+           padding: 16px;
+           height: 88px;
+           border: none;
+         }
+
+        .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__left-content {
+           display: flex;
+           flex: 0 72px;
+           order: 1;
+        }
+
+        .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__left-content > img {
+          width: 48px;
+          height: 48px;
+          border-radius: 100%;
+        }
+
+        .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1 {
+      		display: flex;
+          flex: 1 auto;
+          order: 2;
+          padding-left: 0;
+          padding-right: 0.25em;
+      	}
+
+          /* Para componer la linea 1 de diferentes columnas */
+          .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1--1of3 {
+            flex: 0 auto;
+            order: 2;
+        	}
+
+          .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1--2of3 {
+            flex: 0 auto;
+            order: 3;
+        	}
+
+          .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--line1--3of3 {
+            flex: 1 auto;
+            order: 4;
+        	}
+
+        .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--right-content {
+      		display: flex;
+          flex: 0 auto;
+          order: 5;
+          padding-left: 0;
+          padding-right: 16px;
+      	}
+
+        .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--line2 {
+          display: inline-block;
+          position: absolute;
+          top: 36px; /* 16px + 16px + 4px*/
+          left: 80px;
+          padding-left: 0;
+          padding-top: 0;
+          margin-top: 0;
+          max-width: 85%;
+          width:85%;
+          overflow: none;
+          font-size: 12px;
+          text-align: justify;
+          color: #9E9E9E; /* gray 500 */
+        }
+
+        .mdl-data-table--list-on-phone  tbody > tr > td.mdl-data-table--list-on-phone__item__text--line3 {
+          display: inline-block;
+          position: absolute;
+          top: 56px; /* 16px + 16px + 4px + 16px + 4px*/
+          left: 80px;
+          padding-left: 0;
+          padding-top: 0;
+          max-width: 85%;
+          width:85%;
+          overflow: none;
+          font-size: 12px;
+          text-align: justify;
+          color: #9E9E9E; /* gray 500 */
+        }
+
+        /* No se muestran algunos elementos para que quepan en el móvil */
+        .mdl-data-table--list-on-phone  .mdl-data-table__foot  .mdl-data-table__foot__result-per-page-number,
+        .mdl-data-table--list-on-phone  .mdl-data-table__foot  .mdl-data-table__foot__result-per-page-select-button {
+          display: none;
+        }
+
+        .mdl-data-table--list-on-phone  .mdl-data-table__foot__results-index {
+          margin-left: 0.5em;
+          margin-right: 0.5em;
+        }
+
+    }

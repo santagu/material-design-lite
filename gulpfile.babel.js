@@ -81,10 +81,12 @@ const SOURCES = [
   'src/switch/switch.js',
   'src/tabs/tabs.js',
   'src/textfield/textfield.js',
+  'src/selectfield/selectfield.js',
   'src/tooltip/tooltip.js',
   // Complex components (which reuse base components)
   'src/layout/layout.js',
   'src/data-table/data-table.js',
+  'src/pickers/datepicker.js',
   // And finally, the ripples
   'src/ripple/ripple.js'
 ];
@@ -548,9 +550,9 @@ gulp.task('serve:browsersync', () => {
 
 gulp.task('serve', () => {
   $.connect.server({
-    root: 'dist',
+    root: '.',
     port: 5000,
-    livereload: true
+    livereload: false
   });
 
   watch();

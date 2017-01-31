@@ -1,0 +1,805 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Directorio de empleados</title>
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Directorio de empleados">
+  <link rel="apple-touch-icon-precomposed" href="">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../../dist/material.css">
+  <link rel="stylesheet" href="./content/tmp-code-to-curtom.css">
+
+  <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
+  <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.css">
+</head>
+
+<body>
+
+  <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-header  mdl-layout--fixed-drawer">
+
+    <header class="mdl-layout__header  mdl-layout__header--transparent-image">
+      <!-- Top row, always visible -->
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title  mdl-hide-phone  mdl-hide-tablet">Empleados > Favoritos</span>
+
+        <!-- El texto en móvil suele ser diferente y más corto, por eso se separa -->
+        <span class="mdl-layout-title  mdl-hide-desktop">Favoritos</span>
+
+        <div class="mdl-layout-spacer"></div>
+
+        <div class="mdl-searchbox  mdl-hide-phone">
+          <!-- TODO: temporal se esconde en movil, arreglar para que sea autom -->
+          <button id="header__searchbox__search-button" class="mdl-button  mdl-js-button  mdl-button--icon  mdl-button--searchbox__search">
+            <i class="material-icons">search</i>
+          </button>
+          <div class="mdl-tooltip" for="header__searchbox__simple-search-button">
+            Buscar el texto introducido
+          </div>
+          <input class="mdl-searchbox__input" type="text" placeholder="Buscar en empleados">
+        </div>
+
+        <button id="header__searchbox__advanced-search-button" class="mdl-button mdl-js-button mdl-button--icon"
+                data-mdl-on-click-open-dialog-id="advanced-search-dialog">
+          <i class="material-icons">filter_list</i>
+        </button>
+        <div class="mdl-tooltip" for="header__searchbox__advanced-search-button">
+          Búsqueda avanzada con más opciones
+        </div>
+        <button id="header__advanced-sort-button" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">sort_by_alpha</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect  mdl-menu--for-button-sort" data-mdl-for="header__advanced-sort-button">
+          <li class="mdl-menu__item">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="hheader__advanced-sort__apellido-1">
+              <input type="radio" id="header__advanced-sort__apellido-1" class="mdl-radio__button" name="header__advanced-sort__options" value="apellido-1" checked>
+              <span class="mdl-radio__label">Apellido 1</span>
+            </label>
+          </li>
+          <li class="mdl-menu__item">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="header__advanced-sort__apellido-2">
+              <input type="radio" id="header__advanced-sort__apellido-2" class="mdl-radio__button" name="header__advanced-sort__options" value="apellido-2">
+              <span class="mdl-radio__label">Apellido 2</span>
+            </label>
+          </li>
+          <li class="mdl-menu__item">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="header__advanced-sort__nombre">
+              <input type="radio" id="header__advanced-sort__nombre" class="mdl-radio__button" name="header__advanced-sort__options" value="nombre">
+              <span class="mdl-radio__label">Nombre</span>
+            </label>
+          </li>
+          <li class="mdl-menu__item">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="header__advanced-sort__centro-trabajo">
+              <input type="radio" id="header__advanced-sort__centro-trabajo" class="mdl-radio__button" name="header__advanced-sort__options" value="centro-trabajo">
+              <span class="mdl-radio__label">Centro de trabajo</span>
+            </label>
+          </li>
+          <li class="mdl-menu__item">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="header__advanced-sort__provincia">
+              <input type="radio" id="header__advanced-sort__provincia" class="mdl-radio__button" name="header__advanced-sort__options" value="provincia">
+              <span class="mdl-radio__label">Provincia</span>
+            </label>
+          </li>
+        </ul>
+        <div class="mdl-tooltip" for="header__advanced-sort-button">
+          Ordenar listado
+        </div>
+
+        <button id="header__print-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+          <i class="material-icons">print</i>
+        </button>
+        <div class="mdl-tooltip" for="header__print-button">
+          Imprimir este listado
+        </div>
+
+        <button id="header__more-options-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="header__more-options-button">
+          <li class="mdl-menu__item">Guardar como pantalla de inicio</li>
+          <li class="mdl-menu__item">Ayuda</li>
+          <li class="mdl-menu__item">Acerca de</li>
+        </ul>
+        <div class="mdl-tooltip" for="header__more-options-button">
+          Más acciones
+        </div>
+
+      </div>
+      <!-- Bottom row, not visible on scroll -->
+      <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
+      </div>
+    </header>
+
+    <div class="mdl-layout__drawer">
+      <div class="mdl-layout__drawer__header  mdl-layout__header--transparent-image">
+        <div class="mdl-layout__drawer__header__row  mdl-layout__drawer__header__title">Listín</div>
+        <img class="mdl-layout__drawer__header__user-photo" src="./content/images/user.jpg">
+        <div class="mdl-layout__drawer__header__user-name">Salvador Santander Gutiérrez</div>
+        <div class="mdl-layout__drawer__header__user-menu-button">
+          <button id="drawer__header__user-menu-button" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">arrow_drop_down</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="drawer__header__user-menu-button">
+            <li class="mdl-menu__item">Desconectar</li>
+            <li class="mdl-menu__item"  
+                data-mdl-on-click-open-dialog-id="login-method-dialog">Cambiar de usuario</li>
+          </ul>
+        </div>
+      </div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link  mdl-navigation__link--level-1" href="">
+          <i class="mdl-color-text--blue-grey-400 material-icons">group</i> Empleados
+        </a>
+        <a class="mdl-navigation__link  mdl-navigation__link--level-2" href="">Favoritos</a>
+        <a class="mdl-navigation__link  mdl-navigation__link--level-2" href="">Todos</a>
+        <a class="mdl-navigation__link" href="">
+          <i class="mdl-color-text--blue-grey-400 material-icons">domain</i> Centros de trabajo
+        </a>
+        <a class="mdl-navigation__link  mdl-navigation__link--level-1" href="">
+          <i class="mdl-color-text--blue-grey-400 material-icons">assignment</i> Solicitudes
+        </a>
+      </nav>
+    </div>
+
+    <main class="mdl-layout__content">
+      <table class="mdl-data-table  mdl-js-data-table  mdl-data-table--extended  mdl-data-table--list-on-phone  mdl-shadow--2dp  mdl-align-center">
+        <thead>
+          <tr class="mdl-data-table__head__title">
+            <th colspan="8">
+              <span class="mdl-data-table__head__title__row__text">Resultados de la búsqueda: </span>
+              <span class="mdl-data-table__head__title__row__filters">
+                                    <span class="mdl-chip mdl-chip--deletable">
+                                        <span class="mdl-chip__text">pepi (Nombre)</span>
+              <button class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+              </span>
+              <span class="mdl-chip mdl-chip--deletable">
+                                        <span class="mdl-chip__text">sevilla (Provincia)</span>
+              <button class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+              </span>
+              </span>
+            </th>
+          </tr>
+          <tr class="mdl-data-table__head__columns">
+            <th class="mdl-data-table__cell--non-numeric">Foto</th>
+            <th class="mdl-data-table__cell--non-numeric  mdl-data-table__header--sorted-ascending">Apellido 1</th>
+            <th class="mdl-data-table__cell--non-numeric">Apellido 2</th>
+            <th class="mdl-data-table__cell--non-numeric">
+              Nombre
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">Puesto</th>
+            <th class="mdl-data-table__cell--non-numeric">Centro de trabajo</th>
+            <th class="mdl-data-table__cell--non-numeric">Provincia</th>
+            <th class="mdl-data-table__cell--non-numeric">Acciones</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr data-mdl-on-click-open-dialog-id="list-detail-dialog">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
+              <img src="./content/images/user2.jpg">
+            </td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">García</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
+            <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="data-table__header__favorite-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">star</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__favorite-button-1">
+                Guardar como favorito
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
+              <button id="data-table__header__send-email-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">mail</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__send-email-button-1">
+                Enviar correo electrónico
+                <br> (abrirá su programa de correo)
+              </div>
+              <!-- Right aligned menu below button -->
+              <button id="data-table__header__more-options-button-1" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__more-options-button-1">
+                Otras opciones
+              </div>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__header__more-options-button-1">
+                <li class="mdl-menu__item">Ver detalle</li>
+                <li class="mdl-menu__item">Solicitar corrección</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <tr data-mdl-on-click-open-dialog-id="list-detail-dialog">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
+              <img src="./content/images/user3.jpg">
+            </td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">S.C.Dirección - Act. Sing. - Alamillo</td>
+            <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="data-table__header__favorite-button-2" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">star</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__favorite-button-2">
+                Guardar como favorito
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
+              <button id="data-table__header__send-email-button-2" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">mail</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__send-email-button-2">
+                Enviar correo electrónico
+                <br> (abrirá su programa de correo)
+              </div>
+              <!-- Right aligned menu below button -->
+              <button id="data-table__header__more-options-button-2" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__more-options-button-2">
+                Otras opciones
+              </div>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__header__more-options-button-2">
+                <li class="mdl-menu__item">Ver detalle</li>
+                <li class="mdl-menu__item">Solicitar corrección</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <tr data-mdl-on-click-open-dialog-id="list-detail-dialog">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
+              <img src="./content/images/user2.jpg">
+            </td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">García</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
+            <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="data-table__header__favorite-button-3" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">star</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__favorite-button-3">
+                Guardar como favorito
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
+              <button id="data-table__header__send-email-button-3" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">mail</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__send-email-button-3">
+                Enviar correo electrónico
+                <br> (abrirá su programa de correo)
+              </div>
+              <!-- Right aligned menu below button -->
+              <button id="data-table__header__more-options-button-3" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__more-options-button-3">
+                Otras opciones
+              </div>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__header__more-options-button-3">
+                <li class="mdl-menu__item">Ver detalle</li>
+                <li class="mdl-menu__item">Solicitar corrección</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <tr data-mdl-on-click-open-dialog-id="list-detail-dialog">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
+              <img src="./content/images/user3.jpg">
+            </td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">S.C.Dirección - Act. Sing. - Alamillo</td>
+            <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="data-table__header__favorite-button-4" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">star</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__favorite-button-4">
+                Guardar como favorito
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
+              <button id="data-table__header__send-email-button-4" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">mail</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__send-email-button-4">
+                Enviar correo electrónico
+                <br> (abrirá su programa de correo)
+              </div>
+              <!-- Right aligned menu below button -->
+              <button id="data-table__header__more-options-button-4" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__more-options-button-4">
+                Otras opciones
+              </div>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__header__more-options-button-4">
+                <li class="mdl-menu__item">Ver detalle</li>
+                <li class="mdl-menu__item">Solicitar corrección</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <tr data-mdl-on-click-open-dialog-id="list-detail-dialog">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
+              <img src="./content/images/user2.jpg">
+            </td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Flores</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">García</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Pepito</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Técnico Superior Informático</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">Servicios Centrales</td>
+            <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="data-table__header__favorite-button-5" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">star</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__favorite-button-5">
+                Guardar como favorito
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
+              <button id="data-table__header__send-email-button-5" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">mail</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__send-email-button-5">
+                Enviar correo electrónico
+                <br> (abrirá su programa de correo)
+              </div>
+              <!-- Right aligned menu below button -->
+              <button id="data-table__header__more-options-button-5" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__more-options-button-5">
+                Otras opciones
+              </div>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__header__more-options-button-5">
+                <li class="mdl-menu__item">Ver detalle</li>
+                <li class="mdl-menu__item">Solicitar corrección</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <tr data-mdl-on-click-open-dialog-id="list-detail-dialog">
+            <td class="mdl-data-table__cell--img  mdl-data-table--list-on-phone__item__left-content">
+              <img src="./content/images/user3.jpg">
+            </td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--2of3">Nmenonic</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--3of3">Cool</td>
+            <td class="mdl-data-table__cell--non-numeric
+                           mdl-data-table--list-on-phone__item__text--line1
+                           mdl-data-table--list-on-phone__item__text--line1--1of3">Johny</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line2">Soporte Administrativo</td>
+            <td class="mdl-data-table__cell--non-numeric  mdl-data-table--list-on-phone__item__text--line3">S.C.Dirección - Act. Sing. - Alamillo</td>
+            <td class="mdl-data-table__cell--non-numeric">Sevilla</td>
+            <td class="mdl-data-table__cell--actions  mdl-data-table--list-on-phone__item__text--right-content">
+              <button id="data-table__header__favorite-button-6" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">star</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__favorite-button-6">
+                Guardar como favorito
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-tablet  mdl-hide-desktop">
+                <i class="material-icons">phone</i>
+              </a>
+              <button id="data-table__header__send-email-button-6" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">mail</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__send-email-button-6">
+                Enviar correo electrónico
+                <br> (abrirá su programa de correo)
+              </div>
+              <!-- Right aligned menu below button -->
+              <button id="data-table__header__more-options-button-6" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="mdl-tooltip" for="data-table__header__more-options-button-6">
+                Otras opciones
+              </div>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__header__more-options-button-6">
+                <li class="mdl-menu__item">Ver detalle</li>
+                <li class="mdl-menu__item">Solicitar corrección</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+        
+        <tfoot class="mdl-data-table__foot">
+          <tr>
+            <td colspan="8">
+              <span>Resultados por página:</span>
+              <span class="mdl-data-table__foot__result-per-page-number">6</span>
+              <span class="mdl-data-table__foot__result-per-page-select-button">
+                <button id="data-table__footer__results-per-page-button" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">arrow_drop_down</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--top-left  mdl-js-menu mdl-js-ripple-effect" data-mdl-for="data-table__footer__results-per-page-button">
+                    <li class="mdl-menu__item">6</li>
+                    <li class="mdl-menu__item">10</li>
+                    <li class="mdl-menu__item">20</li>
+                    <li class="mdl-menu__item">30</li>
+                    <li class="mdl-menu__item">40</li>
+                    <li class="mdl-menu__item">50</li>
+                </ul>
+              </span>
+              <span class="mdl-data-table__foot__results-index">1-6 de 700</span>
+              <span class="mdl-data-table__foot__prev-page-button">
+                <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_left</i></button>
+              </span>
+              <span class="mdl-data-table__foot__next-page-button">
+                <button class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">keyboard_arrow_right</i></button>
+              </span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+    </main>
+  </div>
+
+  <!-- Dialog para búsqueda avanzada -->
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--medium" id="advanced-search-dialog">
+    <div class="mdl-dialog__title">
+      Introduzca criterios de búsqueda
+    </div>
+    
+    <div class="mdl-dialog__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone">
+          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="advanced-search-dialog__apellido2-input">
+            <label class="mdl-textfield__label" for="sadvanced-search-dialog__apellido2-input">Apellido 2</label>
+          </div>
+        </div>
+        <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-tablet">
+          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="advanced-search-dialog__apellido1-input">
+            <label class="mdl-textfield__label" for="advanced-search-dialog__apellido1-input">Apellido 1</label>
+          </div>
+        </div>
+      
+        <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone">
+          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="advanced-search-dialog__nombre-input">
+            <label class="mdl-textfield__label" for="advanced-search-dialog__nombre-input">Nombre</label>
+          </div>
+        </div>
+        <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone">
+          <div id="advanced-search-dialog__provincia-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+            <div class="mdl-selectfield__label">Provincia</div>
+            <!-- /.mdl-selectfield__label -->
+            <select id="advanced-search-dialog__provincia-input" name="advanced-search-dialog__provincia-selectfield" class="mdl-selectfield__select">
+              <option></option>
+              <option value="1">Almería</option>
+              <option value="2">Cádiz</option>
+              <option value="3">Córdoba</option>
+              <option value="4">Granada</option>
+              <option value="5">Huelva</option>
+              <option value="6">Jaén</option>
+              <option value="7">Málaga</option>
+              <option value="8">Sevilla</option>
+            </select>
+            <div class="mdl-selectfield__error"></div>
+            <!-- /.mdl-selectfield__error -->
+          </div>
+          <!-- /.mdl-selectfield -->
+        </div>
+
+        <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone">
+          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="advanced-search-dialog__provincia-unidad-input">
+            <label class="mdl-textfield__label" for="advanced-search-dialog__provincia-unidad-input">Centro de trabajo</label>
+          </div>
+        </div>
+        <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone">
+          <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="advanced-search-dialog__puesto-input">
+            <label class="mdl-textfield__label" for="advanced-search-dialog__puesto-input">Puesto</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mdl-dialog__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+        Buscar
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--primary">
+        Reestablecer
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Dialog para mostrar parntalla de autenticacion -->
+  <dialog class="mdl-dialog  mdl-dialog--extended" id="login-method-dialog">
+    <div class="mdl-dialog__title">
+      Elija cómo identificarse
+    </div>
+    <div class="mdl-dialog__content  mdl-dialog__content--with-list">
+      <div class="mdl-list">
+        <div class="mdl-list__item" data-mdl-href="http://www.google.es">
+          <span class="mdl-list__item-primary-content">
+              <i class="material-icons  mdl-list__item-icon">computer</i>
+              <span>Automáticamente con el usuario con el que ha entrado en windows</span>
+          </span>
+        </div>
+        <div class="mdl-list__item" data-mdl-href="http://www.google.es">
+          <span class="mdl-list__item-primary-content">
+              <i class="material-icons  mdl-list__item-icon">credit_card</i>
+              <span>Con certificado digital</span>
+          </span>
+        </div>
+        <div class="mdl-list__item" id="show-user-pass-login-dialog"
+             data-mdl-on-click-open-dialog-id="dialog-login-user-pass">
+          <span class="mdl-list__item-primary-content" data-mdl-href="http://www.google.es">
+              <i class="material-icons  mdl-list__item-icon">keyboard</i>
+              <span>Con usuario y clave</span>
+          </span>
+        </div>
+      </div>
+      <div class="mdl-dialog__content">
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-remember-login">
+          <input type="checkbox" id="checkbox-remember-login" class="mdl-checkbox__input" checked>
+          <span class="mdl-checkbox__label">No volver a preguntar en este ordenador</span>
+        </label>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Dialog para mostrar pantalla de autenticacion con usuario y clave -->
+  <dialog class="mdl-dialog  mdl-dialog--extended" id="dialog-login-user-pass">
+    <div class="mdl-dialog__title">
+      Identifíquese con usuario y clave
+    </div>
+    <div class="mdl-dialog__content">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="login__user-id">
+        <label class="mdl-textfield__label" for="login__user-id">Identificador de usuario</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" id="login__user-pass">
+        <label class="mdl-textfield__label" for="login__user-pass">Clave</label>
+      </div>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button class="mdl-button mdl-js-button mdl-button--primary">
+        Identificarse
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Dialog para mostrar parntalla de detalle al pulsar sobre el listado -->
+  <dialog class="mdl-dialog  mdl-dialog--extended  mdl-dialog--list-detail  app-dialog--list-detail--employee" id="list-detail-dialog">
+    <div class="mdl-dialog--list-detail__header">
+      <div class="mdl-dialog--list-detail__header__navigation-actions">
+        <button id="list-detail-dialog__back-button" class="mdl-button mdl-js-button mdl-button--icon"  
+                data-mdl-on-click-close-dialog-id="list-detail-dialog">
+          <i class="material-icons">arrow_back</i>
+        </button>
+        <div class="mdl-tooltip" for="list-detail-dialog__back-button">
+          Volver al listado
+        </div>
+      </div>
+      <div class="mdl-dialog--list-detail__header__title">
+        Pepito García Flores
+      </div>
+      <div class="mdl-dialog--list-detail__header__actions">
+        <button id="list-detail-dialog__favorite-button" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">star</i>
+        </button>
+        <div class="mdl-tooltip" for="list-detail-dialog__favorite-button">
+          Guardar como favorito
+        </div>
+        <button id="list-detail-dialog__print-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-phone  mdl-hide-tablet">
+          <i class="material-icons">print</i>
+        </button>
+        <div class="mdl-tooltip  mdl-hide-phone  mdl-hide-tablet" for="list-detail-dialog__print-button">
+          Imprimir ficha de este empleado
+        </div>
+
+        <!-- en movil cabe poco asi que lo ponemos en un boton de más acciones -->
+        <button id="list-detail-dialog__more-options-button" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="list-detail-dialog__more-options-button">
+          <li class="mdl-menu__item">Editar</li>
+          <li class="mdl-menu__item">Borrar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mdl-dialog--list-detail__content">
+
+      <div class="mdl-grid">
+        <div class="mdl-cell  mdl-cell--3-col  mdl-cell--2-col-tablet  mdl-cell--hide-phone">
+          <img src="./content/images/user2.jpg" class="app-employee-photo">
+        </div>
+
+        <div class="mdl-cell  mdl-cell--9-col  mdl-cell--6-col-tablet  mdl-cell--4-col-phone">
+          <div class="mdl-grid">
+             <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-3-phone">
+                <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="list-detail-dialog__puesto-input" value="Analista Informático">
+                  <label class="mdl-textfield__label" for="list-detail-dialog__puesto-input">Puesto</label>
+                </div>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-4-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="list-detail-dialog__unidad-input" value="Informática">
+                <label class="mdl-textfield__label" for="list-detail-dialog__unidad-input">Centro de trabajo</label>
+              </div>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--3-col  mdl-cell--2-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-5-phone">
+              <div id="list-detail-dialog__provincia-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+                <div class="mdl-selectfield__label">Provincia</div>
+                <!-- /.mdl-selectfield__label -->
+                <select id="list-detail-dialog__provincia-select" name="list-detail-dialog__provincia-selectfield" class="mdl-selectfield__select">
+                  <option></option>
+                  <option value="1">Almería</option>
+                  <option value="2">Cádiz</option>
+                  <option value="3">Córdoba</option>
+                  <option value="4">Granada</option>
+                  <option value="5">Huelva</option>
+                  <option value="6">Jaén</option>
+                  <option value="7">Málaga</option>
+                  <option value="8" selected>Sevilla</option>
+                </select>
+                <div class="mdl-selectfield__error"></div>
+                <!-- /.mdl-selectfield__error -->
+              </div>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--9-col  mdl-cell--6-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-6-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
+                <input class="mdl-textfield__input" type="email" id="list-detail-dialog__email-input" value="pepito.flores.garcia@juntadeandalucia.es">
+                <label class="mdl-textfield__label" for="list-detail-dialog__puesto-input">Email</label>
+              </div>
+              <button id="list-detail-dialog__send-email-button" class="mdl-button mdl-js-button mdl-button--icon  mdl-button--primary">
+                <i class="material-icons">email</i>
+              </button>
+              <div class="mdl-tooltip" for="list-detail-dialog__send-email-button">
+                Enviar correo electrónico a esta dirección
+                <br> (abrirá su programa de correo)
+              </div>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--2-col-phone  mdl-cell--order-1-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
+                <input class="mdl-textfield__input" type="text" id="list-detail-dialog__telefono-int-input" value="375478">
+                <label class="mdl-textfield__label" for="list-detail-dialog__telefono-int-input">Telef. interno</label>
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone</i>
+              </a>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--2-col-phone  mdl-cell--order-2-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
+                <input class="mdl-textfield__input" type="text" id="list-detail-dialog__movil-int-input" value="757665">
+                <label class="mdl-textfield__label" for="list-detail-dialog__movil-int-input">Móvil interno</label>
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone_android</i>
+              </a>
+            </div>
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-7-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
+                <input class="mdl-textfield__input" type="text" id="list-detail-dialog__telefono-ext-input" value="955455478">
+                <label class="mdl-textfield__label" for="list-detail-dialog__telefono-ext-input">Telef. externo</label>
+              </div>
+              <a href="tel:661946570" class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone</i>
+              </a>
+
+            </div>
+
+            <div class="mdl-cell  mdl-cell--6-col  mdl-cell--4-col-tablet  mdl-cell--4-col-phone  mdl-cell--order-8-phone">
+              <div class="mdl-textfield  mdl-js-textfield  mdl-textfield--floating-label  mdl-textfield--with-icon-button">
+                <input class="mdl-textfield__input" type="text" id="list-detail-dialog__movil-ext-input" value="67757665">
+                <label class="mdl-textfield__label" for="list-detail-dialog__movil-ext-input">Móvil externo</label>
+              </div>
+              <a href="tel:661946570"  class="mdl-button mdl-js-button mdl-button--icon  mdl-hide-desktop  mdl-hide-tablet">
+                <i class="material-icons">phone_android</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </dialog>
+
+  <!-- Polyfill para dialog (no todos los navegadores lo tienen implementado -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.js"></script>
+  <script src="../../dist/material.js"></script>
+  <script src="./content/tmp-code-to-custom.js"></script>
+</body>
+
+</html>

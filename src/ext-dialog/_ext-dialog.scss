@@ -1,0 +1,120 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended dialog component
+ */
+  .mdl-dialog--extended {
+    max-width: auto; /* Allow dialog be more long */
+  }
+
+    .mdl-dialog--extended .mdl-button--icon {
+       color: #8bc34a; /*$color-primary;*/
+     }
+
+  @media (min-width: $grid-tablet-breakpoint) {
+    .mdl-dialog--medium {
+      min-width: 25em;
+    }
+  }
+
+    .mdl-dialog--extended .mdl-dialog__title {
+      padding: 10px; /*14px is in dialog polyfill */
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .mdl-dialog--extended  .mdl-dialog__content {
+      padding: 16px; /*14px is in dialog polyfill */
+      font-size: 14px;
+    }
+
+    .mdl-dialog--extended  .mdl-dialog__content.mdl-dialog__content--with-list {
+      padding: 0; /*14px is in dialog polyfill */
+    }
+
+    .mdl-dialog--extended  .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon {
+      margin-right: 16px;
+    }
+
+  /*
+   * mdl-dialog--list-detail
+   * dialogo espesiá para el detalle de los listados
+   */
+  .mdl-dialog--list-detail {
+    padding: 0;
+    width: inherit;
+  }
+
+  .mdl-dialog--list-detail .mdl-grid {
+    padding: 0;
+  }
+
+  .mdl-dialog--list-detail__header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .mdl-dialog--list-detail__header__navigation-actions {
+    flex: 0 auto;
+    order: 1;
+    padding-right: 24px;
+  }
+
+  .mdl-dialog--list-detail__header__title {
+    flex: 1 auto;
+    order: 2;
+    line-height: 32px;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .mdl-dialog--list-detail__header__actions {
+    flex: 0 auto;
+    order: 3;
+    white-space: nowrap;
+  }
+
+
+  @media (max-width: $grid-desktop-breakpoint - 1) {
+
+    .mdl-dialog--list-detail__header {
+      padding: 24px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      background-color: inherit;
+    }
+
+      .mdl-dialog--list-detail__header  .mdl-button--icon {
+        color: #8bc34a; /*$color-primary;*/
+      }
+
+
+      .mdl-dialog--list-detail__header__title {
+        color: rgb(0, 0, 0);
+        color: rgba(0, 0, 0, .87);
+      }
+
+      .mdl-dialog--list-detail__content {
+        padding: 16px;
+      }
+
+      .mdl-dialog--list-detail__content .mdl-textfield {
+        width:100%;
+      }
+  }
+
+/**
+  * Para cuando se llama a abrir un dialog en una tabla
+  */
+tr[data-mdl-on-click-open-dialog-id],
+.mdl-list__item[data-mdl-on-click-open-dialog-id] {
+    cursor: pointer;
+}
+
+.mdl-list__item[data-mdl-href]:hover,
+.mdl-list__item[data-mdl-on-click-open-dialog-id]:hover {
+  background-color: #eeeeee;
+}

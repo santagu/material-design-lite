@@ -17,6 +17,7 @@
 /* Material Design Lite */
 
 // Variables and mixins
+@import "ext-variables"; // customized variables for me (colors, variables...)
 @import "variables";
 @import "mixins";
 
@@ -51,3 +52,16 @@
 @import "tooltip/tooltip";
 @import "shadow/shadow";
 @import "grid/grid";
+@import "chip/chip";
+
+// extended framework: Componentes que no están en el framework original mdl
+@import "ext-layout/ext-layout"; // search-box component
+@import "ext-searchbox/ext-searchbox"; // search-box component
+@import "selectfield/selectfield";
+@import "selectfield/selectfield-customized"; // correct a color fix with label
+@import "pickers/datepicker";
+@import "ext-data-table/ext-data-table";
+@import "ext-helper/ext-helper";
+@import "ext-dialog/ext-dialog";
+@import "ext-textfield/ext-textfield";
+@import "ext-button/ext-button";

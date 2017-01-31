@@ -1,0 +1,89 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended layout component
+ */
+/**
+  * Para que se diferencie el fondo un poco del
+  * contenido, tal como se hace en google inbox
+  */
+body {
+  background-color: rgb(242, 242, 242);
+}
+    /* para que en móvil tome todo el espacio del contenido */
+    .mdl-layout__content {
+      padding: 0;
+    }
+
+    /* Los botones por defecto van a ser del color primary o contrast */
+    .mdl-layout__content .mdl-button--icon {
+       color: $color-primary;
+     }
+
+    /* Al pasar a resolución de móvil se quita el padding porque 
+       no aplica */
+    @media (min-width: $grid-desktop-breakpoint) {
+      .mdl-layout__content {
+          padding: 24px;
+      }
+    }
+
+    // Drawer header like android apps
+    .mdl-layout__drawer__header {
+      position: relative;
+      height: $layout-header-desktop-row-height * 2;
+      background-color: $color-primary;
+      color: $color-primary-contrast;
+    }
+
+      .mdl-layout__drawer__header__title {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        max-width: 140px;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: right;
+      }
+
+     .mdl-layout__drawer__header__user-photo {
+        position: absolute;
+        left: 1em;
+        top: 20px;
+        width: 64px;
+        height: 64px;
+        border-radius: 50px;
+      }
+
+      .mdl-layout__drawer__header__user-name {
+        position: absolute;
+        right: 2em;
+        left: 1em;
+        bottom: 1em;
+        line-height: 14px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+      }
+
+      .mdl-layout__drawer__header__user-menu-button {
+        position: absolute;
+        right: 0.5em;
+        bottom: 0.4em;
+        line-height: 24px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+      }
+
+      /* layout navigation */
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link,
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link.mdl-navigation__link--level-1 {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--level-2 {
+        padding-left: 56px;
+      }

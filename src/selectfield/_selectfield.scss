@@ -1,0 +1,195 @@
+/**
+ * WARNING: THis code is stil not PR ready.
+ * Most of the values need to be extractd into variables.
+ */
+.mdl-selectfield {
+  position: relative;
+  font-size: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  outline: 0;
+  margin: 0;
+  padding: 20px 0;
+
+  &__select {
+    appearance: none;
+    display: none;
+    height: 1px;
+    line-height: 0px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 1px;
+  }
+
+  &__selected-option {
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    cursor: pointer;
+    height: 16px;
+    line-height: 16px;
+    padding: 4px 0;
+    padding-right: 25px;
+    position: relative;
+
+    &-title {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 16px;
+      margin-right: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    &:after {
+      border-bottom: 2px solid $color-primary;
+      content: '';
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      margin: 0 auto;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      right: 0;
+      transition: width .5s;
+      transition-duration: .2s;
+      transition-timing-function: cubic-bezier(.4,0,.2,1);
+      width: 0;
+    }
+
+    .material-icons {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 24px;
+    }
+  }
+
+  &.is-invalid {
+    .mdl-selectfield__selected-option {
+      border-bottom: 1px solid #d50000;
+    }
+  }
+
+  &__menu {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    font-size: 16px;
+    margin: 0 -16px;
+    max-height: 240px;
+    min-width: 128px;
+    opacity: 0;
+    padding: 8px 16px;
+    top: 0;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    transition: opacity .25s;
+    z-index: 9999;
+  }
+
+  &.is-opened {
+    .mdl-selectfield__menu {
+      opacity: 1;
+    }
+  }
+
+  &__menu-item {
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 48px;
+    line-height: 48px;
+    margin: 0 -16px;
+    padding: 0 16px;
+    position: relative;
+
+    &.is-selected {
+      background-color: #eeeeee;
+      color: $color-primary;
+
+      .mdl-selectfield__menu-item-icon-checked {
+        color: $color-primary;
+        display: block;
+      }
+
+      .mdl-selectfield__menu-item-icon-unchecked {
+        display: none;
+      }
+    }
+
+    &.is-active {
+      color: $color-accent;
+    }
+  }
+
+  &__label {
+    bottom: 0;
+    color: rgba(0,0,0,.26);
+    font-size: 16px;
+    line-height: 16px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 24px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+  }
+
+  &__error {
+    color: #d50000;
+    display: block;
+    font-size: 12px;
+    position: absolute;
+    top: 48px;
+    visibility: hidden;
+  }
+
+  &.is-focused,
+  &.is-dirty {
+    .mdl-selectfield__label {
+      color: #3f51b5;
+      font-size: 12px;
+      top: 4px;
+      visibility: visible;
+    }
+  }
+
+  &.is-invalid {
+    .mdl-selectfield__error {
+      visibility: visible;
+    }
+  }
+
+  &.is-focused {
+    .mdl-selectfield__selected-option {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    .mdl-selectfield__error {
+      visibility: hidden;
+    }
+  }
+
+  &.is-disabled {
+    .mdl-selectfield__label,
+    .mdl-selectfield__selected-option {
+      cursor: default;
+      color: rgba(0,0,0,.26) !important;
+    }
+  }
+}

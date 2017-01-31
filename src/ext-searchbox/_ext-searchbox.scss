@@ -1,0 +1,39 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended searchbox component
+ */
+.mdl-searchbox {
+  position: relative;
+  margin-right: 1em;
+  margin-left: 1em;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.mdl-button--searchbox__search {
+  border-radius: 0;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+.mdl-searchbox__input {
+  width: 259px;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+}
+/* Placeholder color (if not set it shown as grey) */
+.mdl-searchbox__input::-webkit-input-placeholder {
+  color: $color-primary-contrast;
+}
+.mdl-searchbox__input:-moz-placeholder {
+  color: $color-primary-contrast;
+}
+.mdl-searchbox__input::-moz-placeholder {
+  color: $color-primary-contrast;
+}
+.mdl-searchbox__input:-ms-input-placeholder {
+  color: $color-primary-contrast;
+}

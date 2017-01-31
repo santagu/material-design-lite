@@ -1,0 +1,25 @@
+@import "../variables";
+@import "../mixins";
+
+/**
+ * Extended helper clases
+ */
+
+.mdl-hide-phone {
+  	 @extend .mdl-cell--hide-phone
+}
+
+.mdl-hide-tablet {
+  	 @extend .mdl-cell--hide-tablet
+}
+
+.mdl-hide-desktop {
+  	 @extend .mdl-cell--hide-desktop
+}
+
+/**
+ * Para alinear en el centro un contenedor (div)
+ */
+.mdl-align-center  {
+  margin: 0 auto;
+}

@@ -1,0 +1,13 @@
+/**
+ * Coded customized for selecfield
+ */
+.mdl-selectfield {
+
+  &.is-focused,
+  &.is-dirty {
+    .mdl-selectfield__label {
+      color: $color-primary; /* in order to label take the color defined in
+                                variables.sscs, as input text field */
+    }
+  }
+}

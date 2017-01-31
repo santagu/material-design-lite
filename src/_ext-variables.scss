@@ -1,0 +1,37 @@
+/**
+ * Extended framework: variables
+ * Variables que se añaden al framework original
+ */
+
+/*------------------------------------*\
+    $CUSTOMIZED COLORS
+\*------------------------------------*/
+
+@import "color-definitions";
+@import "functions";
+
+$color-primary: $palette-light-green-700;
+$color-primary-dark: $palette-light-green-900;
+$color-accent: $palette-blue-A200;
+
+// Our primary is dark, so use $color-dark-contrast for overlaid text.
+$color-primary-contrast: $color-dark-contrast;
+// Our accent is dark, so use $color-dark-contrast for overlaid text.
+$color-accent-contrast: $color-dark-contrast;
+
+/**
+ * mdl intenta optimizar las fuentes pero nos interesa mejor que
+ * quede todo "superbonito"
+ */
+$performance_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+/**
+ * Adaptación del componente de chip a nuestras necesidades, ya que lo
+ * utilizamos al lado del título de la tabla para la búsqueda que hemos hecho
+ */
+$chip-bg-color: rgb(222, 222, 222) !default;
+$chip-height: 24px !default;
+$chip-font-size: 12px !default;
+
+/* No está defionido el color secondary */
+$text-color-secondary: rgba-tpl($color-black, 0.54) !default;

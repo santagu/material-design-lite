@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>selectfield demo</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <style>
+  body > div {
+    padding-top: 0px !important;
+  }
+
+  #demo {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 128px 0;
+    max-width: 512px;
+  }
+
+  #demo h6 {
+    color: #ff4081;
+  }
+
+  #demo .mdl-selectfield {
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div id="demo" class="grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
+        <input type="text" name="full_name" class="mdl-textfield__input" />
+        <label class="mdl-textfield__label">Full name</label>
+      </div><!-- /.mdl-textfield -->
+    </div><!-- /.mdl-cell -->
+
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
+        <input type="email" name="email" class="mdl-textfield__input" />
+        <label class="mdl-textfield__label">Email</label>
+      </div><!-- /.mdl-textfield -->
+    </div><!-- /.mdl-cell -->
+
+    <div class="mdl-cell mdl-cell--12-col">
+      <h6>Select input</h6>
+      <div id="demo-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+        <div class="mdl-selectfield__label">Select state</div><!-- /.mdl-selectfield__label -->
+        <select id="demo-select" name="demo-selectfield" class="mdl-selectfield__select" required readonly>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NY">New York</option>
+          <option value="VM">Vermont</option>
+          <option value="VI">Visconsin</option>
+        </select>
+        <div class="mdl-selectfield__error">Please select prefered trveling country.</div><!-- /.mdl-selectfield__error -->
+      </div><!-- /.mdl-selectfield -->
+    </div><!-- /.demo-menu -->
+
+    <div class="mdl-cell mdl-cell--12-col">
+      <h6>Disabled select input</h6>
+      <p>Will be enabled in <span id="disabled-selectfield-counter">10</span> seconds</p>
+      <div id="disabled-selectfield" class="mdl-selectfield mdl-js-selectfield">
+        <div class="mdl-selectfield__label">Select state</div><!-- /.mdl-selectfield__label -->
+        <select name="disabled-selectfield" class="mdl-selectfield__select" disabled required>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NY">New York</option>
+          <option value="VM">Vermont</option>
+          <option value="VI">Visconsin</option>
+        </select>
+        <div class="mdl-selectfield__error">Please select prefered trveling country.</div><!-- /.mdl-selectfield__error -->
+      </div><!-- /.mdl-selectfield -->
+    </div><!-- /.demo-menu -->
+
+    <div class="mdl-cell mdl-cell--12-col">
+      <h6>Multiple select input</h6>
+      <div id="multiple-selectfield" class="mdl-selectfield mdl-js-selectfield mdl-js-ripple-effect">
+        <div class="mdl-selectfield__label">Select states</div><!-- /.mdl-selectfield__label -->
+        <select id="multiple-select" name="multiple-selectfield" class="mdl-selectfield__select" required multiple>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NY">New York</option>
+          <option value="VM">Vermont</option>
+          <option value="VI">Visconsin</option>
+        </select>
+        <div class="mdl-selectfield__error">Please select prefered traveling country.</div><!-- /.mdl-selectfield__error -->
+      </div><!-- /.mdl-selectfield -->
+    </div><!-- /.demo-menu -->
+  </div>
+
+  <script>
+
+    var sampleSelect = document.querySelector('#sample-select');
+
+    var singleSelectfield = document.querySelector('#demo-selectfield');
+    var singleSelect = document.querySelector('#demo-select');
+    singleSelectfield.addEventListener('change', onSingleChange);
+    singleSelect.addEventListener('change', onSingleChange);
+
+    var disabledSelectfield = document.querySelector('#disabled-selectfield');
+    var disabledSelectfieldCounter = document.querySelector('#disabled-selectfield-counter');
+
+    var enableCountdownCount = 10;
+    function enableCountdown() {
+      enableCountdownCount--;
+      disabledSelectfieldCounter.innerHTML = enableCountdownCount;
+
+      if (enableCountdownCount === 0) {
+        disabledSelectfield.MaterialSelectfield.enable();
+      } else {
+        setTimeout(enableCountdown, 1000);
+      }
+    }
+
+    // Start enable countdown
+    setTimeout(enableCountdown, 1000);
+    
+    var multiSelectfield = document.querySelector('#multiple-selectfield');
+    var multiSelect = document.querySelector('#multiple-select');
+    multiSelectfield.addEventListener('change', onMutipleChange)
+    multiSelect.addEventListener('change', onMutipleChange);
+
+    function onSingleChange(e) {
+      console.log(singleSelect.value);
+    }
+
+    function onMutipleChange(e) {
+      var values = [];
+      for (var i = 0; i < multiSelect.options.length; i++) {
+        var option = multiSelect.options[i];
+        if (option.selected) {
+          values.push(option.value);
+        }
+      }
+      console.log(values);
+    }
+
+  </script>
+</body>
+</html>
